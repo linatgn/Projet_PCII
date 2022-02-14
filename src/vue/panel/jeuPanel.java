@@ -1,4 +1,4 @@
-package panel;
+package vue.panel;
 
 public class jeuPanel {
 }
