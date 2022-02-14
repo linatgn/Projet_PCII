@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2042bfb2-6015-45f9-aea7-0ad3850ea286" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pcii/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pcii/src/vue/Vue.java" afterDir="false" />
+    <list default="true" id="2042bfb2-6015-45f9-aea7-0ad3850ea286" name="Default Changelist" comment="Affichage fenêtre">
+      <change afterPath="$PROJECT_DIR$/src/controle/Controle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modele/Modele.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +31,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="15" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -53,6 +59,21 @@
       <option name="presentableId" value="Default" />
       <updated>1644846073263</updated>
     </task>
+    <task id="LOCAL-00001" summary="Affichage fenêtre">
+      <created>1644846426590</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1644846426590</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Affichage fenêtre">
+      <created>1644846606967</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1644846606967</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -66,5 +87,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Affichage fenêtre" />
+    <option name="LAST_COMMIT_MESSAGE" value="Affichage fenêtre" />
   </component>
 </project>
