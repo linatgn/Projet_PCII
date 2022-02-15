@@ -4,23 +4,39 @@ import javax.swing.*;
 import java.awt.*;
 
 import vue.panel.InfoPanel;
+import vue.panel.JeuPanel;
+import vue.panel.RessourcePanel;
 
 //Classe qui gere l'affichage du jeu
 //Extends JPanel pour l'afficahge
 public class Vue extends JFrame {
 
-    //Affichage de la fenetre de jeu et ajout du MouseListener
-    //JFrame fenetre = new JFrame("Age Of Empire de La Hess");
+    //Declaration des Panel
+    public static InfoPanel infoPanel;
+    public static JeuPanel jeuPanel;
+    public static RessourcePanel ressourcePanel;
+
+    JFrame fenetre = new JFrame("Age Of Empire de La Hess");
 
     //Constructeur de la classe
-    public Vue() {
+    public Vue(){
+
         //Creation de la fenetre et ses dimensions
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(1280, 720));
-        //add(this);
-        //fenetre.addMouseListener( new Control(this,this.etat));
-        pack();
-        setVisible(true);
+        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fenetre.setPreferredSize(new Dimension(1280, 720));
+
+
+        // ajout des panel
+        infoPanel = new InfoPanel();
+        jeuPanel = new JeuPanel();
+        ressourcePanel = new RessourcePanel();
+
+
+
+        fenetre.setContentPane(infoPanel);
+        add(infoPanel);
+        fenetre.pack();
+        fenetre.setVisible(true);
 
 
     }
