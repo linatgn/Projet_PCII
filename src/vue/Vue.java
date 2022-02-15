@@ -26,6 +26,7 @@ public class Vue extends JFrame {
         fenetre.setPreferredSize(new Dimension(1280, 720));
 
 
+
         // ajout des panel
         infoPanel = new InfoPanel();
         jeuPanel = new JeuPanel();
