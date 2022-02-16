@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2042bfb2-6015-45f9-aea7-0ad3850ea286" name="Default Changelist" comment="Affichage fenêtre">
+    <list default="true" id="2042bfb2-6015-45f9-aea7-0ad3850ea286" name="Default Changelist" comment="Test avec double fenêtre ?">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_02_2022_15_30__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_02_2022_15_30__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/controle/Controle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/controle/Controle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/modele/Modele.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/modele/Modele.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/modele/grille/Grille.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/modele/tuille/Sable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/modele/tuille/Tuille.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/Vue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/Vue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/InfoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/InfoPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/JeuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/JeuPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/RessourcePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/RessourcePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/jeuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/jeuPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/Vue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/panel/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/panel/InfoPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vue/panel/RessourcePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/panel/RessourcePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vue/panel/jeuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/panel/JeuPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="256SWQnBkrzDxpxfEEXHhgNwiaB" />
   <component name="ProjectViewState">
@@ -103,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644846675131</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Test avec double fenêtre ?">
+      <created>1644963623442</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644963623442</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,11 +128,11 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Affichage fenêtre" />
-    <option name="LAST_COMMIT_MESSAGE" value="Affichage fenêtre" />
+    <MESSAGE value="Test avec double fenêtre ?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test avec double fenêtre ?" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Projet_PCII$Main.ic" NAME="Main Coverage Results" MODIFIED="1644884602383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

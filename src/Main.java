@@ -9,14 +9,8 @@ import java.awt.*;
 public class Main{
 
     public static void main(String [] args) {
-        JFrame fen = new JFrame("Une fenetre Swing");
-        fen.setSize(400,200);
-
-        JPanel pan = new JPanel();
-        fen.setContentPane(pan);
-        fen.setVisible(true);
-        pan.setBackground(Color.red);
-        Vue vue = new Vue();
+        Vue game = new Vue(1280, 680);
+        game.setUPGUI();
     }
 
 }

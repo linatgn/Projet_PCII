@@ -1,4 +1,5 @@
 package vue.panel;
+import vue.Vue;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,11 +17,14 @@ public class InfoPanel extends JPanel{
      */
     public static final int HAUTEUR = 720;
 
+    private JPanel panel;
+    private JLabel title;
+
 
     public InfoPanel(){
-        JPanel pan = new JPanel();
-        pan.setBackground(Color.CYAN);
+
     }
+
 
 
 }
