@@ -15,14 +15,20 @@ public class InfoPanel extends JPanel{
     /**
      * Const : Hauteur de l'affichage
      */
-    public static final int HAUTEUR = 720;
-
-    private JPanel panel;
-    private JLabel title;
-
+    public static final int HAUTEUR = 1280;
 
     public InfoPanel(){
 
+        // Panel
+        setPreferredSize(new Dimension(LARGEUR,HAUTEUR));
+
+        // background
+        setBackground(Color.BLACK);
+
+        // Title
+        JLabel title = new JLabel("Information");
+        title.setForeground(Color.WHITE);
+        add(title);
     }
 
 

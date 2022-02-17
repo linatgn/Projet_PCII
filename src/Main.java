@@ -9,8 +9,7 @@ import java.awt.*;
 public class Main{
 
     public static void main(String [] args) {
-        Vue game = new Vue(1280, 680);
-        game.setUPGUI();
+        Vue game = new Vue();
     }
 
 }
