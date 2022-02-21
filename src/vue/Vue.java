@@ -7,23 +7,27 @@ import vue.panel.InfoPanel;
 import vue.panel.JeuPanel;
 import vue.panel.RessourcePanel;
 
+import modele.Modele;
+
 /**
  * Classe qui gere l'affichage du jeu
  * Extends JPanel pour l'afficahge
  */
 public class Vue extends JFrame {
+    private Modele M;
 
     //Declaration des Panel
-    public static InfoPanel infoPanel;
-    public static JeuPanel jeuPanel;
-    public static RessourcePanel ressourcePanel;
+    public InfoPanel infoPanel;
+    public JeuPanel jeuPanel;
+    public RessourcePanel ressourcePanel;
 
     public static final int LARGEUR = 1280;
     public static final int HAUTEUR = 720;
 
-    //Constructeur de la classe
-
+    /** Constructeur */
     public Vue() {
+        M = new Modele(this);
+
         // Frame
         setPreferredSize(new Dimension(LARGEUR,HAUTEUR));
         setTitle("Age of Empire de la Hess");
@@ -38,7 +42,7 @@ public class Vue extends JFrame {
         panelGauche.setLayout(new BorderLayout());
 
         ressourcePanel = new RessourcePanel();
-        jeuPanel = new JeuPanel();
+        jeuPanel = new JeuPanel(M.grille);
         infoPanel = new InfoPanel();
 
         panelGauche.add(ressourcePanel,BorderLayout.NORTH);
@@ -48,5 +52,11 @@ public class Vue extends JFrame {
         add(infoPanel,BorderLayout.EAST);
 
         pack();
+
+        System.out.println(getSize());
+        System.out.println(ressourcePanel.getSize());
+        System.out.println(ressourcePanel.getX()+" "+ressourcePanel.getY());
+        System.out.println(jeuPanel.getSize());
+        System.out.println(jeuPanel.getX()+" "+jeuPanel.getY());
     }
 }

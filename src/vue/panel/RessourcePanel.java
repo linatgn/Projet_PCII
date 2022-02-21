@@ -29,4 +29,11 @@ public class RessourcePanel extends JPanel{
         title.setForeground(Color.BLACK);
         add(title);
     }
+
+    /*
+    @Override
+    public void paint(Graphics g) {
+    }
+
+     */
 }

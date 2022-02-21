@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2042bfb2-6015-45f9-aea7-0ad3850ea286" name="Default Changelist" comment="Test avec double fenêtre ?">
+    <list default="true" id="2042bfb2-6015-45f9-aea7-0ad3850ea286" name="Default Changelist" comment="Ajout du layout des panel">
+      <change afterPath="$PROJECT_DIR$/src/modele/grille/Grille.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modele/tuille/Sable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modele/tuille/Tuille.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tileset.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/controle/Controle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/controle/Controle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/modele/Modele.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/modele/Modele.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/Vue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/Vue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/InfoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/InfoPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/JeuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/JeuPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/RessourcePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/RessourcePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/jeuPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/Modele.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Modele.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/Vue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vue/panel/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/panel/InfoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/panel/JeuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/panel/JeuPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/panel/RessourcePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/panel/RessourcePanel.java" afterDir="false" />
     </list>
@@ -113,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644963623442</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ajout du layout des panel">
+      <created>1645115563490</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1645115563490</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,7 +139,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Affichage fenêtre" />
     <MESSAGE value="Test avec double fenêtre ?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test avec double fenêtre ?" />
+    <MESSAGE value="Ajout du layout des panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout du layout des panel" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Projet_PCII$Main.ic" NAME="Main Coverage Results" MODIFIED="1644848776981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
