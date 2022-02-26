@@ -21,7 +21,7 @@ public class JeuPanel extends JPanel {
     /**
      * Const : Hauteur de l'affichage
      */
-    public static final int HAUTEUR = 720;
+    public static final int HAUTEUR = 688;
 
     private Grille grille;
 
@@ -41,8 +41,8 @@ public class JeuPanel extends JPanel {
         BufferedImage subImg;
         Graphics2D g2d = (Graphics2D) g.create();
 
-        for(int i=0; i<grille.HAUTEUR; i++) {
-            for(int j=0; j<grille.LARGEUR; j++){
+        for(int i=0; i<Grille.HAUTEUR; i++) {
+            for(int j=0; j<Grille.LARGEUR; j++){
                 Point textureCoord = grille.getTuilleTexturePosition(i,j);
                 textureCoord.x *= Tuille.TAILLE_TUILLE;
                 textureCoord.y *= Tuille.TAILLE_TUILLE;
