@@ -36,7 +36,7 @@ public class Vue extends JFrame {
 
         setLayout(new BorderLayout());
 
-        // Initialisation et positionnement des Panels
+        // Initialisation et positionnement des Panels.
 
         JPanel panelGauche = new JPanel();
         panelGauche.setLayout(new BorderLayout());
