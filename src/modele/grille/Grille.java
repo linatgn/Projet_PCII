@@ -10,8 +10,8 @@ import java.awt.*;
  */
 public class Grille {
 
-    public static int LARGEUR = 30;
-    public static int HAUTEUR = 15;
+    public static int LARGEUR = 64;
+    public static int HAUTEUR = 48;
 
     private Tuille[][] tuilles;
 
