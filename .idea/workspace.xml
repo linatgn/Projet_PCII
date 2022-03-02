@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2042bfb2-6015-45f9-aea7-0ad3850ea286" name="Default Changelist" comment="ajout de la grille (bug de layout)">
-      <change afterPath="$PROJECT_DIR$/src/modele/tuille/Herbe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/JeuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projet_PCII/vue/panel/JeuPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/grille/Grille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/grille/Grille.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/tuille/Sable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/tuille/Sable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/tuille/Tuille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/tuille/Tuille.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vue/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/Vue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vue/panel/JeuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vue/panel/JeuPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
