@@ -36,7 +36,7 @@ public class Vue extends JFrame {
 
         setLayout(new BorderLayout());
 
-        // Panels
+        // Initialisation et positionnement des Panels
 
         JPanel panelGauche = new JPanel();
         panelGauche.setLayout(new BorderLayout());
@@ -47,22 +47,11 @@ public class Vue extends JFrame {
 
         panelGauche.add(ressourcePanel,BorderLayout.NORTH);
         panelGauche.add(jeuPanel,BorderLayout.SOUTH);
-        panelGauche.setPreferredSize(new Dimension(LARGEUR-infoPanel.LARGEUR,HAUTEUR));
+        panelGauche.setPreferredSize(new Dimension(LARGEUR-InfoPanel.LARGEUR,HAUTEUR));
 
         add(panelGauche,BorderLayout.WEST);
         add(infoPanel,BorderLayout.EAST);
 
         pack();
-
-        System.out.println("fenetre");
-        System.out.println(getSize());
-        System.out.println("infoPanel:\n"+infoPanel.getSize());
-        System.out.println(infoPanel.getX()+" "+infoPanel.getY());
-        System.out.println("ressourcePanel:\n"+ressourcePanel.getSize());
-        System.out.println(ressourcePanel.getX()+" "+ressourcePanel.getY());
-        System.out.println("jeuPanel:\n"+jeuPanel.getSize());
-        System.out.println(jeuPanel.getX()+" "+jeuPanel.getY());
-        System.out.println("panelGauche:\n"+panelGauche.getSize());
-        System.out.println(panelGauche.getX()+" "+panelGauche.getY());
     }
 }

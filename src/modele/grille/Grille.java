@@ -10,7 +10,7 @@ import java.awt.*;
  */
 public class Grille {
 
-    public static int LARGEUR = 10;
+    public static int LARGEUR = 20;
     public static int HAUTEUR = 10;
 
     private Tuille[][] tuilles;
@@ -22,7 +22,10 @@ public class Grille {
         tuilles = new Tuille[HAUTEUR][LARGEUR];
         for(int i=0; i<HAUTEUR; i++) {
             for(int j=0; j<LARGEUR; j++){
-                tuilles[i][j] = new Sable(i,j);
+                if(i==0)
+                    tuilles[i][j] = new Herbe(i,j);
+                else
+                    tuilles[i][j] = new Sable(i,j);
             }
         }
     }

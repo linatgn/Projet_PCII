@@ -25,6 +25,9 @@ abstract public class Tuille {
 
     public boolean solid;
 
+    /**
+     *  Charge le tileset en memoire
+     */
     public static void loadTileset(){
         try{
             TILESET = ImageIO.read(new File("tileset.png"));
@@ -33,6 +36,13 @@ abstract public class Tuille {
         }
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     *
+     * Constructeur d'une tuille
+     */
     public Tuille(int x, int y){
         this.x = x;
         this.y = y;

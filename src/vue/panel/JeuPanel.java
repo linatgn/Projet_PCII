@@ -41,21 +41,28 @@ public class JeuPanel extends JPanel {
         BufferedImage subImg;
         Graphics2D g2d = (Graphics2D) g.create();
 
+        // Affichage des tuilles
+
         for(int i=0; i<Grille.HAUTEUR; i++) {
             for(int j=0; j<Grille.LARGEUR; j++){
+
+                // Recuperation de la position de la texture de la tuille
                 Point textureCoord = grille.getTuilleTexturePosition(i,j);
                 textureCoord.x *= Tuille.TAILLE_TUILLE;
                 textureCoord.y *= Tuille.TAILLE_TUILLE;
 
+                // Initialisation de la sous image de la texture
                 subImg = Tuille.TILESET.getSubimage(
                         textureCoord.y,
                         textureCoord.x,
                         Tuille.TAILLE_TUILLE,
                         Tuille.TAILLE_TUILLE);
+
+                // Affichage de la sous image
                 g2d.drawImage(subImg,
                         null,
-                        i * Tuille.TAILLE_TUILLE,
-                        j * Tuille.TAILLE_TUILLE);
+                        j * Tuille.TAILLE_TUILLE,
+                        i * Tuille.TAILLE_TUILLE);
             }
         }
     }

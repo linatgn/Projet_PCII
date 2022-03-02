@@ -1,11 +1,11 @@
 package modele.tuille;
 
-public class Sable extends Tuille{
+public class Herbe extends Tuille{
 
-    public Sable(int x, int y) {
+    public Herbe(int x, int y) {
         super(x, y);
         solid = false;
         x_texture = 0;
-        y_texture = 1;
+        y_texture = 0;
     }
 }
