@@ -6,7 +6,7 @@ import vue.panel.RessourcePanel;
 import javax.swing.*;
 import java.awt.*;
 
-// class qui lance le projet.
+// class qui lance le projet
 
 public class Main{
     public static void main(String [] args) {
