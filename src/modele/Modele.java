@@ -16,7 +16,6 @@ public class Modele {
         V = v;
         grille = new Grille();
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];
-
     }
 
 }
