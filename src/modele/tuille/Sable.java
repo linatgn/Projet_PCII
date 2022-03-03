@@ -6,6 +6,6 @@ public class Sable extends Tuille{
         super(x, y);
         solid = false;
         x_texture = 0;
-        y_texture = 1;
+        y_texture = 2;
     }
 }

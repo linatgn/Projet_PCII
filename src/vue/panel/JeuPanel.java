@@ -2,8 +2,8 @@ package vue.panel;
 
 
 
+import modele.Modele;
 import modele.grille.Grille;
-import modele.tuille.Sable;
 import modele.tuille.Tuille;
 
 import javax.swing.*;
@@ -23,11 +23,11 @@ public class JeuPanel extends JPanel {
      */
     public static final int HAUTEUR = 688;
 
-    private Grille grille;
+    private Modele M;
 
-    public JeuPanel(Grille G){
-        //recuperation de la grille de jeu
-        grille = G;
+    public JeuPanel(Modele m){
+        //recuperation du modele
+        M = m;
 
         // Chargement du tileset pour l'affichage des tuilles
         Tuille.loadTileset();
@@ -47,7 +47,7 @@ public class JeuPanel extends JPanel {
             for(int j=0; j<Grille.LARGEUR; j++){
 
                 // Recuperation de la position de la texture de la tuille
-                Point textureCoord = grille.getTuilleTexturePosition(i,j);
+                Point textureCoord = new Point(M.grille.getTuille(i,j).x_texture,M.grille.getTuille(i,j).y_texture);
                 textureCoord.x *= Tuille.TAILLE_TUILLE;
                 textureCoord.y *= Tuille.TAILLE_TUILLE;
 

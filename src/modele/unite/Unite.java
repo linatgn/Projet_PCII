@@ -3,17 +3,22 @@ package modele.unite;
 import modele.Modele;
 
 abstract public class Unite {
-    private int x;
-    private int y;
+    protected int x;
+    protected int y;
 
-    private final Modele M;
+    protected final Modele M;
 
-    private int x_texture;
-    private int y_texture;
+    protected int x_texture;
+    protected int y_texture;
+    protected int x_textureSize;
+    protected int y_textureSize;
 
     public Unite(int x, int y, Modele m){
         this.x = x;
         this.y = y;
         this.M = m;
     }
+
+
+
 }

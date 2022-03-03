@@ -42,7 +42,7 @@ public class Vue extends JFrame {
         panelGauche.setLayout(new BorderLayout());
 
         ressourcePanel = new RessourcePanel();
-        jeuPanel = new JeuPanel(M.grille);
+        jeuPanel = new JeuPanel(M);
         infoPanel = new InfoPanel();
 
         panelGauche.add(ressourcePanel,BorderLayout.NORTH);

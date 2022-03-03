@@ -30,7 +30,7 @@ public class Grille {
         }
     }
 
-    public Point getTuilleTexturePosition(int i, int j){
-       return new Point(tuilles[i][j].x_texture,tuilles[i][j].y_texture);
+    public Tuille getTuille(int i, int j){
+       return tuilles[i][j];
     }
 }
