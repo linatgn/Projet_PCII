@@ -12,10 +12,7 @@ import java.io.IOException;
 abstract public class Tuille {
     public static int TAILLE_TUILLE = 16;
 
-    /**
-     * Tileset du jeu
-     */
-    public static BufferedImage TILESET;
+
 
     public int x;
     public int y;
@@ -24,17 +21,6 @@ abstract public class Tuille {
     public int y_texture;
 
     public boolean solid;
-
-    /**
-     *  Charge le tileset en memoire
-     */
-    public static void loadTileset(){
-        try{
-            TILESET = ImageIO.read(new File("tileset.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      *

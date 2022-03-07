@@ -1,7 +1,11 @@
 package vue;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import vue.panel.InfoPanel;
 import vue.panel.JeuPanel;
@@ -23,10 +27,21 @@ public class Vue extends JFrame {
 
     public static final int LARGEUR = 1280;
     public static final int HAUTEUR = 720;
+    /**
+     * Tileset du jeu
+     */
+    public static BufferedImage TILESET;
 
     /** Constructeur */
     public Vue() {
         M = new Modele(this);
+
+        //chargement du tileset
+        try{
+            TILESET = ImageIO.read(new File("tileset.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // Frame
         getContentPane().setPreferredSize(new Dimension(LARGEUR,HAUTEUR));
@@ -42,7 +57,7 @@ public class Vue extends JFrame {
         panelGauche.setLayout(new BorderLayout());
 
         ressourcePanel = new RessourcePanel();
-        jeuPanel = new JeuPanel(M);
+        jeuPanel = new JeuPanel(M,this);
         infoPanel = new InfoPanel();
 
         panelGauche.add(ressourcePanel,BorderLayout.NORTH);
