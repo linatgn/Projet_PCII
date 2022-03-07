@@ -65,5 +65,33 @@ public class JeuPanel extends JPanel {
                         i * Tuille.TAILLE_TUILLE);
             }
         }
+        for(int i=0; i<Grille.HAUTEUR; i++) {
+            for (int j = 0; j < Grille.LARGEUR; j++) {
+
+                if (M.unites[i][j] != null) {
+                    // Recuperation de la position de la texture de l'unité
+
+                    Point textureCoord = new Point(M.unites[i][j].x_texture, M.unites[i][j].y_texture);
+                    textureCoord.x *= Tuille.TAILLE_TUILLE;
+                    textureCoord.y *= Tuille.TAILLE_TUILLE;
+                    //System.out.println(M.unites[i][j].x_texture + " " + M.unites[i][j].y_texture);
+
+                    System.out.println(textureCoord);
+                    // Initialisation de la sous image de la texture
+                    subImg = V.TILESET.getSubimage(
+                            textureCoord.y,
+                            textureCoord.x,
+                            Tuille.TAILLE_TUILLE,
+                            Tuille.TAILLE_TUILLE);
+
+                    // Affichage de la sous image
+                    g2d.drawImage(subImg,
+                            null,
+                            j * Tuille.TAILLE_TUILLE,
+                            i * Tuille.TAILLE_TUILLE);
+                }
+            }
+
+        }
     }
 }

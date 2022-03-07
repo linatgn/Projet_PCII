@@ -8,10 +8,10 @@ abstract public class Unite {
 
     protected final Modele M;
 
-    protected int x_texture;
-    protected int y_texture;
-    protected int x_textureSize;
-    protected int y_textureSize;
+    public int x_texture;
+    public int y_texture;
+    public int x_textureSize;
+    public int y_textureSize;
 
     public Unite(int x, int y, Modele m){
         this.x = x;

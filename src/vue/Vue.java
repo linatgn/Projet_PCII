@@ -35,7 +35,6 @@ public class Vue extends JFrame {
     /** Constructeur */
     public Vue() {
         M = new Modele(this);
-
         //chargement du tileset
         try{
             TILESET = ImageIO.read(new File("tileset.png"));
