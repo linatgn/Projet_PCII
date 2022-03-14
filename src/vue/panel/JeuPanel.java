@@ -1,7 +1,6 @@
 package vue.panel;
 
 
-
 import modele.Modele;
 import modele.grille.Grille;
 import modele.tuille.Tuille;
@@ -104,6 +103,4 @@ public class JeuPanel extends JPanel {
         }
     }
 }
-
-
 

@@ -35,6 +35,12 @@ public class Vue extends JFrame {
     /** Constructeur */
     public Vue() {
         M = new Modele(this);
+        //chargement du tileset
+        try{
+            TILESET = ImageIO.read(new File("tileset.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         //chargement du tileset
         try{
@@ -68,5 +74,7 @@ public class Vue extends JFrame {
         add(infoPanel,BorderLayout.EAST);
 
         pack();
+
+        M.start();
     }
 }
