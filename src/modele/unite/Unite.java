@@ -36,9 +36,9 @@ abstract public class Unite {
 
                     // mise a jour des coordonnées dans l'unite
                     x = x - 1;
+                    return true;
                 }
 
-                break;
             case bas:
                 if(M.grille.getTuille(x+1,y).solid )
                     return false;
@@ -53,12 +53,10 @@ abstract public class Unite {
 
                     // mise a jour des coordonnées dans l'unite
                     x = x + 1;
+                    return true;
                 }
 
-
-
-                break;
-            case droite:
+                case droite:
                 if(M.grille.getTuille(x,y+1).solid )
                     return false;
                 else{
@@ -72,8 +70,8 @@ abstract public class Unite {
 
                     // mise a jour des coordonnées dans l'unite
                     y=y+1;
+                    return true;
                 }
-                break;
             case gauche:
                 if(M.grille.getTuille(x,y-1).solid )
                     return false;
@@ -88,14 +86,11 @@ abstract public class Unite {
 
                     // mise a jour des coordonnées dans l'unite
                     y = y-1;
+                    return true;
+
                 }
-
-
-
-                break;
-
         }
-        return true;
+        return false;
 
     }
 }
