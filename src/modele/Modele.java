@@ -24,7 +24,8 @@ public class Modele {
     private final Vue V;
 
     public Grille grille;
-    public Unite unites[][];
+    public static Unite[][] unites;
+    public static Unite uniteSelectionee;
 
     public final Timer timer = new Timer(this);
 
@@ -47,6 +48,32 @@ public class Modele {
         unites[6][4].deplacer(bas);
         unites[4][6].deplacer(droite);
     }
+
+    public static void select(int x, int y) {
+        uniteSelectionee = unites[x][y];
+        System.out.print("Select work !");
+    }
+    public static void cible() {
+    }
+/*
+    public static void cible(unites) {
+        if (uniteSelectionee == villageois) {
+            if (unites == animal) {
+//TODO methode attaque + pathfinder
+            }
+            else if (unites == ressource) {
+//TODO methode recolte + pathfinder
+            }
+            }
+            if (uniteSelectionee == hdv) {
+//TODO new affichage dans le infoPanel
+            }
+            if (uniteSelectionee == batiment) {
+//??
+            }
+//TODO IF LAC ETC.
+        }
+ */
 
     public void start(){
         timer.run();
