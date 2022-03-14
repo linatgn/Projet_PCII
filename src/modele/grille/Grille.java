@@ -13,7 +13,7 @@ public class Grille {
     public static int LARGEUR = 64;
     public static int HAUTEUR = 48;
 
-    private Tuille[][] tuilles;
+    public Tuille[][] tuilles;
 
     /** Constructeur */
     public Grille() {
@@ -23,7 +23,7 @@ public class Grille {
         for(int i=0; i<HAUTEUR; i++) {
             for(int j=0; j<LARGEUR; j++){
                 if(i==0)
-                    tuilles[i][j] = new Herbe(i,j);
+                    tuilles[i][j] = new Sable(i,j);
                 else
                     tuilles[i][j] = new Sable(i,j);
             }
