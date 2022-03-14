@@ -42,6 +42,13 @@ public class Vue extends JFrame {
             e.printStackTrace();
         }
 
+        //chargement du tileset
+        try{
+            TILESET = ImageIO.read(new File("tileset.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         // Frame
         getContentPane().setPreferredSize(new Dimension(LARGEUR,HAUTEUR));
         setTitle("Age of Empire de la Hess");

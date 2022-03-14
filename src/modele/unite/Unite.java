@@ -11,8 +11,11 @@ abstract public class Unite {
 
     public int x_texture;
     public int y_texture;
-    public int x_textureSize;
-    public int y_textureSize;
+
+
+    public int LARGEUR;
+    public int HAUTEUR;
+
 
     public Unite(int x, int y, Modele m){
         this.x = x;
