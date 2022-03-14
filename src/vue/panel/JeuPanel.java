@@ -1,10 +1,10 @@
 package vue.panel;
 
 
-
+import modele.Modele;
 import modele.grille.Grille;
-import modele.tuille.Sable;
 import modele.tuille.Tuille;
+import vue.Vue;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,14 +23,13 @@ public class JeuPanel extends JPanel {
      */
     public static final int HAUTEUR = 688;
 
-    private Grille grille;
+    private Modele M;
+    private Vue V;
 
-    public JeuPanel(Grille G){
-        //recuperation de la grille de jeu
-        grille = G;
-
-        // Chargement du tileset pour l'affichage des tuilles
-        Tuille.loadTileset();
+    public JeuPanel(Modele m, Vue v){
+        //recuperation du modele
+        M = m;
+        V = v;
 
         // Panel
         setPreferredSize(new Dimension(LARGEUR,HAUTEUR));
@@ -47,12 +46,12 @@ public class JeuPanel extends JPanel {
             for(int j=0; j<Grille.LARGEUR; j++){
 
                 // Recuperation de la position de la texture de la tuille
-                Point textureCoord = grille.getTuilleTexturePosition(i,j);
+                Point textureCoord = new Point(M.grille.getTuille(i,j).x_texture,M.grille.getTuille(i,j).y_texture);
                 textureCoord.x *= Tuille.TAILLE_TUILLE;
                 textureCoord.y *= Tuille.TAILLE_TUILLE;
 
                 // Initialisation de la sous image de la texture
-                subImg = Tuille.TILESET.getSubimage(
+                subImg = V.TILESET.getSubimage(
                         textureCoord.y,
                         textureCoord.x,
                         Tuille.TAILLE_TUILLE,
@@ -63,7 +62,45 @@ public class JeuPanel extends JPanel {
                         null,
                         j * Tuille.TAILLE_TUILLE,
                         i * Tuille.TAILLE_TUILLE);
+
             }
+        }
+
+        //Affichage des unités
+        for(int i=0; i<Grille.HAUTEUR; i++) {
+            for (int j = 0; j < Grille.LARGEUR; j++) {
+
+                if (M.unites[i][j] != null) {
+                    for(int qi = 0; qi<M.unites[i][j].hauteur; qi++){
+                        for(int qj = 0; qj<M.unites[i][j].largeur ; qj++){
+                            // Recuperation de la position de la texture de l'unité
+
+                            Point textureCoord = new Point(M.unites[i][j].x_texture+qj, M.unites[i][j].y_texture+qi);
+                            textureCoord.x *= Tuille.TAILLE_TUILLE;
+                            textureCoord.y *= Tuille.TAILLE_TUILLE;
+                            //System.out.println(M.unites[i][j].x_texture + " " + M.unites[i][j].y_texture);
+
+                            System.out.println(textureCoord);
+                            // Initialisation de la sous image de la texture
+                            subImg = V.TILESET.getSubimage(
+                                    textureCoord.y,
+                                    textureCoord.x,
+                                    Tuille.TAILLE_TUILLE,
+                                    Tuille.TAILLE_TUILLE);
+
+                            // Affichage de la sous image
+                            g2d.drawImage(subImg,
+                                    null,
+                                    j * Tuille.TAILLE_TUILLE+(qi*Tuille.TAILLE_TUILLE),
+                                    i * Tuille.TAILLE_TUILLE+(qj*Tuille.TAILLE_TUILLE));
+                        }
+
+                    }
+
+                }
+            }
+
         }
     }
 }
+
