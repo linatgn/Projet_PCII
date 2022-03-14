@@ -3,6 +3,7 @@ package vue;
 import javax.swing.*;
 import java.awt.*;
 
+import controle.Controle;
 import vue.panel.InfoPanel;
 import vue.panel.JeuPanel;
 import vue.panel.RessourcePanel;
@@ -24,6 +25,8 @@ public class Vue extends JFrame {
     public static final int LARGEUR = 1280;
     public static final int HAUTEUR = 720;
 
+    private Controle controle;
+
     /** Constructeur */
     public Vue() {
         M = new Modele(this);
@@ -44,6 +47,7 @@ public class Vue extends JFrame {
         ressourcePanel = new RessourcePanel();
         jeuPanel = new JeuPanel(M.grille);
         infoPanel = new InfoPanel();
+        controle = new Controle(M, this);
 
         panelGauche.add(ressourcePanel,BorderLayout.NORTH);
         panelGauche.add(jeuPanel,BorderLayout.SOUTH);
@@ -51,6 +55,8 @@ public class Vue extends JFrame {
 
         add(panelGauche,BorderLayout.WEST);
         add(infoPanel,BorderLayout.EAST);
+
+        getContentPane().addMouseListener(controle);
 
         pack();
     }
