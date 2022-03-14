@@ -67,5 +67,7 @@ public class Vue extends JFrame {
         add(infoPanel,BorderLayout.EAST);
 
         pack();
+
+        M.start();
     }
 }

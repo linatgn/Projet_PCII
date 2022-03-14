@@ -1,5 +1,10 @@
 package modele;
 
+
+
+import modele.timer.Timer;
+import modele.tuille.Herbe;
+
 import modele.unite.Unite;
 import modele.unite.entite.animaux.hostile.Loup;
 import modele.unite.entite.animaux.passif.Lapin;
@@ -12,9 +17,12 @@ import static modele.unite.entite.Direction.*;
 
 public class Modele {
     private final Vue V;
+    private int i = 0;
 
     public Grille grille;
     public Unite unites[][];
+
+    public final Timer timer = new Timer(this);
 
     public Modele(Vue v){
         V = v;
@@ -33,4 +41,13 @@ public class Modele {
 
     }
 
+    public void start(){
+        timer.run();
+    }
+
+    public void update(){
+        V.jeuPanel.revalidate();
+        V.jeuPanel.repaint();
+        i++;
+    }
 }
