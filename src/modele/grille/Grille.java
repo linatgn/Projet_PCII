@@ -1,9 +1,7 @@
 package modele.grille;
 
+import modele.unite.structure.batiment.Batiment;
 import modele.tuille.*;
-import vue.panel.JeuPanel;
-
-import java.awt.*;
 
 /**
  * tableau 2D gerant la liste des tuilles du jeu
@@ -14,6 +12,7 @@ public class Grille {
     public static int HAUTEUR = 48;
 
     private Tuille[][] tuilles;
+    private Batiment[][] batiment;
 
     /** Constructeur */
     public Grille() {
@@ -28,9 +27,11 @@ public class Grille {
                     tuilles[i][j] = new Sable(i,j);
             }
         }
+
     }
 
-    public Point getTuilleTexturePosition(int i, int j){
-       return new Point(tuilles[i][j].x_texture,tuilles[i][j].y_texture);
+    public Tuille getTuille(int i, int j){
+        return tuilles[i][j];
     }
+
 }
