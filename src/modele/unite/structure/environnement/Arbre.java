@@ -10,7 +10,7 @@ public class Arbre extends Environnement {
         x_texture = 2;
         y_texture = 0;
 
-        LARGEUR = 1;
-        HAUTEUR = 1;
+        largeur = 1;
+        hauteur = 1;
     }
 }

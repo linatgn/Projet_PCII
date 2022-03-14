@@ -8,9 +8,7 @@ import modele.unite.structure.batiment.Maison;
 import modele.unite.structure.environnement.Arbre;
 import modele.unite.structure.environnement.Rocher;
 
-
 import modele.timer.Timer;
-import modele.tuille.Herbe;
 
 import modele.unite.entite.animaux.hostile.Loup;
 import modele.unite.entite.animaux.passif.Lapin;
@@ -24,7 +22,6 @@ import static modele.unite.entite.Direction.*;
 
 public class Modele {
     private final Vue V;
-    private int i = 0;
 
     public Grille grille;
     public Unite unites[][];
@@ -58,6 +55,5 @@ public class Modele {
     public void update(){
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
-        i++;
     }
 }

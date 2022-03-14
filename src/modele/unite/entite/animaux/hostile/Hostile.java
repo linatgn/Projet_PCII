@@ -7,5 +7,8 @@ abstract class Hostile extends Animaux {
 
     public Hostile(int x, int y, Modele m) {
         super(x, y, m);
+
+
+
     }
 }

@@ -7,5 +7,8 @@ public class Lapin extends Passif{
         super(x, y, m);
         x_texture = 6;
         y_texture = 1;
+
+        largeur = 1;
+        hauteur = 1;
     }
 }

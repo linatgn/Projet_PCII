@@ -9,7 +9,7 @@ public class Maison extends Batiment {
         x_texture = 3;
         y_texture = 2;
 
-        LARGEUR = 1;
-        HAUTEUR = 1;
+        largeur = 1;
+        hauteur = 1;
     }
 }

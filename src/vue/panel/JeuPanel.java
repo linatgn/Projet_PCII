@@ -71,8 +71,8 @@ public class JeuPanel extends JPanel {
             for (int j = 0; j < Grille.LARGEUR; j++) {
 
                 if (M.unites[i][j] != null) {
-                    for(int qi = 0; qi<M.unites[i][j].HAUTEUR; qi++){
-                        for(int qj = 0; qj<M.unites[i][j].LARGEUR ; qj++){
+                    for(int qi = 0; qi<M.unites[i][j].hauteur; qi++){
+                        for(int qj = 0; qj<M.unites[i][j].largeur ; qj++){
                             // Recuperation de la position de la texture de l'unité
 
                             Point textureCoord = new Point(M.unites[i][j].x_texture+qj, M.unites[i][j].y_texture+qi);

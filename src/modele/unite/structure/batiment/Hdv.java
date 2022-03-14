@@ -9,7 +9,7 @@ public class Hdv extends Batiment {
         x_texture = 3;
         y_texture = 0;
 
-        LARGEUR = 2;
-        HAUTEUR = 2;
+        largeur = 2;
+        hauteur = 2;
     }
 }

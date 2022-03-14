@@ -7,5 +7,8 @@ public class Loup extends Hostile{
         super(x, y, m);
         x_texture = 6;
         y_texture = 2;
+
+        largeur = 1;
+        hauteur = 1;
     }
 }

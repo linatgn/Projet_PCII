@@ -10,6 +10,9 @@ public class Villageois extends Entite {
         x_texture = 6;
         y_texture = 0;
 
+        largeur = 1;
+        hauteur = 1;
+
         System.out.println(x_texture);
     }
 

@@ -13,8 +13,8 @@ abstract public class Unite {
     public int y_texture;
 
 
-    public int LARGEUR;
-    public int HAUTEUR;
+    public int largeur;
+    public int hauteur;
 
 
     public Unite(int x, int y, Modele m){
