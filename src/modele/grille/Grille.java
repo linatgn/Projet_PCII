@@ -9,7 +9,7 @@ import modele.tuille.*;
 public class Grille {
 
     public static int LARGEUR = 64;
-    public static int HAUTEUR = 48;
+    public static int HAUTEUR = 43;
 
     public Tuille[][] tuilles;
 

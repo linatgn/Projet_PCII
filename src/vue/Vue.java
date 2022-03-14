@@ -33,6 +33,8 @@ public class Vue extends JFrame {
      */
     public static BufferedImage TILESET;
 
+    private Controle controle;
+
     /** Constructeur */
     public Vue() {
         M = new Modele(this);
@@ -67,6 +69,7 @@ public class Vue extends JFrame {
         ressourcePanel = new RessourcePanel();
         jeuPanel = new JeuPanel(M,this);
         infoPanel = new InfoPanel();
+        controle = new Controle(M, this);
 
         panelGauche.add(ressourcePanel,BorderLayout.NORTH);
         panelGauche.add(jeuPanel,BorderLayout.SOUTH);
@@ -74,6 +77,8 @@ public class Vue extends JFrame {
 
         add(panelGauche,BorderLayout.WEST);
         add(infoPanel,BorderLayout.EAST);
+
+        getContentPane().addMouseListener(controle);
 
         pack();
     }
