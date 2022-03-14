@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import controle.Controle;
 import vue.panel.InfoPanel;
 import vue.panel.JeuPanel;
 import vue.panel.RessourcePanel;
@@ -35,6 +36,7 @@ public class Vue extends JFrame {
     /** Constructeur */
     public Vue() {
         M = new Modele(this);
+
         //chargement du tileset
         try{
             TILESET = ImageIO.read(new File("tileset.png"));

@@ -78,9 +78,7 @@ public class JeuPanel extends JPanel {
                             Point textureCoord = new Point(M.unites[i][j].x_texture+qj, M.unites[i][j].y_texture+qi);
                             textureCoord.x *= Tuille.TAILLE_TUILLE;
                             textureCoord.y *= Tuille.TAILLE_TUILLE;
-                            //System.out.println(M.unites[i][j].x_texture + " " + M.unites[i][j].y_texture);
 
-                            System.out.println(textureCoord);
                             // Initialisation de la sous image de la texture
                             subImg = V.TILESET.getSubimage(
                                     textureCoord.y,

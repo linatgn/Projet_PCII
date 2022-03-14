@@ -1,6 +1,7 @@
 package modele;
 
 
+import controle.Controle;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -31,6 +32,7 @@ public class Modele {
 
     public Modele(Vue v){
         V = v;
+
         grille = new Grille();
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];
 
@@ -44,9 +46,8 @@ public class Modele {
         unites[6][4] = new Lapin(6,4, this);
         unites[4][6] = new Loup(4,6, this);
 
-        unites[6][6].deplacer(haut);
-        unites[6][4].deplacer(bas);
-        unites[4][6].deplacer(droite);
+        uniteSelectionee = unites[6][6];
+
     }
 
     public static void select(int x, int y) {
@@ -80,6 +81,7 @@ public class Modele {
     }
 
     public void update(){
+        uniteSelectionee.deplacer(bas);
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
     }
