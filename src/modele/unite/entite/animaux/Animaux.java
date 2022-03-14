@@ -8,4 +8,6 @@ abstract public  class Animaux extends Entite {
     public Animaux(int x, int y, Modele m) {
         super(x, y, m);
     }
+
+
 }
