@@ -26,7 +26,7 @@ abstract public class Unite {
     }
     public boolean deplacer(Direction d) {
         switch (d) {
-            case haut:
+            case HAUT:
                 if (M.grille.getTuille(x - 1, y).solid)
                     return false;
                 else {
@@ -44,7 +44,7 @@ abstract public class Unite {
                     return true;
                 }
 
-            case bas:
+            case BAS:
                 if(M.grille.getTuille(x+1,y).solid )
                     return false;
                 else{
@@ -61,7 +61,7 @@ abstract public class Unite {
                     return true;
                 }
 
-                case droite:
+                case DROITE:
                 if(M.grille.getTuille(x,y+1).solid )
                     return false;
                 else{
@@ -77,7 +77,7 @@ abstract public class Unite {
                     y=y+1;
                     return true;
                 }
-            case gauche:
+            case GAUCHE:
                 if(M.grille.getTuille(x,y-1).solid )
                     return false;
                 else{

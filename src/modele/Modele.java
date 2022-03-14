@@ -30,8 +30,22 @@ public class Modele {
 
     public final Timer timer = new Timer(this);
 
+    // Ressource
+
+    public int bois;
+    public int pierre;
+    public int nourriture;
+    public int population; // nombre de villagois
+
+    // Amelioration
+
+    int stockageVillagois = 10; // nombre d'unite de ressource maximal stockable par un villagois
+    int vitesseRecolte = 1; // nombre d'unite recolte par un villagois par tick
+    int maxPopulation = 3; // nombre de villagois maximal
+
     public Modele(Vue v){
         V = v;
+        timer.start();
 
         grille = new Grille();
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];
@@ -76,12 +90,8 @@ public class Modele {
         }
  */
 
-    public void start(){
-        timer.run();
-    }
-
     public void update(){
-        uniteSelectionee.deplacer(bas);
+        uniteSelectionee.deplacer(BAS);
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
     }
