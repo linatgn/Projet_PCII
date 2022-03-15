@@ -1,7 +1,6 @@
 package modele.unite;
 
 import modele.Modele;
-import modele.unite.entite.Direction;
 
 abstract public class Unite {
     protected int x;
@@ -12,12 +11,8 @@ abstract public class Unite {
     public int x_texture;
     public int y_texture;
 
-
     public int largeur;
     public int hauteur;
-
-
-
 
     public Unite(int x, int y, Modele m){
         this.x = x;

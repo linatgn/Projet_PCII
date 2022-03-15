@@ -1,4 +1,4 @@
-package modele.unite.entite;
+package modele.unite;
 
 public enum Direction {
     HAUT,

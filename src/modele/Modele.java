@@ -1,7 +1,9 @@
 package modele;
 
 
-import controle.Controle;
+import modele.amelioration.Amelioration;
+import modele.amelioration.NiveauAm;
+import modele.amelioration.VitesseRecolteAm;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -19,7 +21,9 @@ import vue.Vue;
 
 import modele.grille.Grille;
 
-import static modele.unite.entite.Direction.*;
+import java.util.ArrayList;
+
+import static modele.unite.Direction.*;
 
 public class Modele {
     private final Vue V;
@@ -34,18 +38,23 @@ public class Modele {
 
     public int bois;
     public int pierre;
-    public int nourriture;
+    public int nourriture = 300;
     public int population; // nombre de villagois
+
+    // statistique ameliorable
+
+    public int niveau = 0;
+    public int stockageVillagois = 10; // nombre d'unite de ressource maximal stockable par un villagois
+    public double vitesseRecolte = 1; // nombre d'unite recolte par un villagois par tick
+    public int maxPopulation = 3; // nombre de villagois maximal
 
     // Amelioration
 
-    int stockageVillagois = 10; // nombre d'unite de ressource maximal stockable par un villagois
-    int vitesseRecolte = 1; // nombre d'unite recolte par un villagois par tick
-    int maxPopulation = 3; // nombre de villagois maximal
+    public Amelioration[] ameliorations;
+    public ArrayList<Amelioration> ameliorationsEnCours;
 
     public Modele(Vue v){
         V = v;
-        timer.start();
 
         grille = new Grille();
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];
@@ -62,6 +71,22 @@ public class Modele {
 
         uniteSelectionee = unites[6][6];
 
+        // Ajout des ameliorations disponible
+
+        ameliorations = new Amelioration[30];
+        ameliorations[0] = new VitesseRecolteAm(this,1, null);
+        ameliorations[1] = new VitesseRecolteAm(this,2, ameliorations[0]);
+        ameliorations[2] = new NiveauAm(this,1,null);
+        ameliorations[3] = new NiveauAm(this,2,ameliorations[3]);
+
+        ameliorationsEnCours = new ArrayList<>();
+
+        // debut du jeu
+        timer.start();
+
+        if(ameliorations[0].testCondition()) {
+            ameliorations[0].lancerTimer();
+        }
     }
 
     public static void select(int x, int y) {
@@ -91,6 +116,15 @@ public class Modele {
  */
 
     public void update(){
+        System.out.println("bois: "+ bois + " pierre: " + pierre + " nourriture: " + nourriture + " population: " + population + "/" + maxPopulation);
+        System.out.println("VitesseRecolte:" + vitesseRecolte);
+        System.out.println("AmeliorationEnCours:" + ameliorationsEnCours);
+
+        // reduction des timers des ameliorations en cours de developpement
+
+        for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
+            ameliorationsEnCour.update();
+        }
         uniteSelectionee.deplacer(BAS);
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
