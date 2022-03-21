@@ -1,7 +1,6 @@
 package modele;
 
 
-import controle.Controle;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -92,7 +91,9 @@ public class Modele {
 
     public void update(){
         uniteSelectionee.deplacer(BAS);
-        V.jeuPanel.revalidate();
-        V.jeuPanel.repaint();
+        //V.jeuPanel.revalidate();
+        //V.jeuPanel.repaint();
+        V.ressourcePanel.revalidate();
+        V.ressourcePanel.repaint();
     }
 }

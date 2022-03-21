@@ -1,10 +1,7 @@
 package vue.panel;
-import vue.Vue;
 
 import javax.swing.*;
 import java.awt.*;
-
-
 
 public class InfoPanel extends JPanel{
     /**
@@ -30,6 +27,7 @@ public class InfoPanel extends JPanel{
         title.setForeground(Color.WHITE);
         add(title);
     }
+
 
 
 
