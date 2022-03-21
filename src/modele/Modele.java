@@ -2,6 +2,7 @@ package modele;
 
 
 import controle.Controle;
+import modele.unite.structure.Recoltable;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -56,6 +57,8 @@ public class Modele {
         unites[2][2] = new Rocher(2,2,this);
         unites[3][3] = new Arbre(3,3,this);
 
+
+
         unites[6][6] = new Villageois(6,6, this);
         unites[6][4] = new Lapin(6,4, this);
         unites[4][6] = new Loup(4,6, this);
@@ -91,7 +94,13 @@ public class Modele {
  */
 
     public void update(){
-        uniteSelectionee.deplacer(BAS);
+        if(unites[0][0] != null){
+            int q = ((Recoltable)unites[0][0]).enlever(5);
+            System.out.println(q);
+        }
+
+
+
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
     }
