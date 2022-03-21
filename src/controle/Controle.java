@@ -33,12 +33,14 @@ public class Controle implements MouseListener {
                     (x   <=   vue.jeuPanel.getX() + vue.jeuPanel.LARGEUR) + " && " +
                     " ET " + (vue.jeuPanel.getY() <= y) + " && " +
                     (y <= vue.jeuPanel.getY() + vue.jeuPanel.HAUTEUR));
+
+
             if (vue.jeuPanel.getX()  <= x &&
                     x <= vue.jeuPanel.getX() + vue.jeuPanel.LARGEUR &&
                     vue.jeuPanel.getY() <= y &&
                     y <= vue.jeuPanel.getY() + vue.jeuPanel.HAUTEUR)
             {
-                //Modele.select(x, y);
+                modele.select((y - vue.jeuPanel.getY())/Tuille.TAILLE_TUILLE,(x - vue.jeuPanel.getX())/Tuille.TAILLE_TUILLE);
                 System.out.println("Clique gauche!" + " " + (x - vue.jeuPanel.getX())/Tuille.TAILLE_TUILLE + " " + (y - vue.jeuPanel.getY())/Tuille.TAILLE_TUILLE);
 
             }
@@ -47,9 +49,16 @@ public class Controle implements MouseListener {
             int x = e.getX();
             int y = e.getY();
 
-            if (0 <= x/Tuille.TAILLE_TUILLE && x <= Grille.LARGEUR && 0 <= y/Tuille.TAILLE_TUILLE && y <= Grille.HAUTEUR) {
-                Modele.cible();   //cible TO DO
-                System.out.print("Clique droit!" + " " + x + " " + y);
+            if (vue.jeuPanel.getX()  <= x &&
+                    x <= vue.jeuPanel.getX() + vue.jeuPanel.LARGEUR &&
+                    vue.jeuPanel.getY() <= y &&
+                    y <= vue.jeuPanel.getY() + vue.jeuPanel.HAUTEUR)
+            {
+                if (modele.uniteSelectionee != null) {
+                    modele.uniteSelectionee.cible(modele.unites[(y - vue.jeuPanel.getY())/Tuille.TAILLE_TUILLE][(x - vue.jeuPanel.getX())/Tuille.TAILLE_TUILLE]);   //cible TO DO
+                    //System.out.println("Clique droit!" + " " + x + " " + y);
+                    //System.out.println(modele.unites[(y - vue.jeuPanel.getY())/Tuille.TAILLE_TUILLE][(x - vue.jeuPanel.getX())/Tuille.TAILLE_TUILLE]);
+                }
             }
         }
     }

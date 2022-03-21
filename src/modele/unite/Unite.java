@@ -101,4 +101,8 @@ abstract public class Unite {
         return false;
 
     }
+
+    public void cible(Unite unite) {
+        System.out.println("cible de Unite");
+    }
 }
