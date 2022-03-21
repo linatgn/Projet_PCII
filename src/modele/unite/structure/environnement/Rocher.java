@@ -1,9 +1,11 @@
 package modele.unite.structure.environnement;
 
 import modele.Modele;
+import modele.TypeRessource;
+import modele.unite.structure.Recoltable;
 import modele.unite.structure.environnement.Environnement;
 
-public class Rocher extends Environnement {
+public class Rocher extends Environnement implements Recoltable {
 
     public Rocher(int x, int y, Modele m) {
         super(x, y,m);
@@ -12,5 +14,31 @@ public class Rocher extends Environnement {
 
         largeur = 1;
         hauteur = 1;
+
+        typeRessource = TypeRessource.PIERRE;
+        quantiteRessource = 300;
+
+
+    }
+
+    public int enlever(int qte) {
+        if(quantiteRessource>qte){
+            quantiteRessource = quantiteRessource - qte;
+            return qte;
+        }
+        else if(quantiteRessource <= qte){
+            qte = qte - quantiteRessource;
+            quantiteRessource = 0;
+
+            if(M.uniteSelectionee == this){
+                M.uniteSelectionee = null;
+            }
+            M.grille.getTuille(x, y).solid = false;
+            M.unites[x][y] = null;
+            return qte;
+        }
+
+        return qte;
+
     }
 }
