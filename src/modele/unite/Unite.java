@@ -1,6 +1,7 @@
 package modele.unite;
 
 import modele.Modele;
+import modele.TypeRessource;
 import modele.unite.entite.Direction;
 
 abstract public class Unite {
@@ -16,6 +17,8 @@ abstract public class Unite {
     public int largeur;
     public int hauteur;
 
+    public TypeRessource typeRessource;
+    public int quantiteRessource;
 
 
 
