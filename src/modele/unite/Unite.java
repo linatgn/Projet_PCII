@@ -99,5 +99,9 @@ abstract public class Unite {
 
     }
 
+    public void cible(Unite unite) {
+        System.out.println("cible de Unite");
+    }
+
     abstract public String getNom();
 }
