@@ -89,7 +89,7 @@ public class Modele {
         uniteSelectionnee = unites[x][y];
         V.infoPanel.afficherUniteSelectionnee();
     }
-    public static void cible() {
+    public static void cible(Unite unite) {
     }
 /*
     public static void cible(unites) {
