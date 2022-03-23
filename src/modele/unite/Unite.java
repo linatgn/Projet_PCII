@@ -1,6 +1,8 @@
 package modele.unite;
 
 import modele.Modele;
+import modele.TypeRessource;
+import vue.panel.InfoPanel;
 
 abstract public class Unite {
     protected int x;
@@ -13,6 +15,9 @@ abstract public class Unite {
 
     public int largeur;
     public int hauteur;
+
+    public TypeRessource typeRessource; // type de la ressource stocké par l'entite
+    public int quantiteRessource;
 
     public Unite(int x, int y, Modele m){
         this.x = x;
@@ -93,4 +98,6 @@ abstract public class Unite {
         return false;
 
     }
+
+    abstract public String getNom();
 }

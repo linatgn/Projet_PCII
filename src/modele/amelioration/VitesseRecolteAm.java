@@ -11,23 +11,26 @@ public class VitesseRecolteAm extends Amelioration{
 
     public VitesseRecolteAm(Modele m, int niveau, Amelioration amNec) {
         super(m);
-        tb = HDV;
+        typeBatiment = HDV;
         this.amNec = amNec;
-
-        this.niveau = niveau;
 
         switch (niveau) {
             case 1 -> {
                 coutNourriture = 200;
                 vitesseRecolte = 1.5;
-                dureeAmelioration = 50;
+                dureeAmelioration = 20;
+
+                niveauJoueur = 1;
             }
             case 2 -> {
                 coutNourriture = 400;
                 vitesseRecolte = 2;
-                dureeAmelioration = 100;
+                dureeAmelioration = 40;
+
+                niveauJoueur = 2;
             }
         }
+
     }
 
     @Override
@@ -41,5 +44,10 @@ public class VitesseRecolteAm extends Amelioration{
             M.nourriture -= coutNourriture;
             M.vitesseRecolte = vitesseRecolte;
             activer = true;
+    }
+
+    @Override
+    public String getNom() {
+        return "Vitesse de Recolte x" + vitesseRecolte;
     }
 }

@@ -2,23 +2,29 @@ package modele.amelioration;
 
 import modele.Modele;
 import modele.TypeBatiment;
+import vue.Vue;
+import vue.panel.InfoPanel;
+
+import javax.swing.*;
 
 abstract public class Amelioration {
     protected Modele M;
 
-    protected TypeBatiment tb; // Type de batiment sur lequel on peut prendre l'amelioration
+    public TypeBatiment typeBatiment; // Type de batiment sur lequel on peut prendre l'amelioration
 
-    protected int coutBois;
-    protected int coutPierre;
-    protected int coutNourriture;
-    protected int coutPopulation;
+    public int coutBois;
+    public int coutPierre;
+    public int coutNourriture;
+    public int coutPopulation;
 
-    protected int niveau; // niveau du joueur necessaire pour avoir l'amelioration
+    protected int niveauJoueur; // niveau du joueur necessaire pour avoir l'amelioration
     protected Amelioration amNec; // amelioration necessaire pour avoir l'amelioration
     protected boolean activer = false;
 
-    protected int dureeAmelioration; // temps necessaire pour consommer l'amelioration
-    protected int timerAmelioration = 0; // timer avant que l'amelioration soit consomee
+    public int dureeAmelioration; // temps necessaire pour consommer l'amelioration
+    public int timerAmelioration = 0; // timer avant que l'amelioration soit consomee
+    public boolean timerLancer = false;
+    public JProgressBar progressBar;
 
     protected int x_texture;
     protected int y_texture;
@@ -38,7 +44,10 @@ abstract public class Amelioration {
      */
     public boolean estDeblocable(){
 
-        if(niveau > M.niveau)
+        if(activer)
+            return false;
+
+        if(niveauJoueur > M.niveau)
             return false;
 
         if(amNec != null)
@@ -48,16 +57,25 @@ abstract public class Amelioration {
     }
 
     public void lancerTimer(){
+        timerLancer = true;
         M.ameliorationsEnCours.add(this);
     }
 
-    public void update(){
+    public void update(InfoPanel infoPanel){
         timerAmelioration++;
-        System.out.println("Timer:" + (dureeAmelioration-timerAmelioration));
+        //System.out.println("Timer:" + (dureeAmelioration-timerAmelioration));
+
+
+        if(progressBar != null)
+            progressBar.setValue(timerAmelioration);
         if(timerAmelioration >= dureeAmelioration)
         {
             activer();
             M.ameliorationsEnCours.remove(this);
+            infoPanel.afficherUniteSelectionnee();
         }
     }
+
+    abstract public String getNom();
+
 }

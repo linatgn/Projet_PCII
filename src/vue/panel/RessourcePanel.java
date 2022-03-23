@@ -28,6 +28,8 @@ public class RessourcePanel extends JPanel{
         JLabel title = new JLabel("Ressource");
         title.setForeground(Color.BLACK);
         add(title);
+
+        System.out.println(getLayout());
     }
 
     /*

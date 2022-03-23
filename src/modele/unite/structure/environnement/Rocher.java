@@ -1,6 +1,7 @@
 package modele.unite.structure.environnement;
 
 import modele.Modele;
+import modele.TypeRessource;
 import modele.unite.structure.environnement.Environnement;
 
 public class Rocher extends Environnement {
@@ -12,5 +13,13 @@ public class Rocher extends Environnement {
 
         largeur = 1;
         hauteur = 1;
+
+        typeRessource = TypeRessource.PIERRE;
+        quantiteRessource = 800;
+    }
+
+    @Override
+    public String getNom() {
+        return "Rocher";
     }
 }

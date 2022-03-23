@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import controle.Controle;
+import controle.ControleJeu;
 import vue.panel.InfoPanel;
 import vue.panel.JeuPanel;
 import vue.panel.RessourcePanel;
@@ -33,16 +33,11 @@ public class Vue extends JFrame {
      */
     public static BufferedImage TILESET;
 
+    private ControleJeu controleJeu;
+
     /** Constructeur */
     public Vue() {
         M = new Modele(this);
-
-        //chargement du tileset
-        try{
-            TILESET = ImageIO.read(new File("tileset.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         //chargement du tileset
         try{
@@ -59,6 +54,9 @@ public class Vue extends JFrame {
 
         setLayout(new BorderLayout());
 
+        // ajout Listener
+        controleJeu = new ControleJeu(M, this);
+
         // Initialisation et positionnement des Panels.
 
         JPanel panelGauche = new JPanel();
@@ -66,7 +64,9 @@ public class Vue extends JFrame {
 
         ressourcePanel = new RessourcePanel();
         jeuPanel = new JeuPanel(M,this);
-        infoPanel = new InfoPanel();
+        infoPanel = new InfoPanel(M,this);
+
+        jeuPanel.addMouseListener(controleJeu);
 
         panelGauche.add(ressourcePanel,BorderLayout.NORTH);
         panelGauche.add(jeuPanel,BorderLayout.SOUTH);
@@ -75,6 +75,10 @@ public class Vue extends JFrame {
         add(panelGauche,BorderLayout.WEST);
         add(infoPanel,BorderLayout.EAST);
 
+
         pack();
+
+
+        M.start();
     }
 }

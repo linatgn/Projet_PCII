@@ -1,6 +1,7 @@
 package modele.unite.structure.batiment;
 
 import modele.Modele;
+import modele.TypeBatiment;
 
 public class Ferme extends Batiment {
 
@@ -11,5 +12,13 @@ public class Ferme extends Batiment {
 
         largeur = 1;
         hauteur = 1;
+
+        typeBatiment = TypeBatiment.FERME;
+        quantiteRessource = m.quantiteRessourceFerme;
+    }
+
+    @Override
+    public String getNom() {
+        return "Ferme";
     }
 }

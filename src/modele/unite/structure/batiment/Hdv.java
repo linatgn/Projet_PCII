@@ -1,6 +1,8 @@
 package modele.unite.structure.batiment;
 
 import modele.Modele;
+import modele.TypeBatiment;
+import vue.panel.InfoPanel;
 
 public class Hdv extends Batiment {
 
@@ -11,5 +13,12 @@ public class Hdv extends Batiment {
 
         largeur = 2;
         hauteur = 2;
+
+        typeBatiment = TypeBatiment.HDV;
+    }
+
+    @Override
+    public String getNom() {
+        return "HDV";
     }
 }
