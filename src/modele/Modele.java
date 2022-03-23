@@ -21,8 +21,6 @@ import modele.grille.Grille;
 
 import java.util.ArrayList;
 
-import static modele.unite.Direction.*;
-
 public class Modele {
     private final Vue V;
 
@@ -125,6 +123,8 @@ public class Modele {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
                 ameliorationsEnCours.get(i).update(V.infoPanel);
         }
+        V.ressourcePanel.revalidate();
+        V.ressourcePanel.repaint();
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
     }

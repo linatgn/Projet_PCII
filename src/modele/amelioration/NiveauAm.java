@@ -45,10 +45,6 @@ public class NiveauAm extends Amelioration{
 
     @Override
     public void activer() {
-
-        M.bois -= coutBois;
-        M.pierre -= coutPierre;
-        M.nourriture -= coutNourriture;
         M.niveau = nouveauNiveau;
         activer = true;
     }

@@ -97,8 +97,8 @@ public class InfoPanel extends JPanel{
         ressourceLabel = new JLabel();
         ressourceIcon = new ImageIcon[]{
                 new ImageIcon("bois.png"),
-                new ImageIcon("nourriture.png"),
                 new ImageIcon("pierre.png"),
+                new ImageIcon("nourriture.png"),
         };
 
         add(ressourceLabel);
@@ -170,8 +170,8 @@ public class InfoPanel extends JPanel{
             {
                 switch (M.uniteSelectionnee.typeRessource){
                     case BOIS -> ressourceLabel.setIcon(ressourceIcon[0]);
-                    case NOURRITURE -> ressourceLabel.setIcon(ressourceIcon[1]);
-                    case PIERRE -> ressourceLabel.setIcon(ressourceIcon[2]);
+                    case PIERRE -> ressourceLabel.setIcon(ressourceIcon[1]);
+                    case NOURRITURE -> ressourceLabel.setIcon(ressourceIcon[2]);
                 }
                 ressourceLabel.setText(String.valueOf(M.uniteSelectionnee.quantiteRessource));
                 ressourceLabel.setVisible(true);
@@ -203,8 +203,8 @@ public class InfoPanel extends JPanel{
                         JPanel coutPanel = new JPanel();
                         coutPanel.setLayout(new FlowLayout());
                         coutPanel.add(new JLabel( String.valueOf(amelioration.coutBois), ressourceIcon[0], SwingConstants.LEFT));
-                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutNourriture), ressourceIcon[1], SwingConstants.LEFT));
-                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutPierre), ressourceIcon[2], SwingConstants.LEFT));
+                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutPierre), ressourceIcon[1], SwingConstants.LEFT));
+                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutNourriture), ressourceIcon[2], SwingConstants.LEFT));
                         coutPanel.add(new JLabel( String.valueOf(amelioration.coutPopulation), ressourceIcon[2], SwingConstants.LEFT));
 
                         // barre de progression

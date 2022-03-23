@@ -2,7 +2,7 @@ package modele.unite;
 
 import modele.Modele;
 import modele.TypeRessource;
-import vue.panel.InfoPanel;
+import modele.unite.entite.Direction;
 
 abstract public class Unite {
     protected int x;

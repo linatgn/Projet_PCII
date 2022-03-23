@@ -48,10 +48,8 @@ public class FermeAm extends Amelioration{
     @Override
     public void activer() {
 
-        M.bois -= coutBois;
-        M.pierre -= coutPierre;
-        M.nourriture -= coutNourriture;
         M.quantiteRessourceFerme = quantiteRessource;
+
         activer = true;
     }
 

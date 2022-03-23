@@ -2,6 +2,7 @@ package modele.unite.structure.environnement;
 
 
 import modele.Modele;
+import modele.TypeRessource;
 import modele.unite.structure.Structure;
 import vue.panel.InfoPanel;
 

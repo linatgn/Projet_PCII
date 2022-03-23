@@ -58,13 +58,16 @@ abstract public class Amelioration {
 
     public void lancerTimer(){
         timerLancer = true;
+
+        M.bois -= coutBois;
+        M.pierre -= coutPierre;
+        M.nourriture -= coutNourriture;
+
         M.ameliorationsEnCours.add(this);
     }
 
     public void update(InfoPanel infoPanel){
         timerAmelioration++;
-        //System.out.println("Timer:" + (dureeAmelioration-timerAmelioration));
-
 
         if(progressBar != null)
             progressBar.setValue(timerAmelioration);

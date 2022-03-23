@@ -41,7 +41,6 @@ public class VitesseRecolteAm extends Amelioration{
     @Override
     public void activer()
     {
-            M.nourriture -= coutNourriture;
             M.vitesseRecolte = vitesseRecolte;
             activer = true;
     }

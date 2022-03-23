@@ -45,10 +45,6 @@ public class StockageVillageoisAm extends Amelioration{
     @Override
     public void activer() {
 
-        M.bois -= coutBois;
-        M.pierre -= coutPierre;
-        M.nourriture -= coutNourriture;
-
         M.stockageVillagois = stockage;
         activer = true;
     }
