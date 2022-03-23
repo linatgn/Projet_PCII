@@ -90,10 +90,12 @@ public class Modele {
  */
 
     public void update(){
-        uniteSelectionee.deplacer(BAS);
-        //V.jeuPanel.revalidate();
-        //V.jeuPanel.repaint();
-        V.ressourcePanel.revalidate();
-        V.ressourcePanel.repaint();
+        if(unites[0][0] != null) {
+            System.out.println(unites[0][0].quantiteRessource);
+            ((Ferme) unites[0][0]).enlever(2);
+        }
+
+        V.jeuPanel.revalidate();
+        V.jeuPanel.repaint();
     }
 }

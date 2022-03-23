@@ -50,12 +50,16 @@ public class Ferme extends Batiment implements Recoltable {
         else {
             recolte = quantiteRessource;
             quantiteRessource = 0;
+        }
+
+        if(quantiteRessource == 0){
 
             if(M.uniteSelectionee == this){
                 M.uniteSelectionee = null;
             }
             M.grille.getTuille(x, y).solid = false;
             M.unites[x][y] = null;
+
         }
 
         return recolte;
