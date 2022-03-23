@@ -2,6 +2,7 @@ package modele.unite.entite.villageois;
 
 import modele.Modele;
 import modele.unite.entite.Entite;
+import vue.panel.InfoPanel;
 
 public class Villageois extends Entite {
 
@@ -13,8 +14,13 @@ public class Villageois extends Entite {
         largeur = 1;
         hauteur = 1;
 
-        System.out.println(x_texture);
+        pv = m.pvVillageois;
+        attaque = m.attaqueVillageois;
+        defense = m.defenseVillageois;
     }
-
+    @Override
+    public String getNom() {
+        return "Villageois";
+    }
 }
 

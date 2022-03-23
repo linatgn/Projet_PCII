@@ -28,8 +28,8 @@ public class Arbre extends Environnement implements Recoltable {
             qte = quantiteRessource;
             quantiteRessource = 0;
 
-            if(M.uniteSelectionee == this){
-                M.uniteSelectionee = null;
+            if(M.uniteSelectionnee == this){
+                M.uniteSelectionnee = null;
             }
             M.grille.getTuille(x, y).solid = false;
             M.unites[x][y] = null;
@@ -39,4 +39,10 @@ public class Arbre extends Environnement implements Recoltable {
         return qte;
 
     }
+
+    @Override
+    public String getNom() {
+        return "Arbre";
+    }
+
 }

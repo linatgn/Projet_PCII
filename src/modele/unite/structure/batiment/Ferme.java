@@ -3,6 +3,7 @@ package modele.unite.structure.batiment;
 import modele.Modele;
 import modele.TypeRessource;
 import modele.unite.structure.Recoltable;
+import modele.TypeBatiment;
 
 public class Ferme extends Batiment implements Recoltable {
 
@@ -23,8 +24,8 @@ public class Ferme extends Batiment implements Recoltable {
         largeur = 1;
         hauteur = 1;
 
-        typeRessource = TypeRessource.NOURRITURE;
-        quantiteRessource = 13;
+        typeBatiment = TypeBatiment.FERME;
+        quantiteRessource = m.quantiteRessourceFerme;
     }
 
     @Override
@@ -54,8 +55,8 @@ public class Ferme extends Batiment implements Recoltable {
 
         if(quantiteRessource == 0){
 
-            if(M.uniteSelectionee == this){
-                M.uniteSelectionee = null;
+            if(M.uniteSelectionnee == this){
+                M.uniteSelectionnee = null;
             }
             M.grille.getTuille(x, y).solid = false;
             M.unites[x][y] = null;
@@ -63,5 +64,11 @@ public class Ferme extends Batiment implements Recoltable {
         }
 
         return recolte;
+
+    }
+
+    @Override
+    public String getNom() {
+        return "Ferme";
     }
 }

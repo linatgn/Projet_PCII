@@ -62,7 +62,5 @@ public class RessourcePanel extends JPanel{
         pierreLabel.setText(String.valueOf(M.pierre));
         nourritureLabel.setText(String.valueOf(M.nourriture));
         populationLabel.setText(String.valueOf(M.population));
-
-
     }
 }

@@ -13,14 +13,11 @@ abstract public class Unite {
     public int x_texture;
     public int y_texture;
 
-
     public int largeur;
     public int hauteur;
 
-    public TypeRessource typeRessource;
+    public TypeRessource typeRessource; // type de la ressource stocké par l'entite
     public int quantiteRessource;
-
-
 
     public Unite(int x, int y, Modele m){
         this.x = x;
@@ -101,4 +98,6 @@ abstract public class Unite {
         return false;
 
     }
+
+    abstract public String getNom();
 }
