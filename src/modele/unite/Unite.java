@@ -24,6 +24,9 @@ abstract public class Unite {
         this.y = y;
         this.M = m;
     }
+
+    // méthode de déplacement
+
     public boolean deplacer(Direction d) {
         switch (d) {
             case HAUT:

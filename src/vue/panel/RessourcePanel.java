@@ -36,6 +36,8 @@ public class RessourcePanel extends JPanel{
         //background
         setBackground(Color.YELLOW);
 
+        // création des images des ressources
+
         ImageIcon boisIcon = new ImageIcon("bois.png");
         ImageIcon pierreIcon = new ImageIcon("pierre.png");
         ImageIcon nourritureIcon = new ImageIcon("nourriture.png");

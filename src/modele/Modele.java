@@ -2,6 +2,7 @@ package modele;
 
 
 import modele.amelioration.*;
+import modele.unite.entite.Entite;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -22,7 +23,7 @@ import modele.grille.Grille;
 import java.util.ArrayList;
 
 public class Modele {
-    private final Vue V;
+    public final Vue V;
 
     public Grille grille;
     public static Unite[][] unites;
@@ -68,6 +69,9 @@ public class Modele {
         unites[6][6] = new Villageois(6,6, this);
         unites[6][4] = new Lapin(6,4, this);
         unites[4][6] = new Loup(4,6, this);
+
+        unites[6][5] = new Loup(6,5, this);
+
 
         // Ajout des ameliorations disponible
 
@@ -116,8 +120,11 @@ public class Modele {
         //System.out.println("VitesseRecolte:" + vitesseRecolte);
         //System.out.println("Ameliorations:" + ameliorations);
         //System.out.println("AmeliorationEnCours:" + ameliorationsEnCours);
-
+      //  ((Villageois)unites[6][6]).subirDegat(1);
         // reduction des timers des ameliorations en cours de developpement
+        ((Villageois)unites[6][6]).attaquer((Loup)unites[6][5]);
+
+
 
         //for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
