@@ -1,5 +1,6 @@
 package modele.grille;
 
+import modele.unite.structure.batiment.Batiment;
 import modele.tuille.*;
 
 /**
@@ -10,7 +11,7 @@ public class Grille {
     public static int LARGEUR = 64;
     public static int HAUTEUR = 43;
 
-    public static Tuille[][] tuilles;
+    public Tuille[][] tuilles;
 
     /** Constructeur */
     public Grille() {
@@ -28,13 +29,10 @@ public class Grille {
 
     }
 
-    public Tuille getTuille(int i, int j) {
+    public Tuille getTuille(int i, int j){
 
         return tuilles[i][j];
+
     }
-    
-   /* public static Tuille[][] getTuille2() {
-        return tuilles;
-    }
-    */
+
 }

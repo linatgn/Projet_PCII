@@ -18,6 +18,7 @@ abstract public class Unite {
 
     public TypeRessource typeRessource; // type de la ressource stocké par l'entite
     public int quantiteRessource;
+    protected Unite uniteCible;
 
     public Unite(int x, int y, Modele m){
         this.x = x;
@@ -25,6 +26,7 @@ abstract public class Unite {
         this.M = m;
     }
     public boolean deplacer(Direction d) {
+        System.out.println("Deplacer " + d);
         switch (d) {
             case HAUT:
                 if (M.grille.getTuille(x - 1, y).solid)
@@ -61,7 +63,7 @@ abstract public class Unite {
                     return true;
                 }
 
-                case DROITE:
+            case DROITE:
                 if(M.grille.getTuille(x,y+1).solid )
                     return false;
                 else{
@@ -98,11 +100,6 @@ abstract public class Unite {
         return false;
 
     }
-
-    public void cible(Unite unite) {
-
-        System.out.println("cible de Unite");
-    }
-
     abstract public String getNom();
+    public void update() {};
 }

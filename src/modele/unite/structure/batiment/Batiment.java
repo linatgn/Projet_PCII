@@ -11,11 +11,16 @@ import vue.panel.InfoPanel;
 public abstract class Batiment extends Structure {
 
     public TypeBatiment typeBatiment;
+    private boolean enConstruction;
 
     public Batiment(int x, int y, Modele m){
         super(x,y,m);
         this.x = x;
         this.y = y;
+        enConstruction = true;
     }
 
+    public boolean getEnConstruction() {
+        return enConstruction;
+    }
 }

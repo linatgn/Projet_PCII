@@ -14,7 +14,7 @@ public class FermeAm extends Amelioration{
         this.amNec = amNec;
 
         switch (niveau) {
-            case 1 -> {
+            case 1:
                 coutBois = 300;
                 coutPierre = 300;
                 coutNourriture = 300;
@@ -23,8 +23,8 @@ public class FermeAm extends Amelioration{
 
                 niveauJoueur = 1;
                 quantiteRessource = 500;
-            }
-            case 2 -> {
+                break;
+            case 2:
                 coutBois = 500;
                 coutPierre = 500;
                 coutNourriture = 500;
@@ -33,7 +33,7 @@ public class FermeAm extends Amelioration{
 
                 niveauJoueur = 2;
                 quantiteRessource = 8000;
-            }
+                break;
         }
     }
 
