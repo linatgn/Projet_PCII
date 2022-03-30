@@ -116,7 +116,6 @@ public class Modele {
         for (int i = 0; i < grille.HAUTEUR; i++) {
             for (int j = 0; j < grille.LARGEUR; j++ ) {
                 if (unites[i][j] != null) {
-
                     unites[i][j].update();
                 }
             }
@@ -142,5 +141,4 @@ public class Modele {
     public void start(){
         timer.start();
     }
-
 }

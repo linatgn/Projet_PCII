@@ -27,9 +27,10 @@ public class Loup extends Hostile{
     }
 
     public void update() {
+        super.update();
         switch(tache) {
             case ATTAQUE:
-                tache = Tache.ATTAQUE;
+                //attaquer unite ciblée
                 break;
         }
     }
