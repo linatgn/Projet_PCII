@@ -19,7 +19,7 @@ public class Arbre extends Environnement implements Recoltable {
     }
 
     @Override
-    public int enlever(int qte) {
+    public double enlever(double qte) {
         if(quantiteRessource>qte){
             quantiteRessource = quantiteRessource - qte;
             return qte;

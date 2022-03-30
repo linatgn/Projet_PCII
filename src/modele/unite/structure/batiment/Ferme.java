@@ -1,7 +1,6 @@
 package modele.unite.structure.batiment;
 
 import modele.Modele;
-import modele.TypeRessource;
 import modele.unite.structure.Recoltable;
 import modele.TypeBatiment;
 
@@ -29,9 +28,9 @@ public class Ferme extends Batiment implements Recoltable {
     }
 
     @Override
-    public int enlever(int qte) {
+    public double enlever(double qte) {
 
-        int recolte; // qantite de ressource recupere
+        double recolte; // qantite de ressource recupere
 
         if(quantiteRessource>=qte){
             quantiteRessource -= qte;

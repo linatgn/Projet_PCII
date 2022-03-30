@@ -29,6 +29,14 @@ public class Grille {
 
     }
 
+    public static int getHAUTEUR() {
+        return HAUTEUR;
+    }
+
+    public static int getLARGEUR() {
+        return LARGEUR;
+    }
+
     public Tuille getTuille(int i, int j){
 
         return tuilles[i][j];
