@@ -11,6 +11,7 @@ import vue.panel.InfoPanel;
 public abstract class Batiment extends Structure {
 
     public TypeBatiment typeBatiment;
+    public boolean construit;
 
     public Batiment(int x, int y, Modele m){
         super(x,y,m);
