@@ -3,9 +3,7 @@ package modele.unite.entite.villageois;
 import modele.Modele;
 import modele.unite.Unite;
 import modele.unite.entite.Entite;
-import modele.unite.structure.Structure;
 import modele.unite.structure.batiment.Batiment;
-import vue.panel.InfoPanel;
 import modele.unite.entite.animaux.Animaux;
 import modele.unite.structure.Recoltable;
 
@@ -31,10 +29,6 @@ public class Villageois extends Entite {
     @Override
     public String getNom() {
         return "Villageois";
-    }
-
-    public void recolte(int x,  int y) {
-
     }
 
 
@@ -90,6 +84,21 @@ public class Villageois extends Entite {
                 //Calcul du chemin avec pathfinder
                 //deplacer(chemin.remove()
             }
+        }
+    }
+
+    public void construire(Batiment batiment){
+        if(batiment == null){
+            tache = Tache.RIEN;
+        } else if(estaCote(batiment) && batiment.estEnConstruction()){
+            tache = Tache.CONSTRUIT;
+            if(!batiment.seConstruire()){
+                tache = Tache.RIEN;
+            }
+
+        } else {
+            //Calcul du chemin avec pathfinder
+            //deplacer(chemin.remove()
         }
     }
 
