@@ -3,6 +3,7 @@ package modele;
 
 import modele.amelioration.*;
 import modele.unite.structure.Recoltable;
+import modele.unite.structure.batiment.Batiment;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -63,6 +64,8 @@ public class Modele {
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];
 
         unites[0][0] = new Ferme(0,0,this);
+        unites[1][0] = new Villageois(1,0,this);
+
         unites[Grille.HAUTEUR/2][Grille.LARGEUR/2] = new Hdv(Grille.HAUTEUR/2,Grille.LARGEUR/2,this);
         unites[1][1] = new Maison(1,1,this);
         unites[2][2] = new Rocher(2,2,this);
@@ -129,6 +132,8 @@ public class Modele {
 
 
         ((Villageois)unites[8][8]).recolte((Recoltable)unites[8][9]);
+
+        ((Villageois)unites[1][0]).construire((Batiment)unites[0][0]);
 
         //for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
