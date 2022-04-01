@@ -2,6 +2,7 @@ package modele;
 
 
 import modele.amelioration.*;
+import modele.unite.entite.Entite;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -25,8 +26,10 @@ public class Modele {
     private final Vue V;
 
     public Grille grille;
-    public static Unite[][] unites;
-    public static Unite uniteSelectionnee;
+    public  Unite[][] unites;
+    public  Unite uniteSelectionnee;
+    public ArrayList<Entite> listeEntite;
+
     public Hdv hdv;
 
     public final Timer timer = new Timer(this);
@@ -56,6 +59,8 @@ public class Modele {
 
     public Modele(Vue v){
         V = v;
+
+        listeEntite = new ArrayList<>();
 
         grille = new Grille();
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];

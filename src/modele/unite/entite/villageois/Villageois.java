@@ -44,15 +44,15 @@ public class Villageois extends Entite {
     }
 
     public void recolte(Recoltable cible) {
-        System.out.println(cible + " " + "est recolté");
+        //System.out.println(cible + " " + "est recolté");
     }
 
     public void seConstruire(Batiment cible) {
-        System.out.println(cible + " " + "est en construction");
+        //System.out.println(cible + " " + "est en construction");
     }
 
     public void deposer() {
-        System.out.println(quantiteRessource  + " " + "sont déposés");
+       // System.out.println(quantiteRessource  + " " + "sont déposés");
     }
 
 
@@ -90,7 +90,7 @@ public class Villageois extends Entite {
 
     public void update() {
         boolean a;
-        System.out.println(this + " " + tache);
+        //System.out.println(this + " " + tache);
         switch(tache) {
             case RIEN:
                 break;

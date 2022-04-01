@@ -102,4 +102,13 @@ abstract public class Unite {
     }
     abstract public String getNom();
     public void update() {};
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
 }

@@ -21,7 +21,7 @@ abstract public  class  Entite extends Unite {
     public Entite(int x, int y, Modele m) {
         super(x, y, m);
         chemin = new LinkedList<>();
-
+        m.listeEntite.add(this);
     }
 
     public void attaque(Entite cible) {

@@ -7,4 +7,5 @@ package modele.unite.entite.villageois;
         CONSTRUIT,
         DEPLACE,
         DEPOSER,
+        RETOUR,
     }
