@@ -5,6 +5,7 @@ import modele.TypeRessource;
 import modele.unite.entite.Direction;
 
 abstract public class Unite {
+
     protected int x;
     protected int y;
 

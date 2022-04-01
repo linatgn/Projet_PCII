@@ -2,6 +2,7 @@ package modele;
 
 
 import modele.amelioration.*;
+import modele.unite.structure.Recoltable;
 import modele.unite.entite.Entite;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
@@ -23,7 +24,7 @@ import modele.grille.Grille;
 import java.util.ArrayList;
 
 public class Modele {
-    private final Vue V;
+    public final Vue V;
 
     public Grille grille;
     public  Unite[][] unites;
@@ -40,6 +41,8 @@ public class Modele {
     public int pierre = 1000;
     public int nourriture = 1000;
     public int population = 10; // nombre de villagois
+
+    Recoltable recoltable;
 
     // statistique ameliorable
 
@@ -74,6 +77,11 @@ public class Modele {
         unites[6][6] = new Villageois(6,6, this);
         unites[6][4] = new Lapin(6,4, this);
         unites[4][6] = new Loup(4,6, this);
+
+        unites[8][8] = new Villageois(8,8,this);
+        unites[8][9] = new Rocher(8,9,this);
+
+
 
         // Ajout des ameliorations disponible
 
@@ -131,6 +139,9 @@ public class Modele {
         //System.out.println("AmeliorationEnCours:" + ameliorationsEnCours);
 
         // reduction des timers des ameliorations en cours de developpement
+
+
+        ((Villageois)unites[8][8]).recolte((Recoltable)unites[8][9]);
 
         //for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
