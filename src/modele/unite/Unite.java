@@ -32,7 +32,6 @@ abstract public class Unite {
     // méthode de déplacement
 
     public boolean deplacer(Direction d) {
-        System.out.println("Deplacer " + d);
         switch (d) {
             case HAUT:
                 if (M.grille.getTuille(x - 1, y).solid)

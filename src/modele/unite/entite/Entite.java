@@ -23,21 +23,12 @@ abstract public  class  Entite extends Unite {
     public int defense;
 
 
-    protected LinkedList<Direction> chemin;
-
-
-    public Entite(int x, int y, Modele m) {
-        super(x, y, m);
-        chemin = new LinkedList<>();
-        m.listeEntite.add(this);
-    }
-
     public Stack<Direction> chemin;
 
     public Entite(int x, int y, Modele m) {
         super(x, y, m);
-       chemin = new Stack<>();
-
+        chemin = new Stack<>();
+        m.listeEntite.add(this);
     }
 
     /**
@@ -65,7 +56,6 @@ abstract public  class  Entite extends Unite {
             else // sinon on evalue ces noeuds voisin
             {
 
-                System.out.println("nouveau noeud:"+u);
                 // voisin gauche
                 if(u.y>=1) {
                     Noeud v = new Noeud(u.x , u.y-1);

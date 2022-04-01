@@ -12,6 +12,8 @@ public class Lapin extends Passif{
         largeur = 1;
         hauteur = 1;
 
+        pv=10;
+
         quantiteRessource = 100;
     }
 

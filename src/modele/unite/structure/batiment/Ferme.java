@@ -12,7 +12,6 @@ public class Ferme extends Batiment implements Recoltable {
 
         tickRequis = 20;
 
-
         largeur = 1;
         hauteur = 1;
 

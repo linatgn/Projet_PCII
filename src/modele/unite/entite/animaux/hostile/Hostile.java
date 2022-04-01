@@ -38,44 +38,6 @@ abstract public class Hostile extends Animaux {
         }
     }
 
-    public void deplacementAleatoire() {
-        int i = new Random().nextInt(99);
-        if (i >= 90) {
-            int nx = 0, ny = 0;
-            i = new Random().nextInt(4);
-            switch(i) {
-                case 0:
-                    nx = x - 1;
-                    ny = y;
-                    if (distance(nx, ny, x_spawn, y_spawn) < maxZone) {
-                        deplacer(Direction.HAUT);
-                    }
-                    break;
-                case 1:
-                    nx = x + 1;
-                    ny = y;
-                    if (distance(nx, ny, x_spawn, y_spawn) < maxZone) {
-                        deplacer(Direction.BAS);
-                    }
-                    break;
-                case 2:
-                    nx = x;
-                    ny = y + 1;
-                    if (distance(nx, ny, x_spawn, y_spawn) < maxZone) {
-                        deplacer(Direction.DROITE);
-                    }
-                    break;
-                case 3:
-                    nx = x;
-                    ny = y - 1;
-                    if (distance(nx, ny, x_spawn, y_spawn) < maxZone) {
-                        deplacer(Direction.GAUCHE);
-                    }
-                    break;
-            }
-        }
-    }
-
     public boolean trouverCible() {
         for(int i = 0; i < M.listeEntite.size(); i++) {
             if (M.listeEntite.get(i) instanceof Villageois || M.listeEntite.get(i) instanceof Lapin) {
@@ -85,7 +47,6 @@ abstract public class Hostile extends Animaux {
                     System.out.println(M.listeEntite.get(i) + " a pris l'aggro du loup !" );
                     return true;
                 }
-                System.out.println(M.listeEntite.get(i) + " a PERDU l'aggro du loup !" );
             }
         }
         return false;

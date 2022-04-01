@@ -30,7 +30,7 @@ public class ControleJeu implements MouseListener {
             int y = e.getY();
 
             if (modele.uniteSelectionnee instanceof Villageois) {
-                ((Villageois)modele.uniteSelectionnee).cible(modele.unites[y /Tuille.TAILLE_TUILLE][x /Tuille.TAILLE_TUILLE]);
+                ((Villageois)modele.uniteSelectionnee).cible(y /Tuille.TAILLE_TUILLE,x /Tuille.TAILLE_TUILLE);
             }
 
         }

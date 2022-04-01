@@ -28,7 +28,6 @@ import java.util.concurrent.SynchronousQueue;
 public class Villageois extends Entite {
     Tache tache;
 
-
     public Villageois(int x, int y, Modele m) {
         super(x, y, m);
         x_texture = 6;
@@ -43,13 +42,6 @@ public class Villageois extends Entite {
 
         tache = Tache.RIEN;
 
-        chemin.add(Direction.BAS);
-        chemin.add(Direction.BAS);
-        chemin.add(Direction.BAS);
-        chemin.add(Direction.BAS);
-        chemin.add(Direction.BAS);
-        chemin.add(Direction.BAS);
-
     }
     @Override
     public String getNom() {
@@ -62,35 +54,31 @@ public class Villageois extends Entite {
 
 
 
-    public void cible(Unite cible) {
+    public void cible(int x, int y) {
+
+        Unite cible = M.unites[x][y];
         if (cible instanceof Animaux) {
             tache = Tache.ATTAQUE;
-            System.out.println(tache);
         }
         else if (cible == null) {
             tache = Tache.DEPLACE;
-            System.out.println(tache);
+            calculerChemin(x,y);
         }
         else if (cible instanceof Batiment) {
             if (((Batiment)cible).getEnConstruction()) {
                 tache = Tache.CONSTRUIT;
-                System.out.println(tache);
             }
             else if (cible instanceof Hdv && quantiteRessource > 0) {
                 tache = Tache.DEPOSER;
-                System.out.println(tache);
             }
         }
         else if (cible instanceof Recoltable) {
             tache = Tache.RECOLTE;
-            System.out.println(tache);
         }
         else {
             tache = Tache.RIEN;
-            System.out.println(tache);
         }
         uniteCible = cible;
-        System.out.println(cible);
     }
 
 
@@ -102,8 +90,8 @@ public class Villageois extends Entite {
         } else if (typeRessource == ((Unite)cible).typeRessource){
             if(quantiteRessource == M.stockageVillagois){
                 tache = Tache.DEPOSER;
-                //Calcul du chemin avec pathfinder jusqu'à l'hdv
-                //deplacer(chemin.remove()
+                calculerChemin(M.hdv.getX(),M.hdv.getY());
+                deplacer(chemin.pop());
             } else if(quantiteRessource < M.stockageVillagois){
                 if(estaCote(((Unite)cible))) {
                     if(quantiteRessource + M.vitesseRecolte >= M.stockageVillagois){
@@ -115,8 +103,9 @@ public class Villageois extends Entite {
                     }
                 }
                 else {
-                    //Calcul du chemin avec pathfinder
-                    //deplacer(chemin.remove()
+                    if(chemin.isEmpty())
+                        calculerChemin(((Unite) cible).getX(),((Unite) cible).getY());
+                    deplacer(chemin.pop());
                 }
             }
         } else if(typeRessource != ((Unite)cible).typeRessource){
@@ -130,8 +119,9 @@ public class Villageois extends Entite {
                 }
             }
             else {
-                //Calcul du chemin avec pathfinder
-                //deplacer(chemin.remove()
+                if(chemin.isEmpty())
+                    calculerChemin(((Unite) cible).getX(),((Unite) cible).getY());
+                deplacer(chemin.pop());
             }
         }
     }
@@ -146,14 +136,14 @@ public class Villageois extends Entite {
             }
 
         } else {
-            //Calcul du chemin avec pathfinder
-            //deplacer(chemin.remove()
+            if(chemin.isEmpty()){
+                calculerChemin(batiment.getX(),batiment.getY());
+            }
+            deplacer(chemin.pop());
         }
     }
 
     public void update() {
-        boolean a;
-        //System.out.println(this + " " + tache);
         switch(tache) {
             case RIEN:
                 break;
@@ -161,14 +151,18 @@ public class Villageois extends Entite {
                 recolte((Recoltable)uniteCible);
                 break;
             case ATTAQUE:
-                attaque((Entite)uniteCible);
+                attaquer((Entite)uniteCible);
                 break;
             case DEPLACE:
-                if (!chemin.isEmpty())
-                    a = deplacer(chemin.remove());
+                if (chemin.isEmpty()) {
+                    //calculerChemin()
+                }
+                else {
+                    deplacer(chemin.pop());
+                }
                 break;
             case CONSTRUIT:
-                seConstruire((Batiment)uniteCible);
+                construire((Batiment)uniteCible);
                 break;
             case DEPOSER:
                 deposer();
@@ -178,4 +172,3 @@ public class Villageois extends Entite {
 
 }
 
-}

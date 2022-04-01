@@ -4,6 +4,7 @@ package modele;
 import modele.amelioration.*;
 import modele.unite.structure.Recoltable;
 import modele.unite.entite.Entite;
+import modele.unite.structure.batiment.Batiment;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -59,6 +60,8 @@ public class Modele {
     public Amelioration[] ameliorations;
     public ArrayList<Amelioration> ameliorationsEnCours;
 
+    Villageois vil;
+
     public Modele(Vue v){
         V = v;
 
@@ -69,13 +72,15 @@ public class Modele {
 
         unites[0][0] = new Ferme(0,0,this);
         unites[Grille.HAUTEUR/2][Grille.LARGEUR/2] = new Hdv(Grille.HAUTEUR/2,Grille.LARGEUR/2,this);
+        hdv = (Hdv) unites[Grille.HAUTEUR/2][Grille.LARGEUR/2];
         unites[1][1] = new Maison(1,1,this);
         unites[2][2] = new Rocher(2,2,this);
         unites[3][3] = new Arbre(3,3,this);
 
         unites[6][6] = new Villageois(6,6, this);
-        unites[6][4] = new Lapin(6,4, this);
-        unites[4][6] = new Loup(4,6, this);
+        vil = (Villageois) unites[6][6];
+        unites[6][24] = new Lapin(6,24, this);
+        unites[24][6] = new Loup(24,6, this);
 
         // Ajout des ameliorations disponible
 
@@ -96,8 +101,6 @@ public class Modele {
         uniteSelectionnee = unites[x][y];
         V.infoPanel.afficherUniteSelectionnee();
     }
-    public static void cible(Unite unite) {
-    }
 
     public void ReduireNourriture(){
         if(nourriture > 0){
@@ -115,21 +118,11 @@ public class Modele {
     }
   
     public void update() {
-        for (int i = 0; i < grille.HAUTEUR; i++) {
-            for (int j = 0; j < grille.LARGEUR; j++ ) {
-                if (unites[i][j] != null) {
-                    unites[i][j].update();
-                }
-            }
-        }
-        //System.out.println("bois: " + bois + " pierre: " + pierre + " nourriture: " + nourriture + " population: " + population + "/" + maxPopulation);
-        //System.out.println("VitesseRecolte:" + vitesseRecolte);
-        //System.out.println("Ameliorations:" + ameliorations);
-        //System.out.println("AmeliorationEnCours:" + ameliorationsEnCours);
+        for (Unite u : listeEntite)
+            u.update();
 
         // reduction des timers des ameliorations en cours de developpement
 
-        //for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
             ameliorationsEnCours.get(i).update(V.infoPanel);
         }
