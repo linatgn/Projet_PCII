@@ -63,6 +63,6 @@ public class RessourcePanel extends JPanel{
         boisLabel.setText(String.valueOf(M.bois));
         pierreLabel.setText(String.valueOf(M.pierre));
         nourritureLabel.setText(String.valueOf(M.nourriture));
-        populationLabel.setText(String.valueOf(M.population));
+        populationLabel.setText(String.valueOf(M.population)+"/"+String.valueOf(M.maxPopulation));
     }
 }

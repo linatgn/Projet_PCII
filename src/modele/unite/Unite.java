@@ -5,6 +5,7 @@ import modele.TypeRessource;
 import modele.unite.entite.Direction;
 
 abstract public class Unite {
+
     protected int x;
     protected int y;
 
@@ -17,7 +18,7 @@ abstract public class Unite {
     public int hauteur;
 
     public TypeRessource typeRessource; // type de la ressource stocké par l'entite
-    public int quantiteRessource;
+    public double quantiteRessource;
 
     public Unite(int x, int y, Modele m){
         this.x = x;
@@ -108,4 +109,12 @@ abstract public class Unite {
     }
 
     abstract public String getNom();
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
