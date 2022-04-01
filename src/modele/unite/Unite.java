@@ -24,6 +24,8 @@ abstract public class Unite {
         this.x = x;
         this.y = y;
         this.M = m;
+
+        M.grille.getTuille(x,y).solid = true;
     }
 
     // méthode de déplacement

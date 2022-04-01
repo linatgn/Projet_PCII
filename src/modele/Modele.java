@@ -2,6 +2,7 @@ package modele;
 
 
 import modele.amelioration.*;
+import modele.unite.entite.Entite;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -83,7 +84,6 @@ public class Modele {
         ameliorations[7] = new StockageVillageoisAm(this,2,ameliorations[6]);
 
         ameliorationsEnCours = new ArrayList<>();
-
     }
 
     public void select(int x, int y) {
@@ -107,26 +107,7 @@ public class Modele {
         }
         return false;
     }
-/*
-    public static void cible(unites) {
-        if (uniteSelectionee == villageois) {
-            if (unites == animal) {
-                //TODO methode attaque + pathfinder
-            }
-            else if (unites == ressource) {
-                //TODO methode recolte + pathfinder
-            }
-            }
-            if (uniteSelectionee == hdv) {
-                //TODO new affichage dans le infoPanel
-            }
-            if (uniteSelectionee == batiment) {
-
-            }
-                //TODO IF LAC ETC.
-        }
- */
-
+  
     public void update() {
         //System.out.println("bois: " + bois + " pierre: " + pierre + " nourriture: " + nourriture + " population: " + population + "/" + maxPopulation);
         //System.out.println("VitesseRecolte:" + vitesseRecolte);

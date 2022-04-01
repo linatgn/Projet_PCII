@@ -1,11 +1,20 @@
 package modele.unite.entite.villageois;
 
 import modele.Modele;
+
+import modele.grille.Grille;
+import modele.unite.entite.Direction;
+
 import modele.unite.Unite;
 import modele.unite.entite.Entite;
 import modele.unite.structure.batiment.Batiment;
 import modele.unite.entite.animaux.Animaux;
 import modele.unite.structure.Recoltable;
+
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.concurrent.SynchronousQueue;
 
 public class Villageois extends Entite {
     Tache tache;
@@ -30,6 +39,7 @@ public class Villageois extends Entite {
     public String getNom() {
         return "Villageois";
     }
+
 
 
     public void cible(Unite unite) {
@@ -108,3 +118,4 @@ public class Villageois extends Entite {
 
 }
 
+}
