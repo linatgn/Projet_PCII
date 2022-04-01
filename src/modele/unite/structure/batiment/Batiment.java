@@ -11,11 +11,48 @@ import vue.panel.InfoPanel;
 public abstract class Batiment extends Structure {
 
     public TypeBatiment typeBatiment;
+    public boolean construit;
+
+    //Tick de timer déjà écouler depuis le début de la construction
+    protected int tickActuel;
+
+    //Tick de timer requis pour construire un batiment
+    protected int tickRequis;
+    protected boolean enConstruction = true;
 
     public Batiment(int x, int y, Modele m){
         super(x,y,m);
         this.x = x;
         this.y = y;
+
+        x_texture = 3;
+        y_texture = 0;
     }
 
+
+
+    /**
+     * augmente le niveau de construction du batiment
+     * @return true si le batiment a fini de se construire sinon false
+     */
+    public boolean seConstruire(){
+        if(tickActuel < tickRequis){
+            tickActuel++;
+            System.out.println(tickActuel);
+        } else if(tickActuel == tickRequis && enConstruction == true){
+            enConstruction = false;
+            activerBatiment();
+        }
+        return false;
+    }
+
+    protected void activerBatiment(){
+        if(M.uniteSelectionnee == this){
+            M.V.infoPanel.afficherUniteSelectionnee();
+        }
+    }
+
+    public boolean estEnConstruction() {
+        return enConstruction;
+    }
 }

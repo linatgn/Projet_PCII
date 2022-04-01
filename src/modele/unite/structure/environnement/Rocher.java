@@ -21,7 +21,7 @@ public class Rocher extends Environnement implements Recoltable {
         quantiteRessource = 800;
     }
 
-    public int enlever(int qte) {
+    public double enlever(double qte) {
         if(quantiteRessource>qte){
             quantiteRessource = quantiteRessource - qte;
             return qte;

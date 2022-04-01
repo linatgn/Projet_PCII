@@ -5,6 +5,7 @@ import modele.TypeRessource;
 import modele.unite.entite.Direction;
 
 abstract public class Unite {
+
     protected int x;
     protected int y;
 
@@ -17,7 +18,7 @@ abstract public class Unite {
     public int hauteur;
 
     public TypeRessource typeRessource; // type de la ressource stocké par l'entite
-    public int quantiteRessource;
+    public double quantiteRessource;
 
     public Unite(int x, int y, Modele m){
         this.x = x;
@@ -26,6 +27,9 @@ abstract public class Unite {
 
         M.grille.getTuille(x,y).solid = true;
     }
+
+    // méthode de déplacement
+
     public boolean deplacer(Direction d) {
         switch (d) {
             case HAUT:
@@ -101,5 +105,18 @@ abstract public class Unite {
 
     }
 
+    public void cible(Unite unite) {
+
+        System.out.println("cible de Unite");
+    }
+
     abstract public String getNom();
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }

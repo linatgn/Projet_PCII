@@ -1,6 +1,7 @@
 package controle;
 
 import modele.Modele;
+import modele.unite.Unite;
 import vue.Vue;
 import modele.tuille.Tuille;
 
@@ -26,6 +27,8 @@ public class ControleJeu implements MouseListener {
         else if (SwingUtilities.isRightMouseButton(e)) {   // si click gauche sur infoPanel
             int x = e.getX();
             int y = e.getY();
+
+            modele.uniteSelectionnee.cible(modele.unites[y /Tuille.TAILLE_TUILLE][x /Tuille.TAILLE_TUILLE]);
 
         }
     }
