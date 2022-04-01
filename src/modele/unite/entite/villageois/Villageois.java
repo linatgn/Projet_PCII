@@ -1,8 +1,15 @@
 package modele.unite.entite.villageois;
 
 import modele.Modele;
+import modele.grille.Grille;
+import modele.unite.entite.Direction;
 import modele.unite.entite.Entite;
 import vue.panel.InfoPanel;
+
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.concurrent.SynchronousQueue;
 
 public class Villageois extends Entite {
 
@@ -22,5 +29,5 @@ public class Villageois extends Entite {
     public String getNom() {
         return "Villageois";
     }
-}
 
+}
