@@ -15,6 +15,9 @@ public class Loup extends Hostile{
         hauteur = 1;
 
         quantiteRessource = 200;
+        pv = 7;
+        attaque = 3;
+        defense = 0;
     }
 
     @Override

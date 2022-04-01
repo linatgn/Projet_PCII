@@ -36,6 +36,8 @@ public class RessourcePanel extends JPanel{
         //background
         setBackground(Color.YELLOW);
 
+        // création des images des ressources
+
         ImageIcon boisIcon = new ImageIcon("bois.png");
         ImageIcon pierreIcon = new ImageIcon("pierre.png");
         ImageIcon nourritureIcon = new ImageIcon("nourriture.png");
@@ -61,6 +63,6 @@ public class RessourcePanel extends JPanel{
         boisLabel.setText(String.valueOf(M.bois));
         pierreLabel.setText(String.valueOf(M.pierre));
         nourritureLabel.setText(String.valueOf(M.nourriture));
-        populationLabel.setText(String.valueOf(M.population));
+        populationLabel.setText(String.valueOf(M.population)+"/"+String.valueOf(M.maxPopulation));
     }
 }

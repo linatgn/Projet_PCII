@@ -25,7 +25,12 @@ abstract public class Unite {
         this.x = x;
         this.y = y;
         this.M = m;
+
+        M.grille.getTuille(x,y).solid = true;
     }
+
+    // méthode de déplacement
+
     public boolean deplacer(Direction d) {
         System.out.println("Deplacer " + d);
         switch (d) {

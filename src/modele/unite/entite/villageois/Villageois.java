@@ -3,17 +3,27 @@ package modele.unite.entite.villageois;
 import java.util.Queue;
 
 import modele.Modele;
+
 import modele.TypeRessource;
+
+
+import modele.grille.Grille;
+import modele.unite.entite.Direction;
+
+
 import modele.unite.Unite;
 import modele.unite.entite.Direction;
 import modele.unite.entite.Entite;
-import modele.unite.structure.Structure;
 import modele.unite.structure.batiment.Batiment;
-import vue.panel.InfoPanel;
 import modele.unite.entite.animaux.Animaux;
 import modele.unite.structure.Recoltable;
 import modele.unite.structure.batiment.Batiment;
 import modele.unite.structure.batiment.Hdv;
+
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.concurrent.SynchronousQueue;
 
 public class Villageois extends Entite {
     Tache tache;
@@ -46,14 +56,10 @@ public class Villageois extends Entite {
         return "Villageois";
     }
 
-
-    public void seConstruire(Batiment cible) {
-        //System.out.println(cible + " " + "est en construction");
-    }
-
     public void deposer() {
        // System.out.println(quantiteRessource  + " " + "sont déposés");
     }
+
 
 
     public void cible(Unite cible) {
@@ -130,6 +136,21 @@ public class Villageois extends Entite {
         }
     }
 
+    public void construire(Batiment batiment){
+        if(batiment == null){
+            tache = Tache.RIEN;
+        } else if(estaCote(batiment) && batiment.estEnConstruction()){
+            tache = Tache.CONSTRUIT;
+            if(!batiment.seConstruire()){
+                tache = Tache.RIEN;
+            }
+
+        } else {
+            //Calcul du chemin avec pathfinder
+            //deplacer(chemin.remove()
+        }
+    }
+
     public void update() {
         boolean a;
         //System.out.println(this + " " + tache);
@@ -157,3 +178,4 @@ public class Villageois extends Entite {
 
 }
 
+}

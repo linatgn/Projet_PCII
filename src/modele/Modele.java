@@ -42,8 +42,6 @@ public class Modele {
     public int nourriture = 1000;
     public int population = 10; // nombre de villagois
 
-    Recoltable recoltable;
-
     // statistique ameliorable
 
     public int niveau = 0;
@@ -54,6 +52,7 @@ public class Modele {
     public int attaqueVillageois = 3;
     public int defenseVillageois = 0;
     public int quantiteRessourceFerme = 300;
+    public int Cout_Nourriture_Tick = 2; //nombre de nourriture retiré pour un villageois à chaque tick
 
     // Amelioration
 
@@ -78,11 +77,6 @@ public class Modele {
         unites[6][4] = new Lapin(6,4, this);
         unites[4][6] = new Loup(4,6, this);
 
-        unites[8][8] = new Villageois(8,8,this);
-        unites[8][9] = new Rocher(8,9,this);
-
-
-
         // Ajout des ameliorations disponible
 
         ameliorations = new Amelioration[8];
@@ -96,7 +90,6 @@ public class Modele {
         ameliorations[7] = new StockageVillageoisAm(this,2,ameliorations[6]);
 
         ameliorationsEnCours = new ArrayList<>();
-
     }
 
     public void select(int x, int y) {
@@ -105,26 +98,22 @@ public class Modele {
     }
     public static void cible(Unite unite) {
     }
-/*
-    public static void cible(unites) {
-        if (uniteSelectionee == villageois) {
-            if (unites == animal) {
-                //TODO methode attaque + pathfinder
-            }
-            else if (unites == ressource) {
-                //TODO methode recolte + pathfinder
-            }
-            }
-            if (uniteSelectionee == hdv) {
-                //TODO new affichage dans le infoPanel
-            }
-            if (uniteSelectionee == batiment) {
 
-            }
-                //TODO IF LAC ETC.
+    public void ReduireNourriture(){
+        if(nourriture > 0){
+            nourriture = nourriture - (Cout_Nourriture_Tick * population);
+        } else if(nourriture == 0){
+            // pour chaque villageois faire subirDegat(1) ( utiliser (if (entite instanceof Villageois))
         }
- */
+    }
 
+    public boolean TestPerdu(){
+        if(population == 0 && (nourriture < (Cout_Nourriture_Tick * population))){
+            return true;
+        }
+        return false;
+    }
+  
     public void update() {
         for (int i = 0; i < grille.HAUTEUR; i++) {
             for (int j = 0; j < grille.LARGEUR; j++ ) {
@@ -140,9 +129,6 @@ public class Modele {
 
         // reduction des timers des ameliorations en cours de developpement
 
-
-        ((Villageois)unites[8][8]).recolte((Recoltable)unites[8][9]);
-
         //for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
             ameliorationsEnCours.get(i).update(V.infoPanel);
@@ -151,6 +137,8 @@ public class Modele {
         V.ressourcePanel.repaint();
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
+
+
     }
 
     // Lance le jeu

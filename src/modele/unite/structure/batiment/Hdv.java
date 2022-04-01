@@ -18,6 +18,10 @@ public class Hdv extends Batiment {
     }
 
     @Override
+    protected void activerBatiment() {
+    }
+
+    @Override
     public String getNom() {
         return "HDV";
     }
