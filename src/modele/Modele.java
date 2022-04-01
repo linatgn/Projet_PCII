@@ -2,7 +2,6 @@ package modele;
 
 
 import modele.amelioration.*;
-import modele.unite.entite.Entite;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
 import modele.unite.structure.batiment.Hdv;
@@ -70,9 +69,6 @@ public class Modele {
         unites[6][4] = new Lapin(6,4, this);
         unites[4][6] = new Loup(4,6, this);
 
-        unites[6][5] = new Loup(6,5, this);
-
-
         // Ajout des ameliorations disponible
 
         ameliorations = new Amelioration[8];
@@ -120,11 +116,8 @@ public class Modele {
         //System.out.println("VitesseRecolte:" + vitesseRecolte);
         //System.out.println("Ameliorations:" + ameliorations);
         //System.out.println("AmeliorationEnCours:" + ameliorationsEnCours);
-      //  ((Villageois)unites[6][6]).subirDegat(1);
+
         // reduction des timers des ameliorations en cours de developpement
-        ((Villageois)unites[6][6]).attaquer((Loup)unites[6][5]);
-
-
 
         //for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
