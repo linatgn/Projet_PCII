@@ -15,20 +15,20 @@ public class VitesseRecolteAm extends Amelioration{
         this.amNec = amNec;
 
         switch (niveau) {
-            case 1 -> {
+            case 1:
                 coutNourriture = 200;
                 vitesseRecolte = 1.5;
                 dureeAmelioration = 20;
 
                 niveauJoueur = 1;
-            }
-            case 2 -> {
+                break;
+            case 2:
                 coutNourriture = 400;
                 vitesseRecolte = 2;
                 dureeAmelioration = 40;
 
                 niveauJoueur = 2;
-            }
+                break;
         }
 
     }
@@ -41,8 +41,8 @@ public class VitesseRecolteAm extends Amelioration{
     @Override
     public void activer()
     {
-            M.vitesseRecolte = vitesseRecolte;
-            activer = true;
+        M.vitesseRecolte = vitesseRecolte;
+        activer = true;
     }
 
     @Override

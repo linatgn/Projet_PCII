@@ -1,7 +1,13 @@
 package modele.unite.entite;
 
+import java.util.LinkedList;
+
 import modele.Modele;
 import modele.unite.Unite;
+
+import modele.unite.entite.animaux.Animaux;
+import modele.unite.structure.Recoltable;
+import vue.panel.InfoPanel;
 
 import java.util.LinkedList;
 import java.util.Objects;
@@ -9,11 +15,22 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 
 
+
 abstract public  class  Entite extends Unite {
 
     public int pv;
     public int attaque;
     public int defense;
+
+
+    protected LinkedList<Direction> chemin;
+
+
+    public Entite(int x, int y, Modele m) {
+        super(x, y, m);
+        chemin = new LinkedList<>();
+        m.listeEntite.add(this);
+    }
 
     public Stack<Direction> chemin;
 

@@ -2,6 +2,7 @@ package modele;
 
 
 import modele.amelioration.*;
+import modele.unite.structure.Recoltable;
 import modele.unite.entite.Entite;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.Unite;
@@ -26,8 +27,11 @@ public class Modele {
     public final Vue V;
 
     public Grille grille;
-    public static Unite[][] unites;
-    public static Unite uniteSelectionnee;
+    public  Unite[][] unites;
+    public  Unite uniteSelectionnee;
+    public ArrayList<Entite> listeEntite;
+
+    public Hdv hdv;
 
     public final Timer timer = new Timer(this);
 
@@ -57,6 +61,8 @@ public class Modele {
 
     public Modele(Vue v){
         V = v;
+
+        listeEntite = new ArrayList<>();
 
         grille = new Grille();
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];
@@ -109,6 +115,13 @@ public class Modele {
     }
   
     public void update() {
+        for (int i = 0; i < grille.HAUTEUR; i++) {
+            for (int j = 0; j < grille.LARGEUR; j++ ) {
+                if (unites[i][j] != null) {
+                    unites[i][j].update();
+                }
+            }
+        }
         //System.out.println("bois: " + bois + " pierre: " + pierre + " nourriture: " + nourriture + " population: " + population + "/" + maxPopulation);
         //System.out.println("VitesseRecolte:" + vitesseRecolte);
         //System.out.println("Ameliorations:" + ameliorations);
@@ -118,7 +131,7 @@ public class Modele {
 
         //for (Amelioration ameliorationsEnCour : ameliorationsEnCours) {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
-                ameliorationsEnCours.get(i).update(V.infoPanel);
+            ameliorationsEnCours.get(i).update(V.infoPanel);
         }
         V.ressourcePanel.revalidate();
         V.ressourcePanel.repaint();

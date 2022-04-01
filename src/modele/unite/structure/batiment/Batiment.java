@@ -11,7 +11,7 @@ import vue.panel.InfoPanel;
 public abstract class Batiment extends Structure {
 
     public TypeBatiment typeBatiment;
-    public boolean construit;
+    private boolean enConstruction;
 
     //Tick de timer déjà écouler depuis le début de la construction
     protected int tickActuel;
@@ -25,6 +25,10 @@ public abstract class Batiment extends Structure {
         this.x = x;
         this.y = y;
 
+        enConstruction = true;
+    }
+
+    public boolean getEnConstruction() {
         x_texture = 3;
         y_texture = 0;
     }

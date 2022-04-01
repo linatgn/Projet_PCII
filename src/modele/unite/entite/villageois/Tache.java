@@ -6,5 +6,6 @@ package modele.unite.entite.villageois;
         ATTAQUE,
         CONSTRUIT,
         DEPLACE,
-        DEPOSER
+        DEPOSER,
+        RETOUR,
     }

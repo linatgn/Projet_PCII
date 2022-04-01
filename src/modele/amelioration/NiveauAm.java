@@ -14,7 +14,7 @@ public class NiveauAm extends Amelioration{
         this.amNec = amNec;
 
         switch (niveau) {
-            case 0 -> {
+            case 0:
                 coutBois = 300;
                 coutPierre = 300;
                 coutNourriture = 300;
@@ -22,8 +22,8 @@ public class NiveauAm extends Amelioration{
                 dureeAmelioration = 30;
 
                 nouveauNiveau = 1;
-            }
-            case 1 -> {
+                break;
+            case 1:
                 coutBois = 500;
                 coutPierre = 500;
                 coutNourriture = 500;
@@ -31,7 +31,7 @@ public class NiveauAm extends Amelioration{
                 dureeAmelioration = 50;
 
                 nouveauNiveau = 2;
-            }
+                break;
         }
     }
 

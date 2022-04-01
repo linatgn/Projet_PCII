@@ -2,6 +2,7 @@ package controle;
 
 import modele.Modele;
 import modele.unite.Unite;
+import modele.unite.entite.villageois.Villageois;
 import vue.Vue;
 import modele.tuille.Tuille;
 
@@ -28,7 +29,9 @@ public class ControleJeu implements MouseListener {
             int x = e.getX();
             int y = e.getY();
 
-            modele.uniteSelectionnee.cible(modele.unites[y /Tuille.TAILLE_TUILLE][x /Tuille.TAILLE_TUILLE]);
+            if (modele.uniteSelectionnee instanceof Villageois) {
+                ((Villageois)modele.uniteSelectionnee).cible(modele.unites[y /Tuille.TAILLE_TUILLE][x /Tuille.TAILLE_TUILLE]);
+            }
 
         }
     }
