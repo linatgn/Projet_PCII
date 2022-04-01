@@ -47,6 +47,7 @@ public class Modele {
     public int attaqueVillageois = 3;
     public int defenseVillageois = 0;
     public int quantiteRessourceFerme = 300;
+    public int Cout_Nourriture_Tick = 2; //nombre de nourriture retiré pour un villageois à chaque tick
 
     // Amelioration
 
@@ -91,6 +92,21 @@ public class Modele {
     }
     public static void cible(Unite unite) {
     }
+
+    public void ReduireNourriture(){
+        if(nourriture > 0){
+            nourriture = nourriture - (Cout_Nourriture_Tick * population);
+        } else if(nourriture == 0){
+            // pour chaque villageois faire subirDegat(1) ( utiliser (if (entite instanceof Villageois))
+        }
+    }
+
+    public boolean TestPerdu(){
+        if(population == 0 && (nourriture < (Cout_Nourriture_Tick * population))){
+            return true;
+        }
+        return false;
+    }
 /*
     public static void cible(unites) {
         if (uniteSelectionee == villageois) {
@@ -127,6 +143,8 @@ public class Modele {
         V.ressourcePanel.repaint();
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
+
+
     }
 
     // Lance le jeu
