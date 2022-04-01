@@ -144,7 +144,7 @@ abstract public  class  Entite extends Unite {
     }
 
     /**
-     * reconstruit le chemin en partant du noeud d'arrve
+     * reconstruit le chemin en partant du noeud d'arrive
      * @param arrive noeud d'arrive
      */
     private void reconstruireChemin(Noeud arrive) {
