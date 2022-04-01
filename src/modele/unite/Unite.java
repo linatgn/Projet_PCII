@@ -18,7 +18,7 @@ abstract public class Unite {
     public int hauteur;
 
     public TypeRessource typeRessource; // type de la ressource stocké par l'entite
-    public int quantiteRessource;
+    public double quantiteRessource;
     protected Unite uniteCible;
 
     public Unite(int x, int y, Modele m){
