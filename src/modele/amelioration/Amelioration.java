@@ -7,7 +7,7 @@ import vue.panel.InfoPanel;
 
 import javax.swing.*;
 
-//Classe qui a definir les améliorations
+//Classe qui definie les améliorations
 abstract public class Amelioration {
 
     //Declaration d'un modele

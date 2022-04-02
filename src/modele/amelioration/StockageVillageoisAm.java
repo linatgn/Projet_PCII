@@ -4,7 +4,7 @@ import modele.Modele;
 
 import static modele.TypeBatiment.HDV;
 
-//Classe qui a definir les ameliorations de stockage des villageois
+//Classe qui definie les ameliorations de stockage des villageois
 //Extends Amelioration car la classe est une classe fille de Amelioration
 public class StockageVillageoisAm extends Amelioration{
 

@@ -4,7 +4,7 @@ import modele.Modele;
 
 import static modele.TypeBatiment.FERME;
 
-//Classe qui a definir les ameliorations de la ferme
+//Classe qui definie les ameliorations de la ferme
 //Extends Amelioration car la classe est une classe fille de Amelioration
 public class FermeAm extends Amelioration{
 

@@ -8,29 +8,41 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-/**
- *  classe parentes des tuilles de la grille de jeu
- */
+
+//Classe parentes qui definie les tuilles de la grille de jeu
 public class Tuille {
-    public static int TAILLE_TUILLE = 16;
-
-
-
-    public int x;
-    public int y;
-
-    public int x_texture;
-    public int y_texture;
-
-    public boolean solid;
 
     /**
      *
-     * @param x
-     * @param y
-     *
-     * Constructeur d'une tuille
      */
+    public static int TAILLE_TUILLE = 16;
+
+    /**
+     * Var : Position x de la tuille sur le tableau de tuille
+     */
+    public int x;
+
+    /**
+     * Var : Position y de la tuille sur le tableau de tuille
+     */
+    public int y;
+
+    /**
+     * Var : Position x d'une tuille sur le tailset
+     */
+    public int x_texture;
+
+    /**
+     * Var : Position y d'une tuille sur le tailset
+     */
+    public int y_texture;
+
+    /**
+     * Var : Tuille solide ou non
+     */
+    public boolean solid;
+
+    //Construteur de la classe
     public Tuille(int x, int y){
         this.x = x;
         this.y = y;

@@ -5,7 +5,7 @@ import modele.TypeBatiment.*;
 
 import static modele.TypeBatiment.HDV;
 
-//Classe qui a definir les ameliorations de la vitesse de recolte
+//Classe qui definie les ameliorations de la vitesse de recolte
 //Extends Amelioration car la classe est une classe fille de Amelioration
 public class VitesseRecolteAm extends Amelioration{
 

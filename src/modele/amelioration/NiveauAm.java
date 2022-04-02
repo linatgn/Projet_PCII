@@ -3,7 +3,7 @@ package modele.amelioration;
 import modele.Modele;
 import static modele.TypeBatiment.HDV;
 
-//Classe qui a definir les niveaux de l'ameliorations de la ferme
+//Classe qui definie les niveaux de l'ameliorations de la ferme
 //Extends Amelioration car la classe est une classe fille de Amelioration
 public class NiveauAm extends Amelioration{
 

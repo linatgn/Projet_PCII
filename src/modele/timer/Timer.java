@@ -4,25 +4,34 @@ import modele.Modele;
 
 import java.util.Random;
 
-/**
- * Horloge du jeu
- *
- * met à jour le jeu à intervalle régulier en fonction du tickrate
- *
- */
+//Horloge du jeu
+//Classe qui met à jour le jeu à intervalle régulier en fonction du tickrate
 public class Timer extends Thread {
+
+    //Declaration d'un modele
     public final Modele M;
 
+    /**
+     * Const : Variable aléatoire
+     */
     public final Random RAND = new Random();
 
-    public final int TICKRATE = 2; // nombre de tick par seconde
-    private int tick = 0; // nombre de tick passe
-
-    private long compteur = 0; // compteur pour un tick
+    /**
+     * Const : Nombre de tick par seconde
+     */
+    public final int TICKRATE = 2;
 
     /**
-     * Constructeur
+     * Var : Nombre de tick passe
      */
+    private int tick = 0;
+
+    /**
+     * Compteur pour un tick
+     */
+    private long compteur = 0; //
+
+    //Constructeur de la classe
     public Timer(Modele m){
         M = m;
     }
@@ -55,6 +64,10 @@ public class Timer extends Thread {
         }
     }
 
+    /**
+     * Getter de la variable Tick
+     * @return la valeur de valeur
+     */
     public int getTick(){
         return tick;
     }
