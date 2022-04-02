@@ -13,10 +13,14 @@ import java.awt.event.MouseListener;
 //implements MouseListener car les améliorations sont fait où le click a été fait
 public class ControleAmelioration implements MouseListener {
 
-    //Declaration d'une amelioration
+    /**
+     * Const : Declaration d'une amelioration
+     */
     private final Amelioration AMELIORATION;
 
-    //Declaration du panel gérant l'amelioration
+    /**
+     * Const : Panel s'occupant de l'affichage des ameliorations
+     */
     private final JPanel AMELIORATION_PANEL;
 
 
