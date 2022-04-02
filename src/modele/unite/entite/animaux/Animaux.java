@@ -9,15 +9,31 @@ import vue.panel.InfoPanel;
 
 import java.util.Random;
 
+//Classe qui definie les animaux
+//Extends Entite car la classe est une classe fille de Entite
 abstract public  class Animaux extends Entite {
 
+    /**
+     *
+     */
     protected int x_spawn;
+
+    /**
+     *
+     */
     protected int y_spawn;
 
+    /**
+     *
+     */
     protected Tache tache;
 
-    protected int maxZone;   //Distance maximale à laquelle un animal peut se deplacer en faisant rien.
+    /**
+     * Var : Distance maximale à laquelle un animal peut se deplacer en faisant rien
+     */
+    protected int maxZone;
 
+    //Constructeur de la classe
     public Animaux(int x, int y, Modele m) {
         super(x, y, m);
 

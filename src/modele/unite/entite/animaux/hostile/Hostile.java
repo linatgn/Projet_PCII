@@ -2,32 +2,46 @@ package modele.unite.entite.animaux.hostile;
 
 import modele.Modele;
 import modele.unite.Unite;
-import modele.unite.entite.Direction;
-import modele.unite.entite.Entite;
 import modele.unite.entite.animaux.Animaux;
 import modele.unite.entite.animaux.passif.Lapin;
 import modele.unite.entite.villageois.Tache;
 import modele.unite.entite.villageois.Villageois;
-import vue.panel.InfoPanel;
 
-import java.util.Random;
-
+//Classe qui definie les animaux hostiles
+//Extends Animaux car la classe est une classe fille de Animaux
 abstract public class Hostile extends Animaux {
 
-    protected int distanceAgro;
-    protected int maxZoneAgro;  //Distance max avant de perdre l'aggro.
+    /**
+     * Var : Distance actuel du focus
+     */
+    protected int distanceFocus;
+
+    /**
+     * Var : Distance max avant de perdre le focus
+     */
+    protected int maxZoneFocus;
+
+    /**
+     * Var : L'unite que le loup cible
+     */
     protected Unite uniteCiblee;
 
+    //Constructeur de la classe
     public Hostile(int x, int y, Modele m) {
         super(x, y, m);
 
-        distanceAgro = 3;
-        maxZoneAgro = 10;
+        distanceFocus = 3;
+        maxZoneFocus = 10;
     }
 
+    /**
+     * Update le comportement de l'animal en fonction de la tache
+     */
     public void update() {
+        //Verifie la tache attribue a l'animal
         switch(tache) {
             case RIEN:
+                //Verifie que il y'a aucune cible a trouver
                 if (!trouverCible()) {
                     deplacementAleatoire();
                 }
@@ -38,13 +52,19 @@ abstract public class Hostile extends Animaux {
         }
     }
 
+    /**
+     * Focus un lapin parmis la liste des Entite qui sont dans une distance de max de distanceFocus
+     * @return true si les conditions sont respecté, false sinon
+     */
     public boolean trouverCible() {
         for(int i = 0; i < M.listeEntite.size(); i++) {
+            //Verifie que l'entite est un villageois ou un lapin
             if (M.listeEntite.get(i) instanceof Villageois || M.listeEntite.get(i) instanceof Lapin) {
-                if (distance(M.listeEntite.get(i).getX(), M.listeEntite.get(i).getY(), x, y) <= distanceAgro) {
+                //Verifie que l'entite cible est dans la distanceFocus
+                if (distance(M.listeEntite.get(i).getX(), M.listeEntite.get(i).getY(), x, y) <= distanceFocus) {
                     uniteCible = M.listeEntite.get(i);
                     tache = Tache.ATTAQUE;
-                    System.out.println(M.listeEntite.get(i) + " a pris l'aggro du loup !" );
+                    System.out.println(M.listeEntite.get(i) + " a pris le focus du loup !" );
                     return true;
                 }
             }
