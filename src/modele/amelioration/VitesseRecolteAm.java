@@ -5,15 +5,22 @@ import modele.TypeBatiment.*;
 
 import static modele.TypeBatiment.HDV;
 
+//Classe qui a definir les ameliorations de la vitesse de recolte
+//Extends Amelioration car la classe est une classe fille de Amelioration
 public class VitesseRecolteAm extends Amelioration{
 
+    /**
+     * Var : la vitesse de recolte
+     */
     private double vitesseRecolte;
 
+    //Constructeur de la classe
     public VitesseRecolteAm(Modele m, int niveau, Amelioration amNec) {
         super(m);
         typeBatiment = HDV;
         this.amNec = amNec;
 
+        //En fonction du niveau les stats de cout de ressource augmente (niveau 1 ou 2)
         switch (niveau) {
             case 1:
                 coutNourriture = 200;
@@ -30,17 +37,16 @@ public class VitesseRecolteAm extends Amelioration{
                 niveauJoueur = 2;
                 break;
         }
-
     }
 
     @Override
     public boolean testCondition() {
+        //Verifie que la nourriture disponible est superieur au cout necessaire
         return (M.nourriture >= coutNourriture);
     }
 
     @Override
-    public void activer()
-    {
+    public void activer() {
         M.vitesseRecolte = vitesseRecolte;
         activer = true;
     }
