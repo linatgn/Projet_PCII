@@ -7,22 +7,33 @@ import vue.panel.InfoPanel;
 
 import javax.swing.*;
 
+//Classe qui a definir les améliorations
 abstract public class Amelioration {
+
     protected Modele M;
 
-    public TypeBatiment typeBatiment; // Type de batiment sur lequel on peut prendre l'amelioration
+    // Type de batiment sur lequel on peut prendre l'amelioration
+    public TypeBatiment typeBatiment;
+
 
     public int coutBois;
     public int coutPierre;
     public int coutNourriture;
     public int coutPopulation;
 
-    protected int niveauJoueur; // niveau du joueur necessaire pour avoir l'amelioration
-    protected Amelioration amNec; // amelioration necessaire pour avoir l'amelioration
+    // niveau du joueur necessaire pour avoir l'amelioration
+    protected int niveauJoueur;
+
+    // amelioration necessaire pour avoir l'amelioration
+    protected Amelioration amNec;
+
     protected boolean activer = false;
 
-    public int dureeAmelioration; // temps necessaire pour consommer l'amelioration
-    public int timerAmelioration = 0; // timer avant que l'amelioration soit consomee
+    // temps necessaire pour consommer l'amelioration
+    public int dureeAmelioration;
+
+    // timer avant que l'amelioration soit consomee
+    public int timerAmelioration = 0;
     public boolean timerLancer = false;
     public JProgressBar progressBar;
 
