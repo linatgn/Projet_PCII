@@ -4,15 +4,22 @@ import modele.Modele;
 
 import static modele.TypeBatiment.FERME;
 
+//Classe qui a definir les améliorations de la ferme
+//Extends Amelioration car la classe est une classe fille de Amelioration
 public class FermeAm extends Amelioration{
 
+    /**
+     * Var : La quantite de Ressource
+     */
     private int quantiteRessource;
 
+    //Constructeur de la classe
     public FermeAm(Modele m, int niveau, Amelioration amNec) {
         super(m);
         typeBatiment = FERME;
         this.amNec = amNec;
 
+        //En fonction du niveau les stats de ressource augmente (niveau 1 ou 2)
         switch (niveau) {
             case 1:
                 coutBois = 300;
@@ -39,6 +46,7 @@ public class FermeAm extends Amelioration{
 
     @Override
     public boolean testCondition() {
+        //Verifie que les ressources du joueur sont superieurs ou egalent au ressources necessaires
         return (M.bois >= coutBois &&
                 M.pierre >= coutPierre &&
                 M.nourriture >= coutNourriture &&
@@ -47,9 +55,7 @@ public class FermeAm extends Amelioration{
 
     @Override
     public void activer() {
-
         M.quantiteRessourceFerme = quantiteRessource;
-
         activer = true;
     }
 

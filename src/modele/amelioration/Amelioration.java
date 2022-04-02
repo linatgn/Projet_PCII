@@ -141,6 +141,10 @@ abstract public class Amelioration {
         }
     }
 
+    /**
+     *
+     * @return le nom voulu
+     */
     abstract public String getNom();
 
 }
