@@ -99,6 +99,7 @@ public class InfoPanel extends JPanel{
                 new ImageIcon("bois.png"),
                 new ImageIcon("pierre.png"),
                 new ImageIcon("nourriture.png"),
+                new ImageIcon("population.png"),
         };
 
         add(ressourceLabel);

@@ -24,11 +24,6 @@ abstract public  class Animaux extends Entite {
     protected int y_spawn;
 
     /**
-     *
-     */
-    protected Tache tache;
-
-    /**
      * Var : Distance maximale à laquelle un animal peut se deplacer en faisant rien
      */
     protected int maxZone;

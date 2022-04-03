@@ -41,7 +41,7 @@ public class RessourcePanel extends JPanel{
         ImageIcon boisIcon = new ImageIcon("bois.png");
         ImageIcon pierreIcon = new ImageIcon("pierre.png");
         ImageIcon nourritureIcon = new ImageIcon("nourriture.png");
-        ImageIcon populationIcon = new ImageIcon("personnage.png");
+        ImageIcon populationIcon = new ImageIcon("population.png");
 
 
         boisLabel = new JLabel("bois ", boisIcon,SwingConstants.LEFT);

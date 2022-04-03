@@ -4,6 +4,7 @@ import java.util.Queue;
 
 import modele.Modele;
 
+import modele.TypeBatiment;
 import modele.TypeRessource;
 
 
@@ -26,7 +27,6 @@ import java.util.Queue;
 import java.util.concurrent.SynchronousQueue;
 
 public class Villageois extends Entite {
-    Tache tache;
 
     public Villageois(int x, int y, Modele m) {
         super(x, y, m);
@@ -42,14 +42,45 @@ public class Villageois extends Entite {
 
         tache = Tache.RIEN;
 
+        M.population++;
+
     }
+
     @Override
     public String getNom() {
         return "Villageois";
     }
 
+    /**
+     * si le villageois est à cote de l'hdv il depose ses ressources
+     * sinon il commence a y aller.
+     * une fois qu'il depose ses ressources, il retourne recolter
+     */
     public void deposer() {
-       // System.out.println(quantiteRessource  + " " + "sont déposés");
+
+        if(estaCote(M.hdv)){
+            switch (typeRessource) {
+                case PIERRE -> {
+                    M.pierre += quantiteRessource;
+                }
+                case NOURRITURE -> {
+                    M.nourriture += quantiteRessource;
+                }
+
+                case BOIS -> {
+                    M.bois += quantiteRessource;
+                }
+            }
+            quantiteRessource = 0;
+            tache = Tache.RECOLTE;
+            M.V.infoPanel.afficherUniteSelectionnee();
+        }
+        else {
+            if (chemin.isEmpty()) {
+                calculerChemin(M.hdv.getX(), M.hdv.getY());
+            }
+            deplacer(chemin.pop());
+        }
     }
 
 
@@ -155,10 +186,8 @@ public class Villageois extends Entite {
                 break;
             case DEPLACE:
                 if (chemin.isEmpty()) {
-                    //calculerChemin()
-                }
-                else {
-                    deplacer(chemin.pop());
+                    if(!deplacer(chemin.pop()))
+                        tache = Tache.RIEN;
                 }
                 break;
             case CONSTRUIT:
@@ -170,5 +199,10 @@ public class Villageois extends Entite {
         }
     }
 
+    @Override
+    public void mourrir(){
+        super.mourrir();
+        M.population--;
+    }
 }
 

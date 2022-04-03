@@ -6,6 +6,7 @@ import modele.Modele;
 import modele.unite.Unite;
 
 import modele.unite.entite.animaux.Animaux;
+import modele.unite.entite.villageois.Tache;
 import modele.unite.structure.Recoltable;
 import vue.panel.InfoPanel;
 
@@ -22,6 +23,10 @@ abstract public  class  Entite extends Unite {
     public int attaque;
     public int defense;
 
+    /**
+     * tache: Action que l'entite est en train de realiser
+     */
+    protected Tache tache;
 
     public Stack<Direction> chemin;
 
@@ -134,7 +139,6 @@ abstract public  class  Entite extends Unite {
                                     estDansOpen = true;
                                     break;
                                 }
-
                             }
                             if(!estDansOpen) {
                                 v.heuristique = v.cout + Math.sqrt(Math.pow(arrive.x - v.x, 2) + Math.pow(arrive.y - v.y, 2));
@@ -144,6 +148,8 @@ abstract public  class  Entite extends Unite {
                         }
                     }
                 }
+
+                // on ajoute le noeud a la liste de noeud verifie
                 closedList.add(u);
             }
 
@@ -206,22 +212,23 @@ abstract public  class  Entite extends Unite {
 
    public void attaquer(Entite cible){
        if (cible == null ) {
+            tache = Tache.RIEN;
        }
-     //   else if(cible.estACote(this)){
-       else  cible.subirDegat(attaque);
-       // }
-        /* else {
-           calculerChemin(cible);
-           deplacer(chemin.get(0));
-           }
-            */
-
+       else if(estaCote(cible)){
+           cible.subirDegat(attaque);
+           if(cible == null)
+               tache = Tache.RIEN;
+       }
+       else{
+           calculerChemin(cible.getX(),cible.getY());
+           deplacer(chemin.pop());
+       }
     }
 
     // methode qui enleve les points de vie de l'entité cible et supprime l'entité si pv=0
 
     public void subirDegat(int degat){
-        if (defense<= degat) {
+        if (defense>= degat) {
             degat = 1;
         }
         else degat = degat-defense;
@@ -229,13 +236,7 @@ abstract public  class  Entite extends Unite {
         pv = pv-degat;
 
         if(pv<= 0) {
-            if (M.uniteSelectionnee == this) {
-                M.uniteSelectionnee = null;
-                M.V.infoPanel.afficherUniteSelectionnee();
-
-            }
-                M.grille.getTuille(x, y).solid = false;
-                M.unites[x][y] = null;
+            mourrir();
         }
         else {
             if (M.uniteSelectionnee == this)
@@ -243,7 +244,16 @@ abstract public  class  Entite extends Unite {
         }
     }
 
+    public void mourrir(){
+        if (M.uniteSelectionnee == this) {
+            M.uniteSelectionnee = null;
+            M.V.infoPanel.afficherUniteSelectionnee();
+        }
 
+        M.grille.getTuille(x, y).solid = false;
+        M.unites[x][y] = null;
+        M.listeEntite.remove(this);
+    }
 }
 
 

@@ -53,7 +53,6 @@ public class Timer extends Thread {
                 while(compteur >= 1000/TICKRATE) {
                     tick+=1;
                     compteur -= 1000/TICKRATE;
-                    System.out.println("update");
                     M.update();
                 }
                 Thread.sleep(RAND.nextInt(50));
