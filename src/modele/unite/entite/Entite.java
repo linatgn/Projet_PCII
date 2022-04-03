@@ -211,8 +211,11 @@ abstract public  class  Entite extends Unite {
     // méthode qui vérifie si une attaque est possible et la déclenche si oui
 
    public void attaquer(Entite cible){
-       if (cible == null ) {
+       if (cible == null) {
             tache = Tache.RIEN;
+       }
+       else if (cible.getPv() <= 0) {
+           tache = Tache.RIEN;
        }
        else if(estaCote(cible)){
            cible.subirDegat(attaque);
@@ -220,8 +223,10 @@ abstract public  class  Entite extends Unite {
                tache = Tache.RIEN;
        }
        else{
-           calculerChemin(cible.getX(),cible.getY());
-           deplacer(chemin.pop());
+           if(chemin.isEmpty())
+               calculerChemin(cible.getX(),cible.getY());
+           else if(deplacer(chemin.pop()))
+               calculerChemin(cible.getX(),cible.getY());
        }
     }
 
@@ -253,6 +258,10 @@ abstract public  class  Entite extends Unite {
         M.grille.getTuille(x, y).solid = false;
         M.unites[x][y] = null;
         M.listeEntite.remove(this);
+    }
+
+    public int getPv() {
+        return pv;
     }
 }
 

@@ -2,6 +2,7 @@ package modele.unite.entite.animaux.hostile;
 
 import modele.Modele;
 import modele.unite.Unite;
+import modele.unite.entite.Entite;
 import modele.unite.entite.animaux.Animaux;
 import modele.unite.entite.animaux.passif.Lapin;
 import modele.unite.entite.villageois.Tache;
@@ -24,7 +25,7 @@ abstract public class Hostile extends Animaux {
     /**
      * Var : L'unite que le loup cible
      */
-    protected Unite uniteCiblee;
+    protected Entite uniteCiblee;
 
     //Constructeur de la classe
     public Hostile(int x, int y, Modele m) {
@@ -47,8 +48,15 @@ abstract public class Hostile extends Animaux {
                 }
                 break;
             case ATTAQUE:
-                //attaquer cible unitée
+                attaquer((Entite) uniteCible);
+                if(distance(x_spawn,y_spawn,uniteCiblee.getX(),uniteCiblee.getY()) > distanceFocus)
+                    tache = Tache.RETOUR;
                 break;
+            case RETOUR:
+                if(chemin.isEmpty())
+                    calculerChemin(x_spawn,y_spawn);
+                else if(!deplacer(chemin.pop()))
+                    calculerChemin(x_spawn,y_spawn);
         }
     }
 

@@ -14,6 +14,8 @@ public class Hdv extends Batiment {
         largeur = 2;
         hauteur = 2;
 
+        enConstruction = false;
+
         typeBatiment = TypeBatiment.HDV;
     }
 

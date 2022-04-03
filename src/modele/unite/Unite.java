@@ -26,6 +26,8 @@ abstract public class Unite {
         this.y = y;
         this.M = m;
 
+        M.unites[x][y] = this;
+
         M.grille.getTuille(x,y).solid = true;
     }
 
@@ -34,73 +36,82 @@ abstract public class Unite {
     public boolean deplacer(Direction d) {
         switch (d) {
             case HAUT:
+
+                if (x == 0)
+                    return false;
+
                 if (M.grille.getTuille(x - 1, y).solid)
                     return false;
-                else {
 
-                    // Deplacement dans unites
-                    M.unites[x - 1][y] = this;
-                    M.unites[x][y] = null;
+                // Deplacement dans unites
+                M.unites[x - 1][y] = this;
+                M.unites[x][y] = null;
 
-                    // Modification des tuilles
-                    M.grille.getTuille(x - 1, y).solid = true;
-                    M.grille.getTuille(x, y).solid = false;
+                // Modification des tuilles
+                M.grille.getTuille(x - 1, y).solid = true;
+                M.grille.getTuille(x, y).solid = false;
 
-                    // mise a jour des coordonnées dans l'unite
-                    x = x - 1;
-                    return true;
-                }
+                // mise a jour des coordonnées dans l'unite
+                x = x - 1;
+                return true;
 
             case BAS:
+
+                if (x == M.grille.HAUTEUR)
+                    return false;
+
                 if(M.grille.getTuille(x+1,y).solid )
                     return false;
-                else{
-                    // Deplacement dans unites
-                    M.unites[x + 1][y] = this;
-                    M.unites[x][y] = null;
 
-                    // Modification des tuilles
-                    M.grille.getTuille(x + 1, y).solid = true;
-                    M.grille.getTuille(x, y).solid = false;
+                // Deplacement dans unites
+                M.unites[x + 1][y] = this;
+                M.unites[x][y] = null;
 
-                    // mise a jour des coordonnées dans l'unite
-                    x = x + 1;
-                    return true;
-                }
+                // Modification des tuilles
+                M.grille.getTuille(x + 1, y).solid = true;
+                M.grille.getTuille(x, y).solid = false;
+
+                // mise a jour des coordonnées dans l'unite
+                x = x + 1;
+                return true;
 
             case DROITE:
+                if (y == M.grille.LARGEUR)
+                    return false;
+
                 if(M.grille.getTuille(x,y+1).solid )
                     return false;
-                else{
-                    // Deplacement dans unites
-                    M.unites[x][y+1] = this;
-                    M.unites[x][y] = null;
+                // Deplacement dans unites
+                M.unites[x][y+1] = this;
+                M.unites[x][y] = null;
 
-                    // Modification des tuilles
-                    M.grille.getTuille(x, y+1).solid = true;
-                    M.grille.getTuille(x, y).solid = false;
+                // Modification des tuilles
+                M.grille.getTuille(x, y+1).solid = true;
+                M.grille.getTuille(x, y).solid = false;
 
-                    // mise a jour des coordonnées dans l'unite
-                    y=y+1;
-                    return true;
-                }
+                // mise a jour des coordonnées dans l'unite
+                y=y+1;
+                return true;
+
             case GAUCHE:
+
+                if (y == 0)
+                    return false;
+
                 if(M.grille.getTuille(x,y-1).solid )
                     return false;
-                else{
-                    // Deplacement dans unites
-                    M.unites[x][y-1] = this;
-                    M.unites[x][y] = null;
 
-                    // Modification des tuilles
-                    M.grille.getTuille(x, y-1).solid = true;
-                    M.grille.getTuille(x, y).solid = false;
+                // Deplacement dans unites
+                M.unites[x][y-1] = this;
+                M.unites[x][y] = null;
 
-                    // mise a jour des coordonnées dans l'unite
-                    y = y-1;
-                    return true;
+                // Modification des tuilles
+                M.grille.getTuille(x, y-1).solid = true;
+                M.grille.getTuille(x, y).solid = false;
 
-                }
+                // mise a jour des coordonnées dans l'unite
+                y = y-1;
+                return true;
         }
         return false;
 

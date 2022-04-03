@@ -7,7 +7,7 @@ public class Eau extends Tuille{
     //Constructeur de la classe
     public Eau(int x, int y) {
         super(x, y);
-        solid = false;
+        solid = true;
         x_texture = 1;
         y_texture = 0;
     }

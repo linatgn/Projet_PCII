@@ -24,8 +24,8 @@ public abstract class Batiment extends Structure {
         this.x = x;
         this.y = y;
 
-        x_texture = 3;
-        y_texture = 0;
+        x_texture = 4;
+        y_texture = 2;
 
         enConstruction = true;
     }
@@ -44,6 +44,7 @@ public abstract class Batiment extends Structure {
         if(tickActuel < tickRequis){
             tickActuel++;
             System.out.println(tickActuel);
+            return true;
         } else if(tickActuel == tickRequis && enConstruction == true){
             enConstruction = false;
             activerBatiment();

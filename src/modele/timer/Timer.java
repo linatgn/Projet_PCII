@@ -19,7 +19,7 @@ public class Timer extends Thread {
     /**
      * Const : Nombre de tick par seconde
      */
-    public final int TICKRATE = 2;
+    public final int TICKRATE = 3;
 
     /**
      * Var : Nombre de tick passe

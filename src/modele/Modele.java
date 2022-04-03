@@ -67,20 +67,23 @@ public class Modele {
 
         listeEntite = new ArrayList<>();
 
-        grille = new Grille();
+        grille = new Grille(this);
         unites = new Unite[Grille.HAUTEUR][Grille.LARGEUR];
 
-        unites[0][0] = new Ferme(0,0,this);
-        unites[Grille.HAUTEUR/2][Grille.LARGEUR/2] = new Hdv(Grille.HAUTEUR/2,Grille.LARGEUR/2,this);
-        hdv = (Hdv) unites[Grille.HAUTEUR/2][Grille.LARGEUR/2];
-        unites[1][1] = new Maison(1,1,this);
-        unites[2][2] = new Rocher(2,2,this);
-        unites[3][3] = new Arbre(3,3,this);
+        grille.construireGrille();
 
-        unites[6][6] = new Villageois(6,6, this);
-        vil = (Villageois) unites[6][6];
-        unites[6][24] = new Lapin(6,24, this);
-        unites[24][6] = new Loup(24,6, this);
+        new Ferme(0,0,this);
+        new Hdv(Grille.HAUTEUR/2,Grille.LARGEUR/2,this);
+        hdv = (Hdv) unites[Grille.HAUTEUR/2][Grille.LARGEUR/2];
+        new Maison(1,1,this);
+        new Rocher(2,2,this);
+        new Arbre(3,3,this);
+
+        new Villageois(6,6, this);
+        new Villageois(6,7, this);
+        new Villageois(6,8, this);
+        new Lapin(6,24, this);
+        new Loup(24,6, this);
 
         // Ajout des ameliorations disponible
 
@@ -118,8 +121,11 @@ public class Modele {
     }
   
     public void update() {
-        for (Unite u : listeEntite)
-            u.update();
+
+        // update des entitees
+        for(int i=0; i < listeEntite.size(); i++) {
+            listeEntite.get(i).update();
+        }
 
         // reduction des timers des ameliorations en cours de developpement
 
