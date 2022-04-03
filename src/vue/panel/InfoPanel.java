@@ -67,7 +67,6 @@ public class InfoPanel extends JPanel{
 
         // ImagePanel
         imageLabel = new JLabel();
-        int padding = 10;
         imageLabel.setAlignmentX(CENTER_ALIGNMENT);
         ImageIcon = new ImageIcon();
         add(imageLabel);
@@ -194,6 +193,7 @@ public class InfoPanel extends JPanel{
                             ameliorationPanel.setBackground(Color.CYAN);
 
                         ameliorationPanel.setLayout(new BorderLayout());
+                        ameliorationPanel.setSize(new Dimension(LARGEUR,60));
                         ameliorationPanel.setMaximumSize(new Dimension(LARGEUR,60));
 
                         //nom
@@ -206,7 +206,7 @@ public class InfoPanel extends JPanel{
                         coutPanel.add(new JLabel( String.valueOf(amelioration.coutBois), ressourceIcon[0], SwingConstants.LEFT));
                         coutPanel.add(new JLabel( String.valueOf(amelioration.coutPierre), ressourceIcon[1], SwingConstants.LEFT));
                         coutPanel.add(new JLabel( String.valueOf(amelioration.coutNourriture), ressourceIcon[2], SwingConstants.LEFT));
-                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutPopulation), ressourceIcon[2], SwingConstants.LEFT));
+                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutPopulation), ressourceIcon[3], SwingConstants.LEFT));
 
                         // barre de progression
                         JProgressBar timerAmelioration = new JProgressBar(0,amelioration.dureeAmelioration);

@@ -41,7 +41,7 @@ public class Modele {
     public int bois = 1000;
     public int pierre = 1000;
     public int nourriture = 1000;
-    public int population = 10; // nombre de villagois
+    public int population = 0; // nombre de villagois
 
     // statistique ameliorable
 
