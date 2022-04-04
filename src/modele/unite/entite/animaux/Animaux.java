@@ -14,12 +14,12 @@ import java.util.Random;
 abstract public  class Animaux extends Entite {
 
     /**
-     *
+     * Coordonee x de l'apparition de l'animal
      */
     protected int x_spawn;
 
     /**
-     *
+     * Coordonee y de l'apparition de l'animal
      */
     protected int y_spawn;
 
@@ -42,6 +42,9 @@ abstract public  class Animaux extends Entite {
         maxZone = 4;
     }
 
+    /**
+     * Update le comportement et le deplacement des animaux
+     */
     public void update() {
         switch(tache) {
             case RIEN:
@@ -50,12 +53,16 @@ abstract public  class Animaux extends Entite {
         }
     }
 
+    /**
+     * Effectue un deplacement aleatoire
+     */
     public void deplacementAleatoire() {
         int i = new Random().nextInt(99);
         if (i >= 90) {
             int nx = 0, ny = 0;
             i = new Random().nextInt(4);
             switch(i) {
+                //Deplacement aleatoire vers le haut
                 case 0:
                     nx = x - 1;
                     ny = y;
@@ -63,6 +70,7 @@ abstract public  class Animaux extends Entite {
                         deplacer(Direction.HAUT);
                     }
                     break;
+                //Deplacement aleatoire vers le bas
                 case 1:
                     nx = x + 1;
                     ny = y;
@@ -70,6 +78,7 @@ abstract public  class Animaux extends Entite {
                         deplacer(Direction.BAS);
                     }
                     break;
+                //Deplacement aleatoire vers la droite
                 case 2:
                     nx = x;
                     ny = y + 1;
@@ -77,6 +86,7 @@ abstract public  class Animaux extends Entite {
                         deplacer(Direction.DROITE);
                     }
                     break;
+                //Deplacement aleatoire vers la gauche
                 case 3:
                     nx = x;
                     ny = y - 1;
@@ -88,6 +98,14 @@ abstract public  class Animaux extends Entite {
         }
     }
 
+    /**
+     * Renvoie la distance entre deux points
+     * @param x1 Coordonee x du premier point
+     * @param y1 Coordonee y du premier point
+     * @param x2 Coordonee x du second point
+     * @param y2 Coordonee y du second point
+     * @return distance
+     */
     public double distance(int x1, int y1, int x2, int y2) {
         return Math.sqrt((Math.pow(x2 - x1, 2)) + (Math.pow(y2 - y1, 2)));
     }
