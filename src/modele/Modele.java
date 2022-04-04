@@ -21,7 +21,9 @@ import modele.unite.entite.villageois.Villageois;
 import vue.Vue;
 
 import modele.grille.Grille;
+import vue.panel.InfoPanel;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Modele {
@@ -31,6 +33,8 @@ public class Modele {
     public  Unite[][] unites;
     public  Unite uniteSelectionnee;
     public ArrayList<Entite> listeEntite;
+    public TypeBatiment batimentaConstruire;
+    public boolean modeConstruction = true;
 
     public Hdv hdv;
 
@@ -138,6 +142,15 @@ public class Modele {
         V.jeuPanel.repaint();
 
 
+    }
+
+    public boolean siVillageois() {
+        if (uniteSelectionnee instanceof Villageois) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     // Lance le jeu
