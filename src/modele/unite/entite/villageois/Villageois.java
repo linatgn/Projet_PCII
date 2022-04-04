@@ -26,11 +26,21 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.SynchronousQueue;
 
+//Classe qui definie les villageois
+//Extends Entite car la classe est une classe fille de Entite
 public class Villageois extends Entite {
 
+    /**
+     * Var : Nouvelle coordonnee x apres deplacement
+     */
     private int x_deplace;
+
+    /**
+     * Var : Nouvelle coordonnee y apres deplacement
+     */
     private int y_deplace;
 
+    //Constructeur de la classe
     public Villageois(int x, int y, Modele m) {
         super(x, y, m);
         x_texture = 6;
@@ -45,7 +55,6 @@ public class Villageois extends Entite {
 
         tache = Tache.RIEN;
 
-
         M.population++;
 
     }
@@ -56,7 +65,7 @@ public class Villageois extends Entite {
     }
 
     /**
-     * si le villageois est à cote de l'hdv il depose ses ressources
+     * si le villageois est a cote de l'hdv il depose ses ressources
      * sinon il commence a y aller.
      * une fois qu'il depose ses ressources, il retourne recolter
      */
@@ -89,30 +98,44 @@ public class Villageois extends Entite {
     }
 
 
-
+    /**
+     * Recupere le type de la cible et effectue des actions en consequences
+     * @param x Coordonnee x de la cible
+     * @param y Coordonnee y de la cible
+     */
     public void cible(int x, int y) {
 
+        //Recuperation de l'unite au coordonnee donnee
         Unite cible = M.unites[x][y];
+        //Verifie que la cible est un animal
         if (cible instanceof Animaux) {
+            //Le villageois attaque l'animal
             tache = Tache.ATTAQUE;
         }
+        //Verifie que la cible est une case vide
         else if (cible == null) {
+            //Le villageois se deplace uniquement sur la case vide
             x_deplace = x;
             y_deplace = y;
             calculerChemin(x_deplace,y_deplace);
             tache = Tache.DEPLACE;
         }
+        //Verifie que la cible est un batiment
         else if (cible instanceof Batiment) {
+            //Verifie que le batiment est en construction et continue a construire si c'est le cas
             if (((Batiment)cible).getEnConstruction()) {
                 tache = Tache.CONSTRUIT;
             }
+            //Verifie que le batiment est un HDV et depose ses ressourves
             else if (cible instanceof Hdv && quantiteRessource > 0) {
                 tache = Tache.DEPOSER;
             }
-            else if (cible instanceof Recoltable) { // cas des batiments constructible recoltable
+            //Verifie que le batiment est un recoltable et commence a recolter les ressources
+            else if (cible instanceof Recoltable) {
                 tache = Tache.RECOLTE;
             }
         }
+        //Verifie que le cible est un recoltable
         else if (cible instanceof Recoltable) {
             tache = Tache.RECOLTE;
         }
@@ -123,8 +146,10 @@ public class Villageois extends Entite {
     }
 
 
-
-
+    /**
+     * Recolte les ressources du recoltable cible
+     * @param cible La cible qui est un recoltable
+     */
     public void recolte(Recoltable cible){
         if(cible == null){
             tache = Tache.RIEN;
