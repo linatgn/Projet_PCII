@@ -21,6 +21,7 @@ public class FermeAm extends Amelioration{
 
         //En fonction du niveau les stats de ressource augmente (niveau 1 ou 2)
         switch (niveau) {
+            //Ferme Niveau 1
             case 1:
                 coutBois = 300;
                 coutPierre = 300;
@@ -31,6 +32,7 @@ public class FermeAm extends Amelioration{
                 niveauJoueur = 1;
                 quantiteRessource = 500;
                 break;
+            //Ferme Niveau 2
             case 2:
                 coutBois = 500;
                 coutPierre = 500;
