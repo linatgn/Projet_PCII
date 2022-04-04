@@ -32,7 +32,7 @@ public class Grille {
     }
 
     /**
-     * Construit la grille de jeu de façon prédéfini
+     * Construit la grille de jeu de facon predefini
      */
     public void construireGrille(){
         // Initialisation des tuilles
