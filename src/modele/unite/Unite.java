@@ -26,6 +26,10 @@ abstract public class Unite {
         this.y = y;
         this.M = m;
 
+        if(M.grille.getTuille(x,y).solid) {
+            System.out.println("imposible de creer " + this + " : la case est solide");
+            return;
+        }
         M.unites[x][y] = this;
 
         M.grille.getTuille(x,y).solid = true;

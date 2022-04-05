@@ -49,7 +49,7 @@ abstract public class Hostile extends Animaux {
                 break;
             case ATTAQUE:
                 attaquer((Entite) uniteCible);
-                if(distance(x_spawn,y_spawn,uniteCiblee.getX(),uniteCiblee.getY()) > distanceFocus)
+                if(distance(x_spawn,y_spawn,x,y) > distanceFocus)
                     tache = Tache.RETOUR;
                 break;
             case RETOUR:

@@ -142,10 +142,10 @@ public class Villageois extends Entite {
                 if(estaCote(((Unite)cible))) {
                     if(quantiteRessource + M.vitesseRecolte >= M.stockageVillagois){
                         quantiteRessource += cible.enlever(M.stockageVillagois-quantiteRessource);
-                        M.V.infoPanel.afficherUniteSelectionnee();
+                        if(M.uniteSelectionnee == this) M.V.infoPanel.afficherUniteSelectionnee();
                     } else if (quantiteRessource + M.vitesseRecolte < M.stockageVillagois){
                         quantiteRessource += cible.enlever(M.vitesseRecolte);
-                        M.V.infoPanel.afficherUniteSelectionnee();
+                        if(M.uniteSelectionnee == this) M.V.infoPanel.afficherUniteSelectionnee();
                     }
                 }
                 else {
@@ -161,8 +161,10 @@ public class Villageois extends Entite {
                 typeRessource = ((Unite)cible).typeRessource;
                 if(quantiteRessource + M.vitesseRecolte >= M.stockageVillagois){
                     quantiteRessource += cible.enlever(M.stockageVillagois-quantiteRessource);
+                    if(M.uniteSelectionnee == this) M.V.infoPanel.afficherUniteSelectionnee();
                 } else if (quantiteRessource + M.vitesseRecolte < M.stockageVillagois){
                     quantiteRessource += cible.enlever(M.vitesseRecolte);
+                    if(M.uniteSelectionnee == this) M.V.infoPanel.afficherUniteSelectionnee();
                 }
             }
             else {
