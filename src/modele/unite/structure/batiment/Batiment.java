@@ -34,8 +34,6 @@ public abstract class Batiment extends Structure {
         return enConstruction;
     }
 
-
-
     /**
      * augmente le niveau de construction du batiment
      * @return true si le batiment a fini de se construire sinon false
@@ -43,7 +41,6 @@ public abstract class Batiment extends Structure {
     public boolean seConstruire(){
         if(tickActuel < tickRequis){
             tickActuel++;
-            System.out.println(tickActuel);
             return true;
         } else if(tickActuel == tickRequis && enConstruction == true){
             enConstruction = false;

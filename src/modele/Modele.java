@@ -87,15 +87,16 @@ public class Modele {
 
         // Ajout des ameliorations disponible
 
-        ameliorations = new Amelioration[8];
-        ameliorations[0] = new VitesseRecolteAm(this,1, null);
-        ameliorations[1] = new VitesseRecolteAm(this,2, ameliorations[0]);
-        ameliorations[2] = new NiveauAm(this,0,null);
-        ameliorations[3] = new NiveauAm(this,1,ameliorations[2]);
-        ameliorations[4] = new FermeAm(this,1,null);
-        ameliorations[5] = new FermeAm(this,2,ameliorations[4]);
-        ameliorations[6] = new StockageVillageoisAm(this,1,null);
-        ameliorations[7] = new StockageVillageoisAm(this,2,ameliorations[6]);
+        ameliorations = new Amelioration[9];
+        ameliorations[0] = new CreerVillageois(this,1, null);
+        ameliorations[1] = new VitesseRecolteAm(this,1, null);
+        ameliorations[2] = new VitesseRecolteAm(this,2, ameliorations[1]);
+        ameliorations[3] = new NiveauAm(this,0,null);
+        ameliorations[4] = new NiveauAm(this,1,ameliorations[3]);
+        ameliorations[5] = new FermeAm(this,1,null);
+        ameliorations[6] = new FermeAm(this,2,ameliorations[5]);
+        ameliorations[7] = new StockageVillageoisAm(this,1,null);
+        ameliorations[8] = new StockageVillageoisAm(this,2,ameliorations[7]);
 
         ameliorationsEnCours = new ArrayList<>();
     }
