@@ -38,9 +38,9 @@ public class Modele {
 
     // Ressource
 
-    public int bois = 1000;
-    public int pierre = 1000;
-    public int nourriture = 1000;
+    public double bois = 1000;
+    public double pierre = 1000;
+    public double nourriture = 1000;
     public int population = 0; // nombre de villagois
 
     // statistique ameliorable
@@ -53,14 +53,15 @@ public class Modele {
     public int attaqueVillageois = 3;
     public int defenseVillageois = 0;
     public int quantiteRessourceFerme = 300;
-    public int Cout_Nourriture_Tick = 2; //nombre de nourriture retiré pour un villageois à chaque tick
+    public double Cout_Nourriture_Tick = 0.1; //nombre de nourriture retiré pour un villageois à chaque tick
 
     // Amelioration
 
     public Amelioration[] ameliorations;
     public ArrayList<Amelioration> ameliorationsEnCours;
 
-    Villageois vil;
+    public int coutVillageois;
+
 
     public Modele(Vue v){
         V = v;
@@ -115,7 +116,7 @@ public class Modele {
     }
 
     public boolean TestPerdu(){
-        if(population == 0 && (nourriture < (Cout_Nourriture_Tick * population))){
+        if(population == 0 && (nourriture < coutVillageois)){
             return true;
         }
         return false;

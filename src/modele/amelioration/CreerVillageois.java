@@ -5,7 +5,7 @@ import modele.unite.entite.villageois.Villageois;
 
 import static modele.TypeBatiment.HDV;
 
-//Classe qui definie les ameliorations de la ferme
+//Ammelioration qui sert a creer un villageois
 //Extends Amelioration car la classe est une classe fille de Amelioration
 public class CreerVillageois extends Amelioration{
 
@@ -18,7 +18,7 @@ public class CreerVillageois extends Amelioration{
         //En fonction du niveau les stats de ressource augmente (niveau 1 ou 2)
         switch (niveau) {
             case 1:
-                coutNourriture = 50;
+                coutNourriture = M.coutVillageois;
                 dureeAmelioration = 20;
 
                 niveauJoueur = 0;

@@ -36,16 +36,16 @@ public class InfoPanel extends JPanel{
     private ImageIcon ImageIcon;
     private int paddingImage = 30;
 
-    private JPanel statPanel;
+    public JPanel statPanel;
     private JLabel pvLabel;
     private JLabel attaqueLabel;
     private JLabel defenseLabel;
     private ImageIcon statIcon[];
 
-    private JLabel ressourceLabel;
+    public JLabel ressourceLabel;
     private ImageIcon ressourceIcon[];
 
-    private JPanel ameliorationsPanel;
+    public JPanel ameliorationsPanel;
 
 
     public InfoPanel(Modele m, Vue v){
@@ -180,6 +180,7 @@ public class InfoPanel extends JPanel{
                 ressourceLabel.setVisible(false);
             }
 
+            // Amelioration
             if(M.uniteSelectionnee instanceof Batiment) {
 
                 ameliorationsPanel.removeAll();

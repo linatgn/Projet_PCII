@@ -38,7 +38,7 @@ public class ControleAmelioration implements MouseListener {
         // si click gauche sur la jeuPanel
         if (SwingUtilities.isLeftMouseButton(e)) {
             //Verifie que l'amelioration est possible
-            if(AMELIORATION.testCondition()){
+            if(AMELIORATION.testCondition() && !AMELIORATION.timerLancer){
                 //Lance un timer et set le panel de la couleur cyan
                 AMELIORATION.lancerTimer();
                 AMELIORATION_PANEL.setBackground(Color.CYAN);
