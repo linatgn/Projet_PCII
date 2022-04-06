@@ -38,12 +38,16 @@ public class ControleJeu implements MouseListener {
             int y = e.getY();
             if (modele.modeConstruction) {
                 if (modele.grille.getTuille(y / Tuille.TAILLE_TUILLE, x / Tuille.TAILLE_TUILLE).solid == false) {
-                    switch (modele.batimentaConstruire) {
+                    switch (modele.batimentAConstruire) {
                         case MAISON:
                             modele.uniteSelectionnee.uniteCible = new Maison(y / Tuille.TAILLE_TUILLE, x / Tuille.TAILLE_TUILLE, modele);
+                            modele.bois -= Maison.COUT_BOIS;
+                            modele.pierre -= Maison.COUT_PIERRE;
                             break;
                         case FERME:
                             modele.uniteSelectionnee.uniteCible = new Ferme(y / Tuille.TAILLE_TUILLE, x / Tuille.TAILLE_TUILLE, modele);
+                            modele.bois -= Ferme.COUT_BOIS;
+                            modele.pierre -= Ferme.COUT_PIERRE;
                             break;
                     }
                     ((Villageois) modele.uniteSelectionnee).setTache(Tache.CONSTRUIT);
