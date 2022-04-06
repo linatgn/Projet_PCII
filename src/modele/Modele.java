@@ -38,9 +38,9 @@ public class Modele {
 
     // Ressource
 
-    public int bois = 1000;
-    public int pierre = 1000;
-    public int nourriture = 1000;
+    public double bois = 1000;
+    public double pierre = 1000;
+    public double nourriture = 1000;
     public int population = 0; // nombre de villagois
 
     // statistique ameliorable
@@ -53,7 +53,7 @@ public class Modele {
     public int attaqueVillageois = 3;
     public int defenseVillageois = 0;
     public int quantiteRessourceFerme = 300;
-    public int Cout_Nourriture_Tick = 2; //nombre de nourriture retiré pour un villageois à chaque tick
+    public double Cout_Nourriture_Tick = 0.1; //nombre de nourriture retiré pour un villageois à chaque tick
 
     // Amelioration
 
@@ -62,7 +62,10 @@ public class Modele {
     public TypeBatiment batimentaConstruire;
     public boolean modeConstruction;
 
-    Villageois vil;
+    public int coutVillageois;
+
+    public boolean modeConstruction;
+    public TypeBatiment batimentAConstruire;
 
     public Modele(Vue v){
         V = v;
@@ -89,15 +92,16 @@ public class Modele {
 
         // Ajout des ameliorations disponible
 
-        ameliorations = new Amelioration[8];
-        ameliorations[0] = new VitesseRecolteAm(this,1, null);
-        ameliorations[1] = new VitesseRecolteAm(this,2, ameliorations[0]);
-        ameliorations[2] = new NiveauAm(this,0,null);
-        ameliorations[3] = new NiveauAm(this,1,ameliorations[2]);
-        ameliorations[4] = new FermeAm(this,1,null);
-        ameliorations[5] = new FermeAm(this,2,ameliorations[4]);
-        ameliorations[6] = new StockageVillageoisAm(this,1,null);
-        ameliorations[7] = new StockageVillageoisAm(this,2,ameliorations[6]);
+        ameliorations = new Amelioration[9];
+        ameliorations[0] = new CreerVillageois(this,1, null);
+        ameliorations[1] = new VitesseRecolteAm(this,1, null);
+        ameliorations[2] = new VitesseRecolteAm(this,2, ameliorations[1]);
+        ameliorations[3] = new NiveauAm(this,0,null);
+        ameliorations[4] = new NiveauAm(this,1,ameliorations[3]);
+        ameliorations[5] = new FermeAm(this,1,null);
+        ameliorations[6] = new FermeAm(this,2,ameliorations[5]);
+        ameliorations[7] = new StockageVillageoisAm(this,1,null);
+        ameliorations[8] = new StockageVillageoisAm(this,2,ameliorations[7]);
 
         ameliorationsEnCours = new ArrayList<>();
     }
@@ -116,7 +120,7 @@ public class Modele {
     }
 
     public boolean TestPerdu(){
-        if(population == 0 && (nourriture < (Cout_Nourriture_Tick * population))){
+        if(population == 0 && (nourriture < coutVillageois)){
             return true;
         }
         return false;

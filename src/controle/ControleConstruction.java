@@ -1,8 +1,8 @@
 package controle;
 
 import modele.Modele;
+import modele.TypeBatiment;
 import modele.amelioration.Amelioration;
-import vue.Vue;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,23 +11,25 @@ import java.awt.event.MouseListener;
 
 //Classe qui va servir controler les améliorations
 //implements MouseListener car les améliorations sont fait où le click a été fait
-public class ControleAmelioration implements MouseListener {
+public class ControleConstruction implements MouseListener {
 
     /**
      * Const : Declaration d'une amelioration
      */
-    private final Amelioration AMELIORATION;
+    private final TypeBatiment BATIMENT;
 
     /**
      * Const : Panel s'occupant de l'affichage des ameliorations
      */
-    private final JPanel AMELIORATION_PANEL;
+    private final JPanel CONSTRUCTION_PANEL;
 
+    private final Modele M;
 
     //Constructeur de la classe
-    public ControleAmelioration(JPanel ap, Amelioration a) {
-        AMELIORATION = a;
-        AMELIORATION_PANEL = ap;
+    public ControleConstruction(JPanel cp, TypeBatiment tp, Modele m) {
+        BATIMENT = tp;
+        CONSTRUCTION_PANEL = cp;
+        M = m;
     }
 
     /**
@@ -37,12 +39,8 @@ public class ControleAmelioration implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         // si click gauche sur la jeuPanel
         if (SwingUtilities.isLeftMouseButton(e)) {
-            //Verifie que l'amelioration est possible
-            if(AMELIORATION.testCondition() && !AMELIORATION.timerLancer){
-                //Lance un timer et set le panel de la couleur cyan
-                AMELIORATION.lancerTimer();
-                AMELIORATION_PANEL.setBackground(Color.CYAN);
-            }
+            M.batimentAConstruire = BATIMENT;
+            M.modeConstruction = true;
         }
     }
 
@@ -60,10 +58,7 @@ public class ControleAmelioration implements MouseListener {
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-        //Verifie que le timer de l'amelioration n'est pas encore lance
-        if(!AMELIORATION.timerLancer)
-            //Modifie la couleur du panel en blanc
-            AMELIORATION_PANEL.setBackground(Color.WHITE);
+        CONSTRUCTION_PANEL.setBackground(Color.WHITE);
     }
 
 
@@ -73,9 +68,6 @@ public class ControleAmelioration implements MouseListener {
      */
     @Override
     public void mouseExited(MouseEvent e) {
-        //Verifie que le timer de l'amelioration n'est pas encore lance
-        if(!AMELIORATION.timerLancer)
-            //Modifie la couleur du panel en gris
-            AMELIORATION_PANEL.setBackground(Color.GRAY);
+        CONSTRUCTION_PANEL.setBackground(Color.GRAY);
     }
 }

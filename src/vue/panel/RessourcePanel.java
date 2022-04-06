@@ -60,9 +60,9 @@ public class RessourcePanel extends JPanel{
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        boisLabel.setText(String.valueOf(M.bois));
-        pierreLabel.setText(String.valueOf(M.pierre));
-        nourritureLabel.setText(String.valueOf(M.nourriture));
+        boisLabel.setText(String.valueOf((int)M.bois));
+        pierreLabel.setText(String.valueOf((int)M.pierre));
+        nourritureLabel.setText(String.valueOf((int)M.nourriture));
         populationLabel.setText(String.valueOf(M.population)+"/"+String.valueOf(M.maxPopulation));
     }
 }

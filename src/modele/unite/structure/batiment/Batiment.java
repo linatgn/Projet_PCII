@@ -19,6 +19,8 @@ public abstract class Batiment extends Structure {
     protected int tickRequis;
     protected boolean enConstruction = true;
 
+    // Cout de creation du batiment
+
     public Batiment(int x, int y, Modele m){
         super(x,y,m);
         this.x = x;
@@ -28,13 +30,12 @@ public abstract class Batiment extends Structure {
         y_texture = 2;
 
         enConstruction = true;
+
     }
 
     public boolean getEnConstruction() {
         return enConstruction;
     }
-
-
 
     /**
      * augmente le niveau de construction du batiment
@@ -43,7 +44,6 @@ public abstract class Batiment extends Structure {
     public boolean seConstruire(){
         if(tickActuel < tickRequis){
             tickActuel++;
-            System.out.println(tickActuel);
             return true;
         } else if(tickActuel == tickRequis && enConstruction == true){
             enConstruction = false;
