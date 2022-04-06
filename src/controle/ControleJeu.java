@@ -1,9 +1,7 @@
 package controle;
 
 import modele.Modele;
-import modele.unite.Unite;
-import modele.unite.entite.Entite;
-import modele.unite.entite.villageois.Tache;
+import modele.unite.entite.Tache;
 import modele.unite.entite.villageois.Villageois;
 import modele.unite.structure.batiment.Ferme;
 import modele.unite.structure.batiment.Maison;

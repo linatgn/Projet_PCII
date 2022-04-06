@@ -4,8 +4,7 @@ import modele.Modele;
 import modele.TypeRessource;
 import modele.unite.entite.Direction;
 import modele.unite.entite.Entite;
-import modele.unite.entite.villageois.Tache;
-import vue.panel.InfoPanel;
+import modele.unite.entite.Tache;
 
 import java.util.Random;
 

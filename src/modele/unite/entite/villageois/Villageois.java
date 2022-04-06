@@ -1,30 +1,15 @@
 package modele.unite.entite.villageois;
 
-import java.util.Queue;
-
 import modele.Modele;
-
-import modele.TypeBatiment;
-import modele.TypeRessource;
-
-
-import modele.grille.Grille;
-import modele.unite.entite.Direction;
 
 
 import modele.unite.Unite;
-import modele.unite.entite.Direction;
 import modele.unite.entite.Entite;
+import modele.unite.entite.Tache;
 import modele.unite.structure.batiment.Batiment;
 import modele.unite.entite.animaux.Animaux;
 import modele.unite.structure.Recoltable;
-import modele.unite.structure.batiment.Batiment;
 import modele.unite.structure.batiment.Hdv;
-
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.concurrent.SynchronousQueue;
 
 public class Villageois extends Entite {
 

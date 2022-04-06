@@ -1,11 +1,10 @@
 package modele.unite.entite.animaux.hostile;
 
 import modele.Modele;
-import modele.unite.Unite;
 import modele.unite.entite.Entite;
 import modele.unite.entite.animaux.Animaux;
 import modele.unite.entite.animaux.passif.Lapin;
-import modele.unite.entite.villageois.Tache;
+import modele.unite.entite.Tache;
 import modele.unite.entite.villageois.Villageois;
 
 //Classe qui definie les animaux hostiles

@@ -1,8 +1,6 @@
 package modele.unite.entite.animaux.hostile;
 
 import modele.Modele;
-import modele.unite.entite.villageois.Tache;
-import vue.panel.InfoPanel;
 
 //Classe qui definie les loups
 //Extends Hostile car la classe est une classe fille de Hostile

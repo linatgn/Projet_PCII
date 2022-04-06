@@ -5,12 +5,6 @@ import java.util.LinkedList;
 import modele.Modele;
 import modele.unite.Unite;
 
-import modele.unite.entite.animaux.Animaux;
-import modele.unite.entite.villageois.Tache;
-import modele.unite.structure.Recoltable;
-import vue.panel.InfoPanel;
-
-import java.util.LinkedList;
 import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Stack;

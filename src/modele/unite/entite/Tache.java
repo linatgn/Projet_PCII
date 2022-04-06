@@ -1,4 +1,4 @@
-package modele.unite.entite.villageois;
+package modele.unite.entite;
 
     public enum Tache {
         RIEN,
