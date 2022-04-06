@@ -1,12 +1,17 @@
 package vue.panel;
 import controle.ControleAmelioration;
+import controle.ControleConstruction;
 import modele.Modele;
+import modele.TypeBatiment;
 import modele.TypeRessource;
 import modele.amelioration.Amelioration;
 import modele.tuille.Tuille;
 import modele.unite.entite.Entite;
+import modele.unite.entite.villageois.Villageois;
 import modele.unite.structure.batiment.Batiment;
+import modele.unite.structure.batiment.Ferme;
 import modele.unite.structure.batiment.Hdv;
+import modele.unite.structure.batiment.Maison;
 import vue.Vue;
 
 import javax.swing.*;
@@ -46,6 +51,7 @@ public class InfoPanel extends JPanel{
     private ImageIcon ressourceIcon[];
 
     public JPanel ameliorationsPanel;
+    public JPanel constructionsPanel;
 
 
     public InfoPanel(Modele m, Vue v){
@@ -100,7 +106,6 @@ public class InfoPanel extends JPanel{
                 new ImageIcon("nourriture.png"),
                 new ImageIcon("population.png"),
         };
-
         add(ressourceLabel);
 
         // Amelioration
@@ -108,6 +113,71 @@ public class InfoPanel extends JPanel{
         ameliorationsPanel = new JPanel();
         ameliorationsPanel.setLayout(new BoxLayout(ameliorationsPanel,BoxLayout.Y_AXIS));
         add(ameliorationsPanel);
+
+        // construction
+        constructionsPanel = new JPanel();
+        constructionsPanel.setLayout(new BoxLayout(constructionsPanel,BoxLayout.Y_AXIS));
+
+        for(TypeBatiment typeBatiment : TypeBatiment.values()){
+            if(typeBatiment != TypeBatiment.HDV) { // on ne peut pas construire l'HDV
+                JPanel constructionPanel = new JPanel();
+
+                constructionPanel.setLayout(new BorderLayout());
+                constructionPanel.setSize(new Dimension(LARGEUR,60));
+                constructionPanel.setMaximumSize(new Dimension(LARGEUR,60));
+
+                constructionPanel.setBackground(Color.GRAY);
+
+                //nom
+                JLabel nomConstruction = new JLabel();
+                switch (typeBatiment){
+                    case FERME -> nomConstruction.setText("Ferme");
+                    case MAISON -> nomConstruction.setText("Maison");
+                    default -> nomConstruction.setText("");
+                }
+                nomConstruction.setHorizontalAlignment(SwingConstants.CENTER);
+
+                //cout
+
+                int coutBois = 0;
+                int coutPierre = 0;
+                switch (typeBatiment){
+                    case FERME -> {
+                        coutBois = Ferme.COUT_BOIS;
+                        coutPierre = Ferme.COUT_PIERRE;
+                    }
+                    case MAISON -> {
+                        coutBois = Maison.COUT_BOIS;
+                        coutPierre = Maison.COUT_PIERRE;
+                    }
+                }
+
+                JPanel coutPanel = new JPanel();
+                coutPanel.setLayout(new FlowLayout());
+
+                switch (typeBatiment){
+                    case FERME -> nomConstruction.setText("Ferme");
+                    case MAISON -> nomConstruction.setText("Maison");
+                    default -> nomConstruction.setText("");
+                }
+
+                coutPanel.add(new JLabel( String.valueOf(coutBois), ressourceIcon[0], SwingConstants.LEFT));
+                coutPanel.add(new JLabel( String.valueOf(coutPierre), ressourceIcon[1], SwingConstants.LEFT));
+
+                // Ajout panel
+                constructionPanel.add(nomConstruction, BorderLayout.NORTH);
+                constructionPanel.add(coutPanel, BorderLayout.CENTER);
+
+                // Mouse listener
+                ControleConstruction cc = new ControleConstruction(constructionPanel,typeBatiment,M);
+                constructionPanel.addMouseListener(cc);
+
+                constructionsPanel.add(constructionPanel);
+            }
+        }
+        add(constructionsPanel);
+
+        // Glue pour combler le vide
 
         add(Box.createVerticalGlue());
 
@@ -117,6 +187,7 @@ public class InfoPanel extends JPanel{
         imageLabel.setVisible(false);
         statPanel.setVisible(false);
         ameliorationsPanel.setVisible(false);
+        constructionsPanel.setVisible(false);
         ressourceLabel.setVisible(false);
 
     }
@@ -233,14 +304,24 @@ public class InfoPanel extends JPanel{
             {
                 ameliorationsPanel.setVisible(false);
             }
+
+            // Construction
+
+            if(M.uniteSelectionnee instanceof Villageois) {
+                constructionsPanel.setVisible(true);
+            }
+            else {
+                constructionsPanel.setVisible(false);
+            }
         }
         else
         {
             titreLabel.setVisible(false);
             imageLabel.setVisible(false);
             statPanel.setVisible(false);
-            ameliorationsPanel.setVisible(false);
             ressourceLabel.setVisible(false);
+            ameliorationsPanel.setVisible(false);
+            constructionsPanel.setVisible(false);
         }
 
         repaint();

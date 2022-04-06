@@ -19,6 +19,8 @@ public abstract class Batiment extends Structure {
     protected int tickRequis;
     protected boolean enConstruction = true;
 
+    // Cout de creation du batiment
+
     public Batiment(int x, int y, Modele m){
         super(x,y,m);
         this.x = x;
@@ -28,6 +30,7 @@ public abstract class Batiment extends Structure {
         y_texture = 2;
 
         enConstruction = true;
+
     }
 
     public boolean getEnConstruction() {

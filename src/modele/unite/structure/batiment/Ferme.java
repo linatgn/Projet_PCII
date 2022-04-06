@@ -7,6 +7,9 @@ import modele.TypeBatiment;
 
 public class Ferme extends Batiment implements Recoltable {
 
+    public static final int COUT_BOIS = 200;
+    public static final int COUT_PIERRE = 50;
+
     public Ferme(int x, int y, Modele m) {
         super(x, y,m);
 
@@ -16,6 +19,7 @@ public class Ferme extends Batiment implements Recoltable {
         hauteur = 1;
 
         typeBatiment = TypeBatiment.FERME;
+
     }
 
     @Override
