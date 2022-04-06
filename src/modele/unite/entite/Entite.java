@@ -26,7 +26,7 @@ abstract public  class  Entite extends Unite {
     /**
      * tache: Action que l'entite est en train de realiser
      */
-    protected Tache tache;
+    public Tache tache;
 
     public Stack<Direction> chemin;
 
@@ -262,6 +262,10 @@ abstract public  class  Entite extends Unite {
 
     public int getPv() {
         return pv;
+    }
+
+    public Tache setTache(Tache tache) {
+        return this.tache = tache;
     }
 }
 

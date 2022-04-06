@@ -19,7 +19,7 @@ abstract public class Unite {
 
     public TypeRessource typeRessource; // type de la ressource stocké par l'entite
     public double quantiteRessource;
-    protected Unite uniteCible;
+    public Unite uniteCible;
 
     public Unite(int x, int y, Modele m){
         this.x = x;

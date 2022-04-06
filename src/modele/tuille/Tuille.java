@@ -60,4 +60,8 @@ public class Tuille {
         return (int) (y / TAILLE_TUILLE);
     }
      */
+
+    public boolean getSolid() {
+        return solid;
+    }
 }

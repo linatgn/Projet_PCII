@@ -2,7 +2,11 @@ package controle;
 
 import modele.Modele;
 import modele.unite.Unite;
+import modele.unite.entite.Entite;
+import modele.unite.entite.villageois.Tache;
 import modele.unite.entite.villageois.Villageois;
+import modele.unite.structure.batiment.Ferme;
+import modele.unite.structure.batiment.Maison;
 import vue.Vue;
 import modele.tuille.Tuille;
 
@@ -32,8 +36,27 @@ public class ControleJeu implements MouseListener {
             //Recupere les coordonnees du click sur le panel a l'aide de getter
             int x = e.getX();
             int y = e.getY();
-            //Selectionne l'unite de la position x et y
-            modele.select(y /Tuille.TAILLE_TUILLE, x /Tuille.TAILLE_TUILLE);
+            if (modele.modeConstruction) {
+                if (modele.grille.getTuille(y / Tuille.TAILLE_TUILLE, x / Tuille.TAILLE_TUILLE).solid == false) {
+                    switch (modele.batimentAConstruire) {
+                        case MAISON:
+                            modele.uniteSelectionnee.uniteCible = new Maison(y / Tuille.TAILLE_TUILLE, x / Tuille.TAILLE_TUILLE, modele);
+                            modele.bois -= Maison.COUT_BOIS;
+                            modele.pierre -= Maison.COUT_PIERRE;
+                            break;
+                        case FERME:
+                            modele.uniteSelectionnee.uniteCible = new Ferme(y / Tuille.TAILLE_TUILLE, x / Tuille.TAILLE_TUILLE, modele);
+                            modele.bois -= Ferme.COUT_BOIS;
+                            modele.pierre -= Ferme.COUT_PIERRE;
+                            break;
+                    }
+                    ((Villageois) modele.uniteSelectionnee).setTache(Tache.CONSTRUIT);
+                }
+                modele.modeConstruction = false;
+            } else {
+                //Selectionne l'unite de la position x et y
+                modele.select(y / Tuille.TAILLE_TUILLE, x / Tuille.TAILLE_TUILLE);
+            }
         }
         // si click gauche sur infoPanel
         else if (SwingUtilities.isRightMouseButton(e)) {

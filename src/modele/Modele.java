@@ -59,10 +59,10 @@ public class Modele {
 
     public Amelioration[] ameliorations;
     public ArrayList<Amelioration> ameliorationsEnCours;
+    public boolean modeConstruction;
 
     public int coutVillageois;
 
-    public boolean modeConstruction;
     public TypeBatiment batimentAConstruire;
 
     public Modele(Vue v){
