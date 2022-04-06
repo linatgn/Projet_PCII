@@ -59,6 +59,8 @@ public class Modele {
 
     public Amelioration[] ameliorations;
     public ArrayList<Amelioration> ameliorationsEnCours;
+    public TypeBatiment batimentaConstruire;
+    public boolean modeConstruction;
 
     Villageois vil;
 
