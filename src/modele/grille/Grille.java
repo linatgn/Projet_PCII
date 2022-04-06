@@ -41,17 +41,6 @@ public class Grille {
      * Construit la grille de jeu de facon predefini
      */
     public void construireGrille(){
-        // Initialisation des tuilles
-        /*
-        for(int i=0; i<HAUTEUR; i++) {
-            for(int j=0; j<LARGEUR; j++){
-                if(i==0)
-                    tuilles[i][j] = new Sable(i,j);
-                else
-                    tuilles[i][j] = new Sable(i,j);
-            }
-        }
-         */
 
         // tuille
 
