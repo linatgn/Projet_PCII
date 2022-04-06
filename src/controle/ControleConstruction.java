@@ -3,6 +3,8 @@ package controle;
 import modele.Modele;
 import modele.TypeBatiment;
 import modele.amelioration.Amelioration;
+import modele.unite.structure.batiment.Ferme;
+import modele.unite.structure.batiment.Maison;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,6 +41,20 @@ public class ControleConstruction implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         // si click gauche sur la jeuPanel
         if (SwingUtilities.isLeftMouseButton(e)) {
+
+            // si on a pas les ressources pour contruire le batiment, on fait rien
+            switch (BATIMENT){
+                case FERME -> {
+                    if (M.bois < Ferme.COUT_BOIS || M.pierre < Ferme.COUT_PIERRE)
+                        return;
+                }
+                case MAISON -> {
+                    if (M.bois < Maison.COUT_BOIS || M.pierre < Maison.COUT_PIERRE)
+                        return;
+                }
+            }
+
+            // sinon on passe en mode construction
             M.batimentAConstruire = BATIMENT;
             M.modeConstruction = true;
         }

@@ -39,9 +39,9 @@ public class Modele {
 
     // Ressource
 
-    public double bois = 1000;
-    public double pierre = 1000;
-    public double nourriture = 10;
+    public double bois = 0;
+    public double pierre = 0;
+    public double nourriture = 200;
     public int population = 0; // nombre de villagois
 
     // statistique ameliorable
@@ -51,19 +51,19 @@ public class Modele {
     public double vitesseRecolte = 1; // nombre d'unite recolte par un villagois par tick
     public int maxPopulation = 3; // nombre de villagois maximal
     public int pvVillageois = 10;
-    public int attaqueVillageois = 3;
-    public int defenseVillageois = 0;
-    public int quantiteRessourceFerme = 300;
+    public int attaqueVillageois = 1;
+    public int defenseVillageois = 1;
+    public int quantiteRessourceFerme = 500;
     public double Cout_Nourriture_Tick = 0.1; //nombre de nourriture retiré pour un villageois à chaque tick
 
     // Amelioration
 
     public Amelioration[] ameliorations;
     public ArrayList<Amelioration> ameliorationsEnCours;
-    public boolean modeConstruction;
 
     public int coutVillageois = 50;
 
+    public boolean modeConstruction;
     public TypeBatiment batimentAConstruire;
 
     public Modele(Vue v){
@@ -76,22 +76,12 @@ public class Modele {
 
         grille.construireGrille();
 
-        new Ferme(0,0,this);
         new Hdv(Grille.HAUTEUR/2,Grille.LARGEUR/2,this);
         hdv = (Hdv) unites[Grille.HAUTEUR/2][Grille.LARGEUR/2];
-        new Maison(1,1,this);
-        new Rocher(2,2,this);
-        new Arbre(3,3,this);
-
-        new Villageois(6,6, this);
-        new Villageois(6,7, this);
-        new Villageois(6,8, this);
-        new Lapin(6,24, this);
-        new Loup(24,6, this);
 
         // Ajout des ameliorations disponible
 
-        ameliorations = new Amelioration[9];
+        ameliorations = new Amelioration[11];
         ameliorations[0] = new CreerVillageois(this,1, null);
         ameliorations[1] = new VitesseRecolteAm(this,1, null);
         ameliorations[2] = new VitesseRecolteAm(this,2, ameliorations[1]);
@@ -101,6 +91,8 @@ public class Modele {
         ameliorations[6] = new FermeAm(this,2,ameliorations[5]);
         ameliorations[7] = new StockageVillageoisAm(this,1,null);
         ameliorations[8] = new StockageVillageoisAm(this,2,ameliorations[7]);
+        ameliorations[9] = new DefenseAm(this,1,null);
+        ameliorations[10] = new DefenseAm(this,2,ameliorations[9]);
 
         ameliorationsEnCours = new ArrayList<>();
     }

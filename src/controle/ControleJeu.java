@@ -49,6 +49,8 @@ public class ControleJeu implements MouseListener {
                             break;
                     }
                     ((Villageois) modele.uniteSelectionnee).setTache(Tache.CONSTRUIT);
+                    ((Villageois) modele.uniteSelectionnee).calculerChemin(y/Tuille.TAILLE_TUILLE, x/Tuille.TAILLE_TUILLE);
+
                 }
                 modele.modeConstruction = false;
             } else {

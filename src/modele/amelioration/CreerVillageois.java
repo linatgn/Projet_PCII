@@ -14,11 +14,10 @@ public class CreerVillageois extends Amelioration{
         super(m);
         typeBatiment = HDV;
         this.amNec = amNec;
+        coutNourriture = M.coutVillageois;
 
-        //En fonction du niveau les stats de ressource augmente (niveau 1 ou 2)
         switch (niveau) {
             case 1:
-                coutNourriture = M.coutVillageois;
                 dureeAmelioration = 20;
 
                 niveauJoueur = 0;
@@ -28,7 +27,7 @@ public class CreerVillageois extends Amelioration{
 
     @Override
     public boolean testCondition() {
-        //Verifie que les ressources du joueur sont superieurs ou egalent au ressources necessaires
+        //Verifie que les ressources du joueur sont superieurs ou egales au ressources necessaires
         return(
                 M.nourriture >= coutNourriture &&
                 M.population < M.maxPopulation);

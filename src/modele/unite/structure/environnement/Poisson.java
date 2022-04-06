@@ -15,7 +15,7 @@ public class Poisson extends Environnement implements Recoltable {
         hauteur = 1;
 
         typeRessource = TypeRessource.NOURRITURE;
-        quantiteRessource = 150;
+        quantiteRessource = 300;
     }
 
     @Override

@@ -7,7 +7,7 @@ import vue.panel.InfoPanel;
 public class Maison extends Batiment {
 
     public static final int COUT_BOIS = 100;
-    public static final int COUT_PIERRE = 100;
+    public static final int COUT_PIERRE = 50;
 
     public Maison(int x, int y, Modele m) {
         super(x, y,m);

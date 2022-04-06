@@ -18,7 +18,7 @@ public class Rocher extends Environnement implements Recoltable {
 
 
         typeRessource = TypeRessource.PIERRE;
-        quantiteRessource = 800;
+        quantiteRessource = 500;
     }
 
     public double enlever(double qte) {

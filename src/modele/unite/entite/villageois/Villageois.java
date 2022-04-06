@@ -112,6 +112,7 @@ public class Villageois extends Entite {
     public void recolte(Recoltable cible){
         if(cible == null){
             tache = Tache.RIEN;
+            uniteCible = null;
         } else if (typeRessource == ((Unite)cible).typeRessource){
             if(quantiteRessource == M.stockageVillagois){
                 tache = Tache.DEPOSER;
@@ -145,10 +146,10 @@ public class Villageois extends Entite {
                 typeRessource = ((Unite)cible).typeRessource;
                 if(quantiteRessource + M.vitesseRecolte >= M.stockageVillagois){
                     quantiteRessource += cible.enlever(M.stockageVillagois-quantiteRessource);
-                    if(M.uniteSelectionnee == this)M.V.infoPanel.updateRessource();
+                    if(M.uniteSelectionnee == this)M.V.infoPanel.afficherUniteSelectionnee();
                 } else if (quantiteRessource + M.vitesseRecolte < M.stockageVillagois){
                     quantiteRessource += cible.enlever(M.vitesseRecolte);
-                    if(M.uniteSelectionnee == this)M.V.infoPanel.updateRessource();
+                    if(M.uniteSelectionnee == this)M.V.infoPanel.afficherUniteSelectionnee();
                 }
             }
             else {

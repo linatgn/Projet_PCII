@@ -30,7 +30,7 @@ public class FermeAm extends Amelioration{
                 dureeAmelioration = 30;
 
                 niveauJoueur = 1;
-                quantiteRessource = 500;
+                quantiteRessource = 800;
                 break;
             //Ferme Niveau 2
             case 2:
@@ -41,7 +41,7 @@ public class FermeAm extends Amelioration{
                 dureeAmelioration = 50;
 
                 niveauJoueur = 2;
-                quantiteRessource = 8000;
+                quantiteRessource = 1500;
                 break;
         }
     }
