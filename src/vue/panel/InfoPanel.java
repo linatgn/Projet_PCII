@@ -198,26 +198,10 @@ public class InfoPanel extends JPanel{
             // Nom
             titreLabel.setText(M.uniteSelectionnee.getNom());
             titreLabel.setVisible(true);
-            repaint();
+            titreLabel.repaint();
 
             // image
-            BufferedImage subImg;
-
-            // Recuperation de la position de la texture de l'unité
-            Point textureCoord = new Point(M.uniteSelectionnee.x_texture, M.uniteSelectionnee.y_texture);
-            textureCoord.x *= Tuille.TAILLE_TUILLE;
-            textureCoord.y *= Tuille.TAILLE_TUILLE;
-
-            // Initialisation de la sous image de la texture
-            subImg = V.TILESET.getSubimage(
-                    textureCoord.y ,
-                    textureCoord.x,
-                    Tuille.TAILLE_TUILLE * M.uniteSelectionnee.largeur,
-                    Tuille.TAILLE_TUILLE * M.uniteSelectionnee.hauteur);
-
-            Image sc = subImg.getScaledInstance(LARGEUR-paddingImage,LARGEUR-paddingImage,Image.SCALE_DEFAULT);
-            ImageIcon.setImage(sc);
-            imageLabel.setIcon(ImageIcon);
+            updateImage();
             imageLabel.setVisible(true);
 
             // Statistique
@@ -227,9 +211,9 @@ public class InfoPanel extends JPanel{
                 pvLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).pv));
                 attaqueLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).attaque));
                 defenseLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).defense));
+                statPanel.repaint();
 
                 statPanel.setVisible(true);
-
             }
             else
             {
@@ -237,14 +221,8 @@ public class InfoPanel extends JPanel{
             }
 
             // Ressource
-            if(M.uniteSelectionnee.typeRessource != null)
-            {
-                switch (M.uniteSelectionnee.typeRessource){
-                    case BOIS -> ressourceLabel.setIcon(ressourceIcon[0]);
-                    case PIERRE -> ressourceLabel.setIcon(ressourceIcon[1]);
-                    case NOURRITURE -> ressourceLabel.setIcon(ressourceIcon[2]);
-                }
-                ressourceLabel.setText(String.valueOf(M.uniteSelectionnee.quantiteRessource));
+            if(M.uniteSelectionnee.typeRessource != null) {
+                updateRessource();
                 ressourceLabel.setVisible(true);
             }
             else{
@@ -253,51 +231,7 @@ public class InfoPanel extends JPanel{
 
             // Amelioration
             if(M.uniteSelectionnee instanceof Batiment) {
-
-                ameliorationsPanel.removeAll();
-                for(Amelioration amelioration :M.ameliorations){
-                    if(amelioration.typeBatiment == ((Batiment) M.uniteSelectionnee).typeBatiment && amelioration.estDeblocable()){
-
-                        JPanel ameliorationPanel = new JPanel();
-                        if(!amelioration.timerLancer)
-                            ameliorationPanel.setBackground(Color.GRAY);
-                        else
-                            ameliorationPanel.setBackground(Color.CYAN);
-
-                        ameliorationPanel.setLayout(new BorderLayout());
-                        ameliorationPanel.setSize(new Dimension(LARGEUR,60));
-                        ameliorationPanel.setMaximumSize(new Dimension(LARGEUR,60));
-
-                        //nom
-                        JLabel nomAmelioration = new JLabel(amelioration.getNom());
-                        nomAmelioration.setHorizontalAlignment(SwingConstants.CENTER);
-
-                        // cout de l'amelioration
-                        JPanel coutPanel = new JPanel();
-                        coutPanel.setLayout(new FlowLayout());
-                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutBois), ressourceIcon[0], SwingConstants.LEFT));
-                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutPierre), ressourceIcon[1], SwingConstants.LEFT));
-                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutNourriture), ressourceIcon[2], SwingConstants.LEFT));
-                        coutPanel.add(new JLabel( String.valueOf(amelioration.coutPopulation), ressourceIcon[3], SwingConstants.LEFT));
-
-                        // barre de progression
-                        JProgressBar timerAmelioration = new JProgressBar(0,amelioration.dureeAmelioration);
-                        amelioration.progressBar = timerAmelioration;
-                        timerAmelioration.setValue(amelioration.timerAmelioration);
-
-                        ameliorationPanel.add(nomAmelioration, BorderLayout.NORTH);
-                        ameliorationPanel.add(coutPanel, BorderLayout.CENTER);
-                        ameliorationPanel.add(timerAmelioration, BorderLayout.SOUTH);
-
-                        // MouseListener pour prendre l'amelioration
-                        ControleAmelioration ca = new ControleAmelioration(ameliorationPanel,amelioration);
-                        ameliorationPanel.addMouseListener(ca);
-
-                        ameliorationsPanel.add(ameliorationPanel);
-
-                    }
-                }
-
+                updateAmeliorations();
                 ameliorationsPanel.setVisible(true);
             }
             else
@@ -324,9 +258,87 @@ public class InfoPanel extends JPanel{
             constructionsPanel.setVisible(false);
         }
 
-        repaint();
     }
 
+    public void updateImage() {
+        BufferedImage subImg;
+
+        // Recuperation de la position de la texture de l'unité
+        Point textureCoord = new Point(M.uniteSelectionnee.x_texture, M.uniteSelectionnee.y_texture);
+        textureCoord.x *= Tuille.TAILLE_TUILLE;
+        textureCoord.y *= Tuille.TAILLE_TUILLE;
+
+        // Initialisation de la sous image de la texture
+        subImg = V.TILESET.getSubimage(
+                textureCoord.y ,
+                textureCoord.x,
+                Tuille.TAILLE_TUILLE * M.uniteSelectionnee.largeur,
+                Tuille.TAILLE_TUILLE * M.uniteSelectionnee.hauteur);
+
+        Image sc = subImg.getScaledInstance(LARGEUR-paddingImage,LARGEUR-paddingImage,Image.SCALE_DEFAULT);
+        ImageIcon.setImage(sc);
+        imageLabel.setIcon(ImageIcon);
+
+        imageLabel.repaint();
+    }
+
+    public void updateRessource(){
+        switch (M.uniteSelectionnee.typeRessource){
+            case BOIS -> ressourceLabel.setIcon(ressourceIcon[0]);
+            case PIERRE -> ressourceLabel.setIcon(ressourceIcon[1]);
+            case NOURRITURE -> ressourceLabel.setIcon(ressourceIcon[2]);
+        }
+        ressourceLabel.setText(String.valueOf(M.uniteSelectionnee.quantiteRessource));
+
+        ressourceLabel.repaint();
+    }
+
+    public void updateAmeliorations() {
+        ameliorationsPanel.removeAll();
+        for(Amelioration amelioration :M.ameliorations){
+            if(amelioration.typeBatiment == ((Batiment) M.uniteSelectionnee).typeBatiment && amelioration.estDeblocable()){
+
+                JPanel ameliorationPanel = new JPanel();
+                if(!amelioration.timerLancer)
+                    ameliorationPanel.setBackground(Color.GRAY);
+                else
+                    ameliorationPanel.setBackground(Color.CYAN);
+
+                ameliorationPanel.setLayout(new BorderLayout());
+                ameliorationPanel.setSize(new Dimension(LARGEUR,60));
+                ameliorationPanel.setMaximumSize(new Dimension(LARGEUR,60));
+
+                //nom
+                JLabel nomAmelioration = new JLabel(amelioration.getNom());
+                nomAmelioration.setHorizontalAlignment(SwingConstants.CENTER);
+
+                // cout de l'amelioration
+                JPanel coutPanel = new JPanel();
+                coutPanel.setLayout(new FlowLayout());
+                coutPanel.add(new JLabel( String.valueOf(amelioration.coutBois), ressourceIcon[0], SwingConstants.LEFT));
+                coutPanel.add(new JLabel( String.valueOf(amelioration.coutPierre), ressourceIcon[1], SwingConstants.LEFT));
+                coutPanel.add(new JLabel( String.valueOf(amelioration.coutNourriture), ressourceIcon[2], SwingConstants.LEFT));
+                coutPanel.add(new JLabel( String.valueOf(amelioration.coutPopulation), ressourceIcon[3], SwingConstants.LEFT));
+
+                // barre de progression
+                JProgressBar timerAmelioration = new JProgressBar(0,amelioration.dureeAmelioration);
+                amelioration.progressBar = timerAmelioration;
+                timerAmelioration.setValue(amelioration.timerAmelioration);
+
+                ameliorationPanel.add(nomAmelioration, BorderLayout.NORTH);
+                ameliorationPanel.add(coutPanel, BorderLayout.CENTER);
+                ameliorationPanel.add(timerAmelioration, BorderLayout.SOUTH);
+
+                // MouseListener pour prendre l'amelioration
+                ControleAmelioration ca = new ControleAmelioration(ameliorationPanel,amelioration);
+                ameliorationPanel.addMouseListener(ca);
+
+                ameliorationsPanel.add(ameliorationPanel);
+            }
+        }
+
+        ameliorationsPanel.repaint();
+    }
     @Override
     public void paint(Graphics g) {
         super.paint(g);
