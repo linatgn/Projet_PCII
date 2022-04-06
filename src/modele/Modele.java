@@ -62,6 +62,8 @@ public class Modele {
 
     public int coutVillageois;
 
+    public boolean modeConstruction;
+    public TypeBatiment batimentAConstruire;
 
     public Modele(Vue v){
         V = v;
