@@ -81,4 +81,9 @@ public class Vue extends JFrame {
 
         M.start();
     }
+
+    public void affichageFinPartie(){
+        JOptionPane.showMessageDialog(this,"Tout vos villageois sont morts", "FIN DE PARTIE ",JOptionPane.PLAIN_MESSAGE);
+        System.exit(0);
+    }
 }

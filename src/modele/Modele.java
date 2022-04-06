@@ -22,6 +22,7 @@ import vue.Vue;
 
 import modele.grille.Grille;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Modele {
@@ -40,7 +41,7 @@ public class Modele {
 
     public double bois = 1000;
     public double pierre = 1000;
-    public double nourriture = 1000;
+    public double nourriture = 10;
     public int population = 0; // nombre de villagois
 
     // statistique ameliorable
@@ -61,7 +62,7 @@ public class Modele {
     public ArrayList<Amelioration> ameliorationsEnCours;
     public boolean modeConstruction;
 
-    public int coutVillageois;
+    public int coutVillageois = 50;
 
     public TypeBatiment batimentAConstruire;
 
@@ -111,17 +112,24 @@ public class Modele {
 
     public void ReduireNourriture(){
         if(nourriture > 0){
-            nourriture = nourriture - (Cout_Nourriture_Tick * population);
-        } else if(nourriture == 0){
-            // pour chaque villageois faire subirDegat(1) ( utiliser (if (entite instanceof Villageois))
+            if(nourriture < Cout_Nourriture_Tick * population){
+                nourriture = 0;
+            } else {
+                nourriture = nourriture - (Cout_Nourriture_Tick * population);
+            }
+        } else if(nourriture == 0 ){
+            for(int i = 0; i < listeEntite.size() ; i++){
+                if(listeEntite.get(i) instanceof Villageois){
+                    listeEntite.get(i).subirDegat(1);
+                }
+            }
         }
     }
 
-    public boolean TestPerdu(){
-        if(population == 0 && (nourriture < coutVillageois)){
-            return true;
-        }
-        return false;
+
+
+    public boolean testPerdu(){
+        return (population == 0 && nourriture < coutVillageois);
     }
   
     public void update() {
@@ -136,6 +144,7 @@ public class Modele {
         for(int i=0; i < ameliorationsEnCours.size(); i++){
             ameliorationsEnCours.get(i).update(V.infoPanel);
         }
+        ReduireNourriture();
         V.ressourcePanel.revalidate();
         V.ressourcePanel.repaint();
         V.jeuPanel.revalidate();

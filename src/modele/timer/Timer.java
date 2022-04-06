@@ -43,7 +43,7 @@ public class Timer extends Thread {
     public void run() {
         long t = System.currentTimeMillis();
 
-        while(true)
+        while(!M.testPerdu())
         {
             try {
                 compteur += System.currentTimeMillis() - t;
@@ -61,6 +61,7 @@ public class Timer extends Thread {
                 e.printStackTrace();
             }
         }
+        M.V.affichageFinPartie();
     }
 
     /**
