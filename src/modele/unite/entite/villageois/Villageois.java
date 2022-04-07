@@ -213,5 +213,9 @@ public class Villageois extends Entite {
         super.mourrir();
         M.population--;
     }
+
+    public void updateDefense(){
+        defense = M.defenseVillageois;
+    }
 }
 

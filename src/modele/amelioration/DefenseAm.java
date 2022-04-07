@@ -1,6 +1,8 @@
 package modele.amelioration;
 
 import modele.Modele;
+import modele.unite.entite.Entite;
+import modele.unite.entite.villageois.Villageois;
 
 import static modele.TypeBatiment.HDV;
 
@@ -24,7 +26,7 @@ public class DefenseAm extends Amelioration{
             case 1:
                 coutNourriture = 200;
                 coutPierre = 100;
-                defense = 1;
+                defense = 2;
                 dureeAmelioration = 20;
 
                 niveauJoueur = 1;
@@ -32,7 +34,7 @@ public class DefenseAm extends Amelioration{
             case 2:
                 coutNourriture = 400;
                 coutPierre = 200;
-                defense = 2;
+                defense = 3;
                 dureeAmelioration = 40;
 
                 niveauJoueur = 2;
@@ -49,6 +51,13 @@ public class DefenseAm extends Amelioration{
     @Override
     public void activer() {
         M.defenseVillageois = defense;
+        for(Entite entite : M.listeEntite){
+            if(entite instanceof Villageois){
+                ((Villageois)entite).updateDefense();
+            }
+        }
+        if(M.uniteSelectionnee instanceof Villageois)
+            M.V.infoPanel.updateStatistique();
         activer = true;
     }
 
