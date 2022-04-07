@@ -191,11 +191,11 @@ abstract public  class  Entite extends Unite {
             return true;
         }
         //Test à droite
-        else if ((x<M.grille.LARGEUR && cible.getX() == x+1) && (cible.getY() == y)){
+        else if ((x<M.grille.HAUTEUR && cible.getX() == x+1) && (cible.getY() == y)){
             return true;
         }
         //Test en bas
-        else if ((cible.getX() == x) && (y<M.grille.HAUTEUR && cible.getY() == y+1)){
+        else if ((cible.getX() == x) && (y<M.grille.LARGEUR && cible.getY() == y+1)){
             return true;
         }
         return false;
