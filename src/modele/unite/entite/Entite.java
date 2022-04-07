@@ -182,19 +182,15 @@ abstract public  class  Entite extends Unite {
 
 
     public boolean estaCote(Unite cible){
-        //Test à gauche
         if((x>0 && cible.getX() == x-1) && (cible.getY() == y)){
             return true;
         }
-        //Test en haut
         else if ((cible.getX() == x) && (y>0 && cible.getY() == y-1)){
             return true;
         }
-        //Test à droite
         else if ((x<M.grille.HAUTEUR && cible.getX() == x+1) && (cible.getY() == y)){
             return true;
         }
-        //Test en bas
         else if ((cible.getX() == x) && (y<M.grille.LARGEUR && cible.getY() == y+1)){
             return true;
         }
