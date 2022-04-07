@@ -54,7 +54,6 @@ abstract public  class  Entite extends Unite {
             }
             else // sinon on evalue ces noeuds voisin
             {
-
                 // voisin gauche
                 if(u.y>=1) {
                     Noeud v = new Noeud(u.x , u.y-1);
@@ -271,30 +270,31 @@ abstract public  class  Entite extends Unite {
  *  heuristique: cout + distance entre ce noeud et le noeud d'arrive
  */
 class Noeud implements Comparable<Noeud>{
-    public int x;
-    public int y;
-    public int cout;
-    public double heuristique;
+    public int x; // Coordonnee en x du noeud dans le graphe
+    public int y; // Coordonnee en y du noeud dans le graphe
+    public int cout; // cout pour aller du noeud de depart a ce noeud
+    public double heuristique; // cout + distance entre ce noeud et le noeud d'arrive
+                               // estimation de l'utilité de passer par ce noeud
 
-    public Noeud pred;
+    public Noeud pred; // Noeud precedant pour recalculer le chemin
 
     public Noeud(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Cette fonction renvoie true uniquement si le noeud en parametre a les meme coordonnees, pas le reste des attributs
+     * elle est utiliser pour l'appel closeList.contains(n)
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Noeud noeud = (Noeud) o;
-        return x == noeud.x && y == noeud.y;// && cout == noeud.cout && heuristique == noeud.heuristique;
+        return x == noeud.x && y == noeud.y;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y, cout, heuristique);
-    }
 
     @Override
     public int compareTo(Noeud n) {
