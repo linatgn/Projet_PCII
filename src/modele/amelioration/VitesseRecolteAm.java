@@ -53,6 +53,6 @@ public class VitesseRecolteAm extends Amelioration{
 
     @Override
     public String getNom() {
-        return "Vitesse de Recolte x" + vitesseRecolte;
+        return "Vitesse de Recolte " + vitesseRecolte;
     }
 }

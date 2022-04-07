@@ -22,18 +22,16 @@ public class StockageVillageoisAm extends Amelioration{
         //En fonction du niveau les ressources necessaires a l'augmentation augmentent (niveau 1 ou 2)
         switch (niveau) {
             case 1:
-                coutBois = 300;
-                coutPierre = 300;
-                coutNourriture = 300;
+                coutBois = 100;
+                coutPierre = 100;
                 dureeAmelioration = 30;
 
                 niveauJoueur = 1;
                 stockage = 15;
                 break;
             case 2:
-                coutBois = 500;
-                coutPierre = 500;
-                coutNourriture = 500;
+                coutBois = 200;
+                coutPierre = 200;
                 dureeAmelioration = 50;
 
                 niveauJoueur = 2;

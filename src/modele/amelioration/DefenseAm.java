@@ -24,7 +24,7 @@ public class DefenseAm extends Amelioration{
         //En fonction du niveau les stats de cout de ressource augmente (niveau 1 ou 2)
         switch (niveau) {
             case 1:
-                coutNourriture = 200;
+                coutNourriture = 100;
                 coutPierre = 100;
                 defense = 2;
                 dureeAmelioration = 20;
@@ -32,7 +32,7 @@ public class DefenseAm extends Amelioration{
                 niveauJoueur = 1;
                 break;
             case 2:
-                coutNourriture = 400;
+                coutNourriture = 200;
                 coutPierre = 200;
                 defense = 3;
                 dureeAmelioration = 40;
@@ -63,6 +63,6 @@ public class DefenseAm extends Amelioration{
 
     @Override
     public String getNom() {
-        return "Defense " + defense;
+        return "Défense " + defense;
     }
 }

@@ -25,7 +25,6 @@ public class FermeAm extends Amelioration{
             case 1:
                 coutBois = 300;
                 coutPierre = 300;
-                coutNourriture = 300;
                 coutPopulation = 5;
                 dureeAmelioration = 30;
 
@@ -36,8 +35,7 @@ public class FermeAm extends Amelioration{
             case 2:
                 coutBois = 500;
                 coutPierre = 500;
-                coutNourriture = 500;
-                coutPopulation = 8;
+                coutPopulation = 9;
                 dureeAmelioration = 50;
 
                 niveauJoueur = 2;
