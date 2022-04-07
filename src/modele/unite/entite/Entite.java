@@ -156,6 +156,7 @@ abstract public  class  Entite extends Unite {
      */
     private void reconstruireChemin(Noeud arrive) {
         Noeud it = arrive;
+        chemin.clear();
 
         if(M.grille.getTuille(it.x,it.y).solid)
             it = it.pred;
