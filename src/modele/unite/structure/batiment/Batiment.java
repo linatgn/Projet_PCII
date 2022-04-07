@@ -52,6 +52,9 @@ public abstract class Batiment extends Structure {
         return false;
     }
 
+    /**
+     * Affichage du batiment
+     */
     protected void activerBatiment(){
         if(M.uniteSelectionnee == this){
             M.V.infoPanel.afficherUniteSelectionnee();

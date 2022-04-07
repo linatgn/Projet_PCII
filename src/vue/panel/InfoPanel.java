@@ -192,6 +192,9 @@ public class InfoPanel extends JPanel{
 
     }
 
+    /**
+     * Permet l'affichage sur le panel de droite le png de l'unité selectionée ainsi que ses stats
+     */
     public void afficherUniteSelectionnee(){
         if(M.uniteSelectionnee != null) {
 
@@ -256,6 +259,9 @@ public class InfoPanel extends JPanel{
 
     }
 
+    /**
+     * Permet l'update des statistiques des unités comme la vie, leurs inventaire etc.
+     */
     public void updateStatistique() {
         pvLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).pv));
         attaqueLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).attaque));

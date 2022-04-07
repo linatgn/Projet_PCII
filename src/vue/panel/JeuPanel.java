@@ -35,6 +35,9 @@ public class JeuPanel extends JPanel {
         setPreferredSize(new Dimension(LARGEUR,HAUTEUR));
     }
 
+    /**
+     * Permet l'affichage sur le panel du millieu le jeu
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);

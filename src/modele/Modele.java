@@ -97,11 +97,20 @@ public class Modele {
         ameliorationsEnCours = new ArrayList<>();
     }
 
+    /**
+     * Methode select utilisée par le controleJeu pour slectionée une unité
+     * @param x
+     * @param y
+     */
     public void select(int x, int y) {
         uniteSelectionnee = unites[x][y];
         V.infoPanel.afficherUniteSelectionnee();
     }
 
+    /**
+     * Permet la reduction automatique grace à un tick de jeu la nourriture des vilageois
+     * si nourriture = 0 alors les villageois subissent des degats juqu'à leurs morts
+     */
     public void ReduireNourriture(){
         if(nourriture > 0){
             if(nourriture < Cout_Nourriture_Tick * population){
@@ -118,6 +127,9 @@ public class Modele {
         }
     }
 
+    /**
+     * Verifie si la partie contient encore des villageois
+     */
     public boolean testPerdu(){
         return (population == 0 && nourriture < coutVillageois);
     }

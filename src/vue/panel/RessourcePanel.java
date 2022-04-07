@@ -57,6 +57,9 @@ public class RessourcePanel extends JPanel{
         add(populationLabel);
     }
 
+    /**
+     * Permet l'affichage sur le panel du haut les ressources du joueur
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);

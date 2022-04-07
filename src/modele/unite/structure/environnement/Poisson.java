@@ -18,6 +18,11 @@ public class Poisson extends Environnement implements Recoltable {
         quantiteRessource = 300;
     }
 
+    /**
+     * Retire les ressources que contient l'arbre
+     * @param qte
+     * @return qte
+     */
     @Override
     public double enlever(double qte) {
         if(quantiteRessource>qte){

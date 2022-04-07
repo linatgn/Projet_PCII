@@ -21,6 +21,11 @@ public class Rocher extends Environnement implements Recoltable {
         quantiteRessource = 500;
     }
 
+    /**
+     * Retire les ressources que contient l'arbre (ici de la pierre)
+     * @param qte
+     * @return qte
+     */
     public double enlever(double qte) {
         if(quantiteRessource>qte){
             quantiteRessource = quantiteRessource - qte;

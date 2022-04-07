@@ -18,6 +18,11 @@ public class Arbre extends Environnement implements Recoltable {
         quantiteRessource = 300;
     }
 
+    /**
+     * Retire les ressources que contient l'arbre (ici du bois)
+     * @param qte
+     * @return qte
+     */
     @Override
     public double enlever(double qte) {
         if(quantiteRessource>qte){

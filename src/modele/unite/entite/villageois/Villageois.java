@@ -76,7 +76,10 @@ public class Villageois extends Entite {
     }
 
 
-
+    /**
+     * Permet de modifier la tache du villageois selon la cible
+     * @param x, y
+     */
     public void cible(int x, int y) {
 
         Unite cible = M.unites[x][y];
@@ -111,7 +114,13 @@ public class Villageois extends Entite {
 
 
 
-
+    /**
+     * Permet de recolter un recoltable si le villageois est à coté sinon
+     * il se deplace vers celui ci pour le recolter en tache RECOLTER
+     * de plus si l'inventaire est plein alors il passe en tache DEPOSER
+     * et depose tout à l'hdv et retourne recolter
+     * @param cible
+     */
     public void recolte(Recoltable cible){
         if(cible == null){
             tache = Tache.RIEN;
@@ -164,6 +173,11 @@ public class Villageois extends Entite {
         }
     }
 
+    /**
+     * Permet au villageois de construire un batiment avec la tache CONSTRUIT si il est à coté,
+     * sinon il se deplace vers la tuille puis construit
+     * @param batiment
+     */
     public void construire(Batiment batiment){
         if(batiment == null){
             tache = Tache.RIEN;
@@ -181,6 +195,9 @@ public class Villageois extends Entite {
         }
     }
 
+    /**
+     * Permet l'update de la tache du villageois selon l'unité ciblée
+     */
     public void update() {
         switch(tache) {
             case RIEN:
@@ -208,12 +225,18 @@ public class Villageois extends Entite {
         }
     }
 
+    /**
+     * methode pour baisser la population si hp d'un villageois =< 0
+     */
     @Override
     public void mourrir(){
         super.mourrir();
         M.population--;
     }
 
+    /**
+     *Initialise la defense des villageois à une valeur specifique
+     */
     public void updateDefense(){
         defense = M.defenseVillageois;
     }

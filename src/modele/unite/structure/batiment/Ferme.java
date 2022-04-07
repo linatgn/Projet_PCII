@@ -31,6 +31,11 @@ public class Ferme extends Batiment implements Recoltable {
         super.activerBatiment();
     }
 
+    /**
+     * Modification du png de la ferme selon les ressources qu'elle contient
+     * @poram qte
+     * @return recolte
+     */
     @Override
     public double enlever(double qte) {
 

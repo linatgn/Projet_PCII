@@ -31,8 +31,11 @@ abstract public class Unite {
         M.grille.getTuille(x,y).solid = true;
     }
 
-    // méthode de déplacement
-
+    /**
+     * Methode qui permet les deplacements des unités
+     * @param d
+     * @return boolean
+     */
     public boolean deplacer(Direction d) {
         switch (d) {
             case HAUT:
@@ -118,10 +121,18 @@ abstract public class Unite {
     abstract public String getNom();
     public void update() {};
 
+    /**
+     * Getter pour la coordonnée x
+     * @return x
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Getter pour la coordonnée y
+     * @return y
+     */
     public int getY() {
         return y;
     }

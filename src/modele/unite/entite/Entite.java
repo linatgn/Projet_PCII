@@ -220,8 +220,11 @@ abstract public  class  Entite extends Unite {
        }
     }
 
-    // methode qui enleve les points de vie de l'entité cible et supprime l'entité si pv=0
 
+    /**
+     * Methode qui enleve les points de vie de l'entité cible et supprime l'entité si pv=0
+     * @param degat
+     */
     public void subirDegat(int degat){
         if (defense>= degat) {
             degat = 1;

@@ -82,6 +82,9 @@ public class Vue extends JFrame {
         M.start();
     }
 
+    /**
+     * Si villageois = 0, alors une fenetre pop qui met fin à la partie
+     */
     public void affichageFinPartie(){
         JOptionPane.showMessageDialog(this,"Tout vos villageois sont morts", "FIN DE PARTIE ",JOptionPane.PLAIN_MESSAGE);
         System.exit(0);
