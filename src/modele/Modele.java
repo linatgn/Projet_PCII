@@ -39,14 +39,14 @@ public class Modele {
 
     // Ressource
 
-    public double bois = 1000;
-    public double pierre = 1000;
+    public double bois = 0;
+    public double pierre = 0;
     public double nourriture = 1000;
     public int population = 0; // nombre de villagois
 
     // statistique ameliorable
 
-    public int niveau = 1;
+    public int niveau = 0;
     public int stockageVillagois = 10; // nombre d'unite de ressource maximal stockable par un villagois
     public double vitesseRecolte = 1; // nombre d'unite recolte par un villagois par tick
     public int maxPopulation = 3; // nombre de villagois maximal
@@ -151,8 +151,6 @@ public class Modele {
         V.ressourcePanel.repaint();
         V.jeuPanel.revalidate();
         V.jeuPanel.repaint();
-
-
     }
 
     // Lance le jeu

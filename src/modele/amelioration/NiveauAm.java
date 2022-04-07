@@ -21,19 +21,19 @@ public class NiveauAm extends Amelioration{
         //En fonction du niveau les stats de ressource augmente (niveau 1 ou 2)
         switch (niveau) {
             case 0:
-                coutBois = 300;
-                coutPierre = 300;
-                coutNourriture = 300;
+                coutBois = 500;
+                coutPierre = 500;
+                coutNourriture = 500;
                 coutPopulation = 5;
                 dureeAmelioration = 30;
 
                 nouveauNiveau = 1;
                 break;
             case 1:
-                coutBois = 500;
-                coutPierre = 500;
-                coutNourriture = 500;
-                coutPopulation = 8;
+                coutBois = 1000;
+                coutPierre = 1000;
+                coutNourriture = 1000;
+                coutPopulation = 10;
                 dureeAmelioration = 50;
 
                 nouveauNiveau = 2;
