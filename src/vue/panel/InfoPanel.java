@@ -208,11 +208,7 @@ public class InfoPanel extends JPanel{
 
             if(M.uniteSelectionnee instanceof Entite) {
 
-                pvLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).pv));
-                attaqueLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).attaque));
-                defenseLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).defense));
-                statPanel.repaint();
-
+                updateStatistique();
                 statPanel.setVisible(true);
             }
             else
@@ -260,6 +256,13 @@ public class InfoPanel extends JPanel{
 
     }
 
+    public void updateStatistique() {
+        pvLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).pv));
+        attaqueLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).attaque));
+        defenseLabel.setText(String.valueOf( ((Entite)M.uniteSelectionnee).defense));
+        statPanel.repaint();
+    }
+
     public void updateImage() {
         BufferedImage subImg;
 
@@ -283,12 +286,20 @@ public class InfoPanel extends JPanel{
     }
 
     public void updateRessource(){
-        switch (M.uniteSelectionnee.typeRessource){
-            case BOIS -> ressourceLabel.setIcon(ressourceIcon[0]);
-            case PIERRE -> ressourceLabel.setIcon(ressourceIcon[1]);
-            case NOURRITURE -> ressourceLabel.setIcon(ressourceIcon[2]);
+        if(M.uniteSelectionnee.typeRessource != null) {
+
+            switch (M.uniteSelectionnee.typeRessource) {
+                case BOIS -> ressourceLabel.setIcon(ressourceIcon[0]);
+                case PIERRE -> ressourceLabel.setIcon(ressourceIcon[1]);
+                case NOURRITURE -> ressourceLabel.setIcon(ressourceIcon[2]);
+            }
+            ressourceLabel.setText(String.valueOf(M.uniteSelectionnee.quantiteRessource));
         }
-        ressourceLabel.setText(String.valueOf(M.uniteSelectionnee.quantiteRessource));
+        else
+        {
+            ressourceLabel.setIcon(null);
+            ressourceLabel.setText("");
+        }
 
         ressourceLabel.repaint();
     }

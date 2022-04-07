@@ -60,8 +60,11 @@ public class Villageois extends Entite {
                 }
             }
             quantiteRessource = 0;
-            tache = Tache.RECOLTE;
-            M.V.infoPanel.afficherUniteSelectionnee();
+            if(uniteCible instanceof Recoltable)
+                tache = Tache.RECOLTE;
+            else
+                tache = Tache.RIEN;
+            M.V.infoPanel.updateRessource();
         }
         else {
             if (chemin.isEmpty()) {

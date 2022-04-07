@@ -71,7 +71,6 @@ abstract public class Hostile extends Animaux {
                 if (distance(M.listeEntite.get(i).getX(), M.listeEntite.get(i).getY(), x, y) <= distanceFocus) {
                     uniteCible = M.listeEntite.get(i);
                     tache = Tache.ATTAQUE;
-                    System.out.println(M.listeEntite.get(i) + " a pris le focus du loup !" );
                     return true;
                 }
             }

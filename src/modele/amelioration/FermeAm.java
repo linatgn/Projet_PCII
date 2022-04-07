@@ -29,7 +29,7 @@ public class FermeAm extends Amelioration{
                 coutPopulation = 5;
                 dureeAmelioration = 30;
 
-                niveauJoueur = 1;
+                niveauJoueur = 0;
                 quantiteRessource = 800;
                 break;
             //Ferme Niveau 2

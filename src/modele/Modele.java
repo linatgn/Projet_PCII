@@ -39,8 +39,8 @@ public class Modele {
 
     // Ressource
 
-    public double bois = 0;
-    public double pierre = 0;
+    public double bois = 1000;
+    public double pierre = 1000;
     public double nourriture = 200;
     public int population = 0; // nombre de villagois
 
@@ -117,8 +117,6 @@ public class Modele {
             }
         }
     }
-
-
 
     public boolean testPerdu(){
         return (population == 0 && nourriture < coutVillageois);

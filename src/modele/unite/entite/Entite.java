@@ -239,7 +239,7 @@ abstract public  class  Entite extends Unite {
         }
         else {
             if (M.uniteSelectionnee == this)
-                M.V.infoPanel.afficherUniteSelectionnee();
+                M.V.infoPanel.updateStatistique();
         }
     }
 
